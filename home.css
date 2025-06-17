@@ -208,7 +208,7 @@ body {
 .product-image {
     width: 200px;
     height: 200px;
-    background: url("https://via.placeholder.com/200") no-repeat center center;
+    background: url(images/product/3mukhi.jpeg) no-repeat center center;
     background-size: cover;
     margin: 0 auto 20px;
     display: flex;
@@ -220,7 +220,6 @@ body {
 .rudraksha-bead {
     width: 100px;
     height: 100px;
-    background: #d2a679;
     border-radius: 50%;
 }
 
