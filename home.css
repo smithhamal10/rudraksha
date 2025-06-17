@@ -114,6 +114,7 @@ body {
     cursor: pointer;
 }
 /* Hero Section */
+/* Hero Section */
 .hero {
     background: url(images/banner/banner-bg01.jpeg) no-repeat center center;
     background-size: cover;
@@ -124,6 +125,7 @@ body {
     overflow: hidden;
 }
 
+/* ... keep .hero::before and @keyframes float as they are ... */
 .hero::before {
     content: '';
     position: absolute;
@@ -146,18 +148,19 @@ body {
     margin: 0 auto;
     padding: 0 20px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* This pushes the items to opposite ends */
     align-items: center;
     position: relative;
     z-index: 2;
+    width: 100%;
 }
 
 .hero-text {
-    flex: 1;
+    flex-grow: 1; /* Allows the text container to fill available space */
     color: white;
-    max-width: 600px;
+    text-align: center; /* This centers the h1, p, and button within it */
+    max-width: 600px; /* Optional: keeps the text from becoming too wide */
 }
-
 .hero-text h1 {
     font-size: 3rem;
     font-weight: 300;
@@ -169,6 +172,7 @@ body {
     font-size: 1.2rem;
     margin-bottom: 30px;
     opacity: 0.9;
+    text-align: center;
 }
 
 .cta-button {
