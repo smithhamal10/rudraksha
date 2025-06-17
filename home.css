@@ -12,7 +12,7 @@ body {
 
 /* Top Bar */
 .top-bar {
-    background: linear-gradient(135deg, #d2a679, #b8956b);
+    background: linear-gradient(135deg,#BB9577,#BB9577);
     color: white;
     padding: 10px 0;
     font-size: 14px;
@@ -99,21 +99,18 @@ body {
     border-radius: 25px;
     cursor: pointer;
     font-weight: 500;
-    display: none;
+    display: inline-block;
 }
-
 .header-icons {
     display: flex;
     gap: 15px;
     align-items: center;
 }
-
 .icon {
     width: 24px;
     height: 24px;
     cursor: pointer;
 }
-/* Hero Section */
 /* Hero Section */
 .hero {
     background: url(images/banner/banner-bg01.jpeg) no-repeat center center;
@@ -285,8 +282,8 @@ body {
 }
 /* Features Section */
 .features {
-    padding: 80px 0;
-    background: white;
+    padding: 60px 20px;
+    background: #F7F0EB;
 }
 
 .features-content {
@@ -308,7 +305,7 @@ body {
 .feature-icon {
     width: 60px;
     height: 60px;
-    background: linear-gradient(135deg, #d2a679, #b8956b);
+    background: linear-gradient(135deg, #F5ECE2);
     border-radius: 50%;
     margin: 0 auto 20px;
     display: flex;
@@ -317,17 +314,15 @@ body {
     color: white;
     font-size: 24px;
 }
-
 .feature h3 {
     font-size: 1.3rem;
     margin-bottom: 15px;
-    color: #333;
+    color:#421C01;
 }
 
 .feature p {
     color: #666;
 }
-
 /* Bestsellers Section */
 .bestsellers {
     padding: 4rem 2rem;
