@@ -262,20 +262,18 @@ body {
 .current-price {
     font-size: 1.3rem;
     font-weight: bold;
-    color: #ff6b35;
+    color:#2B2B2B;
 }
 
 .original-price {
     text-decoration: line-through;
-    color: #999;
+    color:#747474;
 }
-
 .add-to-cart {
-    background: linear-gradient(135deg, #ff6b35, #d2691e);
+    background: linear-gradient(135deg,#BB9577 , #BB9577);
     color: white;
     border: none;
     padding: 10px 20px;
-    border-radius: 25px;
     cursor: pointer;
     font-weight: 500;
     width: 100%;
