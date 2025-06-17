@@ -178,7 +178,6 @@ body {
     color: white;
     border: 2px solid white;
     padding: 12px 30px;
-    border-radius: 30px;
     cursor: pointer;
     font-size: 16px;
     font-weight: 500;
@@ -374,9 +373,8 @@ body {
 }
 
 .bestseller-card {
-    background-color: #f9f1eb;
+    background-color: #F5ECE2;
     padding: 1.5rem;
-    border-radius: 10px;
     transition: transform 0.3s ease;
 }
 
