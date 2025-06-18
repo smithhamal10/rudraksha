@@ -1082,15 +1082,15 @@
         }
         .category-list.has-right-dot::after { /* Right end dot */
             right: calc(2.5% + 10px); /* Adjust to align with last card */
-            content: ''; /* Ensure dots are visible */
+            content: ''; 
         }
 
         .category-card {
-            flex-basis: 45%; /* Two cards per row on tablets */
-            max-width: 280px; /* Limit max-width to keep them manageable */
+            flex-basis: 45%;
+            max-width: 280px; 
             min-width: 200px;
         }
-        .category-card::after { /* Show card connection dots for tablet */
+        .category-card::after {
             content: '';
         }
     }
@@ -1105,11 +1105,11 @@
         }
 
         .section-title {
-            font-size: 2.8rem; /* Restore original desktop size */
+            font-size: 2.8rem;
         }
 
         .category-list {
-            flex-wrap: nowrap; /* No wrapping on large screens */
+            flex-wrap: nowrap;
             justify-content: space-between;
             gap: 30px;
         }
@@ -1117,23 +1117,23 @@
         .category-list::before {
             left: 0;
             right: 0;
-            content: ''; /* Ensure line is visible */
+            content: ''; 
         }
-        .category-list::after { /* Left end dot */
-            left: -8px; /* Restore original desktop positioning for end dots */
-            content: ''; /* Ensure dots are visible */
+        .category-list::after { 
+            left: -8px; 
+            content: ''; 
         }
-        .category-list.has-right-dot::after { /* Right end dot */
-            right: -8px; /* Restore original desktop positioning for end dots */
-            content: ''; /* Ensure dots are visible */
+        .category-list.has-right-dot::after { 
+            right: -8px; 
+            content: ''; 
         }
 
 
         .category-card {
-            flex-basis: 25%; /* Restore 4-column layout */
+            flex-basis: 25%; 
             min-width: 220px;
         }
-        .category-card::after { /* Show card connection dots for desktop */
+        .category-card::after { 
             content: '';
         }
     }
@@ -1269,7 +1269,7 @@
     width: 100%;
     max-width: 2000px;
     margin: 0 auto;
-    padding-bottom: 56.25%; /* 16:9 ratio */
+    padding-bottom: 56.25%; 
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     }
