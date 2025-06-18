@@ -1,1300 +1,1285 @@
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
 
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f5f5f5;
-    line-height: 1.6;
-}
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f5f5f5;
+        line-height: 1.6;
+    }
 
-/* Top Bar */
-.top-bar {
-    background: linear-gradient(135deg, #BB9577, #BB9577);
-    color: white;
-    padding: 10px 0;
-    font-size: 14px;
-}
+    /* Top Bar */
+    .top-bar {
+        background: linear-gradient(135deg, #BB9577, #BB9577);
+        color: white;
+        padding: 10px 0;
+        font-size: 14px;
+    }
 
-.top-bar-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column; /* Default to column for small screens */
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 15px; /* Adjust padding for smaller screens */
-    text-align: center;
-    gap: 5px; /* Space between elements when stacked */
-}
-
-.support-info {
-    display: flex;
-    flex-direction: column; /* Stack call info on small screens */
-    align-items: center;
-    gap: 5px;
-}
-
-/* Header */
-.header {
-    background: white;
-    padding: 15px 0;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.header-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column; /* Default to column for small screens */
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 15px; /* Adjust padding for smaller screens */
-    gap: 15px; /* Space between logo/nav/icons when stacked */
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.logo-circle {
-    width: 50px;
-    height: 50px;
-    background: linear-gradient(135deg, #ff6b35, #d2691e);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-weight: bold;
-    font-size: 18px;
-}
-
-.navigation {
-    width: 100%; /* Take full width on small screens */
-    display: flex;
-    flex-direction: column; /* Stack categories button and nav menu */
-    align-items: center;
-    gap: 10px;
-}
-
-.nav-menu {
-    display: none; /* Hidden by default on mobile */
-    flex-direction: column; /* Stack menu items on mobile */
-    width: 100%;
-    list-style: none;
-    gap: 10px; /* Space between nav links */
-}
-
-.nav-menu.active {
-    display: flex; /* Show when 'active' class is added by JS */
-}
-
-.nav-menu a {
-    text-decoration: none;
-    color: #333;
-    font-weight: 500;
-    transition: color 0.3s;
-    padding: 5px 0; /* Add padding for clickable area */
-    display: block; /* Make links block level to fill width */
-}
-
-.nav-menu a:hover {
-    color: #ff6b35;
-}
-
-.categories-btn {
-    background: linear-gradient(135deg, #d2a679, #b8956b);
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 25px;
-    cursor: pointer;
-    font-weight: 500;
-    display: block; /* Make it a block button on mobile */
-    width: fit-content; /* Adjust width to content */
-    margin: 0 auto; /* Center button */
-}
-
-.header-icons {
-    display: flex;
-    gap: 15px;
-    align-items: center;
-    margin-top: 10px; /* Space from navigation on mobile */
-}
-
-.icon {
-    width: 24px;
-    height: 24px;
-    cursor: pointer;
-}
-
-/* Hero Section */
-.hero {
-    background: url(images/banner/banner-bg01.jpeg) no-repeat center center;
-    background-size: cover;
-    min-height: 500px; /* Reduced min-height for mobile */
-    display: flex;
-    align-items: center;
-    position: relative;
-    overflow: hidden;
-    padding: 40px 15px; /* Add padding for smaller screens */
-}
-
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path fill="none" stroke="%23ffd700" stroke-width="0.5" opacity="0.3" d="M50,10 L55,25 L70,25 L58,35 L63,50 L50,40 L37,50 L42,35 L30,25 L45,25 Z"/></svg>') repeat;
-    background-size: 100px 100px;
-    animation: float 20s ease-in-out infinite;
-}
-
-@keyframes float {
-    0%, 100% { transform: translateY(0px) rotate(0deg); }
-    50% { transform: translateY(-20px) rotate(5deg); }
-}
-
-.hero-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0; /* Padding handled by .hero */
-    display: flex;
-    flex-direction: column; /* Stack hero text and featured product on small screens */
-    justify-content: center;
-    align-items: center;
-    z-index: 2;
-    width: 100%;
-    text-align: center; /* Center text for mobile */
-}
-
-.hero-text {
-    color: white;
-    max-width: 100%; /* Allow full width on small screens */
-    margin-bottom: 30px; /* Space between text and product */
-}
-
-.hero-text h1 {
-    font-size: 2.2rem; /* Adjusted for smaller screens */
-    font-weight: 300;
-    margin-bottom: 15px; /* Reduced margin */
-    line-height: 1.2;
-}
-
-.hero-text p {
-    margin-bottom: 25px; /* Reduced margin */
-    opacity: 0.9;
-    font-size: 0.9rem; /* Adjusted for smaller screens */
-}
-
-.cta-button {
-    background: transparent;
-    color: white;
-    border: 2px solid white;
-    padding: 10px 25px; /* Adjusted padding */
-    cursor: pointer;
-    font-size: 14px; /* Adjusted font size */
-    font-weight: 500;
-    transition: all 0.3s;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.cta-button:hover {
-    background: white;
-    color: #d2a679;
-}
-
-/* Featured Product */
-.featured-container {
-    display: flex;
-    justify-content: center; /* Center on smaller screens */
-    padding: 0; /* Padding handled by .hero-content */
-    position: static; /* Remove absolute positioning on mobile */
-    width: 100%; /* Take full width */
-}
-
-.featured-product {
-    background: white;
-    padding: 20px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1); /* Lighter shadow for mobile */
-    max-width: 280px; /* Adjusted max-width for smaller screens */
-    text-align: center;
-}
-
-.product-image {
-    width: 180px; /* Smaller image size */
-    height: 180px; /* Smaller image size */
-    background: url(images/product/3mukhi.jpeg) no-repeat center center;
-    background-size: cover;
-    margin: 0 auto 15px; /* Adjusted margin */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-}
-
-.rudraksha-bead {
-    width: 90px; /* Smaller bead size */
-    height: 90px; /* Smaller bead size */
-    border-radius: 50%;
-}
-
-.product-badges {
-    display: flex;
-    justify-content: center;
-    gap: 8px; /* Reduced gap */
-    margin-bottom: 10px; /* Reduced margin */
-}
-
-.badge {
-    background: #f0f0f0;
-    padding: 4px 8px; /* Adjusted padding */
-    border-radius: 12px; /* Smaller border-radius */
-    font-size: 11px; /* Smaller font size */
-    color: #666;
-}
-
-.product-title {
-    font-size: 1.1rem; /* Adjusted font size */
-    font-weight: bold;
-    margin-bottom: 8px; /* Reduced margin */
-    color: #333;
-}
-
-.product-details {
-    font-size: 13px; /* Adjusted font size */
-    color: #666;
-    margin-bottom: 12px; /* Reduced margin */
-}
-
-.product-price {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 8px; /* Reduced gap */
-    margin-bottom: 12px; /* Reduced margin */
-}
-
-.current-price {
-    font-size: 1.2rem; /* Adjusted font size */
-    font-weight: bold;
-    color: #2B2B2B;
-}
-
-.original-price {
-    text-decoration: line-through;
-    color: #747474;
-    font-size: 0.9rem; /* Adjusted font size */
-}
-
-.add-to-cart {
-    background: linear-gradient(135deg, #BB9577, #BB9577);
-    color: white;
-    border: none;
-    padding: 8px 15px; /* Adjusted padding */
-    cursor: pointer;
-    font-weight: 500;
-    width: 100%;
-    font-size: 0.9rem; /* Adjusted font size */
-}
-
-/* Features Section */
-.features {
-    padding: 40px 15px; /* Adjusted padding for mobile */
-    background: #F7F0EB;
-}
-
-.features-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0; /* Padding handled by .features */
-}
-
-.features-grid {
-    display: grid;
-    grid-template-columns: 1fr; /* Single column for mobile */
-    gap: 30px; /* Reduced gap */
-}
-
-.feature {
-    text-align: center;
-}
-
-.feature-icon {
-    width: 50px; /* Smaller icon container */
-    height: 50px; /* Smaller icon container */
-    background: linear-gradient(135deg, #F5ECE2);
-    border-radius: 50%;
-    margin: 0 auto 15px; /* Adjusted margin */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 20px; /* Smaller icon font size */
-}
-
-.feature-icon img {
-    width: 32px; /* Smaller image inside icon container */
-    height: 32px; /* Smaller image inside icon container */
-}
-
-.feature h3 {
-    font-size: 1.2rem; /* Adjusted font size */
-    margin-bottom: 10px; /* Reduced margin */
-    color: #421C01;
-}
-
-.feature p {
-    color: #666;
-    font-size: 0.9rem; /* Adjusted font size */
-}
-
-/* Bestsellers Section */
-.bestsellers {
-    padding: 3rem 15px; /* Adjusted padding for mobile */
-    background-color: #fff;
-    text-align: center;
-}
-
-.bestsellers-header {
-    display: flex;
-    flex-direction: column; /* Stack header elements on mobile */
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto 1.5rem; /* Reduced margin */
-    padding: 0; /* Padding handled by .bestsellers */
-    gap: 10px; /* Space when stacked */
-}
-
-.bestsellers-header h2 {
-    font-size: 1.8rem; /* Adjusted font size */
-    font-weight: 600;
-    font-family: 'Bodoni Moda', serif;
-}
-
-.more-btn {
-    border: 1px solid #333;
-    padding: 0.3rem 0.8rem; /* Adjusted padding */
-    text-decoration: none;
-    color: #333;
-    font-size: 0.8rem; /* Adjusted font size */
-    transition: all 0.3s;
-}
-
-.more-btn:hover {
-    background-color: #c9b8a6;
-    color: #fff;
-}
-
-.bestsellers-grid {
-    display: grid;
-    grid-template-columns: 1fr; /* Single column for mobile */
-    gap: 1rem; /* Reduced gap */
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.bestseller-card {
-    background-color: #F5ECE2;
-    padding: 1rem; /* Reduced padding */
-    transition: transform 0.3s ease;
-}
-
-.bestseller-card:hover {
-    transform: translateY(-5px);
-}
-
-.bestseller-card img {
-    width: 150px; /* Smaller image size */
-    height: 150px; /* Smaller image size */
-    object-fit: contain;
-    margin-bottom: 0.8rem; /* Reduced margin */
-}
-
-.bestseller-card h3 {
-    font-size: 0.95rem; /* Adjusted font size */
-    margin-bottom: 0.4rem; /* Reduced margin */
-}
-
-.bestseller-card p {
-    font-weight: 600;
-    color: #333;
-    margin-bottom: 0.8rem; /* Reduced margin */
-    font-size: 0.9rem; /* Adjusted font size */
-}
-
-.cart-btn {
-    padding: 0.4rem 0.8rem; /* Adjusted padding */
-    border: 2px solid #c9b8a6;
-    background: none;
-    font-size: 0.8rem; /* Adjusted font size */
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.cart-btn:hover {
-    background-color: #c9b8a6;
-    color: white;
-}
-
-/* --- Media Queries for Larger Screens (Tablet, Desktop) --- */
-
-/* Tablet (min-width: 768px) */
-@media (min-width: 768px) {
     .top-bar-content {
-        flex-direction: row;
-        text-align: left;
-        gap: 10px;
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column; /* Default to column for small screens */
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 15px; /* Adjust padding for smaller screens */
+        text-align: center;
+        gap: 5px; /* Space between elements when stacked */
     }
 
     .support-info {
-        flex-direction: row;
-        gap: 10px;
+        display: flex;
+        flex-direction: column; /* Stack call info on small screens */
+        align-items: center;
+        gap: 5px;
+    }
+
+    /* Header */
+    .header {
+        background: white;
+        padding: 15px 0;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     }
 
     .header-content {
-        flex-direction: row;
-        gap: 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column; /* Default to column for small screens */
         justify-content: space-between;
+        align-items: center;
+        padding: 0 15px; /* Adjust padding for smaller screens */
+        gap: 15px; /* Space between logo/nav/icons when stacked */
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .logo-circle {
+        width: 50px;
+        height: 50px;
+        background: linear-gradient(135deg, #ff6b35, #d2691e);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: bold;
+        font-size: 18px;
     }
 
     .navigation {
-        flex-direction: row; /* Align categories button and nav menu horizontally */
-        width: auto; /* Allow width to be content-driven */
-        gap: 20px;
+        width: 100%; /* Take full width on small screens */
+        display: flex;
+        flex-direction: column; /* Stack categories button and nav menu */
+        align-items: center;
+        gap: 10px;
     }
 
     .nav-menu {
-        display: flex; /* Always show nav menu on tablet+ */
-        flex-direction: row;
-        width: auto;
-        gap: 20px;
+        display: none; /* Hidden by default on mobile */
+        flex-direction: column; /* Stack menu items on mobile */
+        width: 100%;
+        list-style: none;
+        gap: 10px; /* Space between nav links */
+    }
+
+    .nav-menu.active {
+        display: flex; /* Show when 'active' class is added by JS */
+    }
+
+    .nav-menu a {
+        text-decoration: none;
+        color: #333;
+        font-weight: 500;
+        transition: color 0.3s;
+        padding: 5px 0; /* Add padding for clickable area */
+        display: block; /* Make links block level to fill width */
+    }
+
+    .nav-menu a:hover {
+        color: #ff6b35;
     }
 
     .categories-btn {
-        display: inline-block; /* Revert to inline-block */
-        margin: 0; /* Remove auto margin */
+        background: linear-gradient(135deg, #d2a679, #b8956b);
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 25px;
+        cursor: pointer;
+        font-weight: 500;
+        display: block; /* Make it a block button on mobile */
+        width: fit-content; /* Adjust width to content */
+        margin: 0 auto; /* Center button */
     }
 
     .header-icons {
-        margin-top: 0;
+        display: flex;
+        gap: 15px;
+        align-items: center;
+        margin-top: 10px; /* Space from navigation on mobile */
     }
 
+    .icon {
+        width: 24px;
+        height: 24px;
+        cursor: pointer;
+    }
+
+    /* Hero Section */
     .hero {
-        min-height: 570px; /* Restore original min-height */
-        padding: 0 20px; /* Restore original padding */
+        background: url(images/banner/banner-bg01.jpeg) no-repeat center center;
+        background-size: cover;
+        min-height: 500px; /* Reduced min-height for mobile */
+        display: flex;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+        padding: 40px 15px; /* Add padding for smaller screens */
+    }
+
+    .hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path fill="none" stroke="%23ffd700" stroke-width="0.5" opacity="0.3" d="M50,10 L55,25 L70,25 L58,35 L63,50 L50,40 L37,50 L42,35 L30,25 L45,25 Z"/></svg>') repeat;
+        background-size: 100px 100px;
+        animation: float 20s ease-in-out infinite;
+    }
+
+    @keyframes float {
+        0%, 100% { transform: translateY(0px) rotate(0deg); }
+        50% { transform: translateY(-20px) rotate(5deg); }
     }
 
     .hero-content {
-        flex-direction: row; /* Layout hero text and product side-by-side */
-        text-align: left;
-        gap: 40px; /* Space between hero text and product */
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0; /* Padding handled by .hero */
+        display: flex;
+        flex-direction: column; /* Stack hero text and featured product on small screens */
+        justify-content: center;
+        align-items: center;
+        z-index: 2;
+        width: 100%;
+        text-align: center; /* Center text for mobile */
     }
 
     .hero-text {
-        text-align: left;
-        max-width: 600px; /* Restore original max-width */
-        margin-bottom: 0; /* Remove bottom margin */
+        color: white;
+        max-width: 100%; /* Allow full width on small screens */
+        margin-bottom: 30px; /* Space between text and product */
     }
 
     .hero-text h1 {
-        font-size: 2.8rem; /* Adjusted for tablets */
-        margin-bottom: 20px;
+        font-size: 2.2rem; /* Adjusted for smaller screens */
+        font-weight: 300;
+        margin-bottom: 15px; /* Reduced margin */
+        line-height: 1.2;
     }
 
     .hero-text p {
-        font-size: 1rem;
-        margin-bottom: 30px;
+        margin-bottom: 25px; /* Reduced margin */
+        opacity: 0.9;
+        font-size: 0.9rem; /* Adjusted for smaller screens */
     }
 
     .cta-button {
-        padding: 12px 30px;
-        font-size: 16px;
+        background: transparent;
+        color: white;
+        border: 2px solid white;
+        padding: 10px 25px; /* Adjusted padding */
+        cursor: pointer;
+        font-size: 14px; /* Adjusted font size */
+        font-weight: 500;
+        transition: all 0.3s;
+        text-transform: uppercase;
+        letter-spacing: 1px;
     }
 
+    .cta-button:hover {
+        background: white;
+        color: #d2a679;
+    }
+
+    /* Featured Product */
     .featured-container {
-        position: absolute; /* Restore absolute positioning */
-        right: 0px; /* Adjust as needed */
-        justify-content: flex-end; /* Align to the right */
-        padding: 20px;
-        /* Ensure it doesn't overlap on very small tablets if content is wide */
-        width: auto;
+        display: flex;
+        justify-content: center; /* Center on smaller screens */
+        padding: 0; /* Padding handled by .hero-content */
+        position: static; /* Remove absolute positioning on mobile */
+        width: 100%; /* Take full width */
     }
 
     .featured-product {
-        max-width: 300px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        background: white;
+        padding: 20px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1); /* Lighter shadow for mobile */
+        max-width: 280px; /* Adjusted max-width for smaller screens */
+        text-align: center;
     }
 
     .product-image {
-        width: 200px;
-        height: 200px;
-        margin: 0 auto 20px;
+        width: 180px; /* Smaller image size */
+        height: 180px; /* Smaller image size */
+        background: url(images/product/3mukhi.jpeg) no-repeat center center;
+        background-size: cover;
+        margin: 0 auto 15px; /* Adjusted margin */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
     }
 
     .rudraksha-bead {
-        width: 100px;
-        height: 100px;
+        width: 90px; /* Smaller bead size */
+        height: 90px; /* Smaller bead size */
+        border-radius: 50%;
     }
 
     .product-badges {
-        gap: 10px;
-        margin-bottom: 15px;
+        display: flex;
+        justify-content: center;
+        gap: 8px; /* Reduced gap */
+        margin-bottom: 10px; /* Reduced margin */
     }
 
     .badge {
-        padding: 5px 10px;
-        border-radius: 15px;
-        font-size: 12px;
+        background: #f0f0f0;
+        padding: 4px 8px; /* Adjusted padding */
+        border-radius: 12px; /* Smaller border-radius */
+        font-size: 11px; /* Smaller font size */
+        color: #666;
     }
 
     .product-title {
-        font-size: 1.2rem;
-        margin-bottom: 10px;
+        font-size: 1.1rem; /* Adjusted font size */
+        font-weight: bold;
+        margin-bottom: 8px; /* Reduced margin */
+        color: #333;
     }
 
     .product-details {
-        font-size: 14px;
-        margin-bottom: 15px;
+        font-size: 13px; /* Adjusted font size */
+        color: #666;
+        margin-bottom: 12px; /* Reduced margin */
     }
 
     .product-price {
-        gap: 10px;
-        margin-bottom: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px; /* Reduced gap */
+        margin-bottom: 12px; /* Reduced margin */
     }
 
     .current-price {
-        font-size: 1.3rem;
+        font-size: 1.2rem; /* Adjusted font size */
+        font-weight: bold;
+        color: #2B2B2B;
     }
 
     .original-price {
-        font-size: 1rem;
+        text-decoration: line-through;
+        color: #747474;
+        font-size: 0.9rem; /* Adjusted font size */
     }
 
     .add-to-cart {
-        padding: 10px 20px;
-        font-size: 1rem;
+        background: linear-gradient(135deg, #BB9577, #BB9577);
+        color: white;
+        border: none;
+        padding: 8px 15px; /* Adjusted padding */
+        cursor: pointer;
+        font-weight: 500;
+        width: 100%;
+        font-size: 0.9rem; /* Adjusted font size */
     }
 
+    /* Features Section */
     .features {
-        padding: 60px 20px;
+        padding: 40px 15px; /* Adjusted padding for mobile */
+        background: #F7F0EB;
+    }
+
+    .features-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0; /* Padding handled by .features */
     }
 
     .features-grid {
-        grid-template-columns: repeat(2, 1fr); /* Two columns for tablets */
-        gap: 40px; /* Adjust gap */
+        display: grid;
+        grid-template-columns: 1fr; /* Single column for mobile */
+        gap: 30px; /* Reduced gap */
+    }
+
+    .feature {
+        text-align: center;
     }
 
     .feature-icon {
-        width: 60px;
-        height: 60px;
-        margin: 0 auto 20px;
+        width: 50px; /* Smaller icon container */
+        height: 50px; /* Smaller icon container */
+        background: linear-gradient(135deg, #F5ECE2);
+        border-radius: 50%;
+        margin: 0 auto 15px; /* Adjusted margin */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 20px; /* Smaller icon font size */
     }
 
     .feature-icon img {
-        width: 40px;
-        height: 40px;
+        width: 32px; /* Smaller image inside icon container */
+        height: 32px; /* Smaller image inside icon container */
     }
 
     .feature h3 {
-        font-size: 1.3rem;
-        margin-bottom: 15px;
+        font-size: 1.2rem; /* Adjusted font size */
+        margin-bottom: 10px; /* Reduced margin */
+        color: #421C01;
     }
 
     .feature p {
-        font-size: 1rem;
+        color: #666;
+        font-size: 0.9rem; /* Adjusted font size */
     }
 
+    /* Bestsellers Section */
     .bestsellers {
-        padding: 4rem 2rem;
+        padding: 3rem 15px; /* Adjusted padding for mobile */
+        background-color: #fff;
+        text-align: center;
     }
 
     .bestsellers-header {
-        flex-direction: row; /* Revert to row for tablet+ */
-        margin-bottom: 2rem;
+        display: flex;
+        flex-direction: column; /* Stack header elements on mobile */
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto 1.5rem; /* Reduced margin */
+        padding: 0; /* Padding handled by .bestsellers */
+        gap: 10px; /* Space when stacked */
     }
 
     .bestsellers-header h2 {
-        font-size: 2rem;
+        font-size: 1.8rem; /* Adjusted font size */
+        font-weight: 600;
+        font-family: 'Bodoni Moda', serif;
     }
 
     .more-btn {
-        padding: 0.4rem 1rem;
-        font-size: 0.9rem;
+        border: 1px solid #333;
+        padding: 0.3rem 0.8rem; /* Adjusted padding */
+        text-decoration: none;
+        color: #333;
+        font-size: 0.8rem; /* Adjusted font size */
+        transition: all 0.3s;
+    }
+
+    .more-btn:hover {
+        background-color: #c9b8a6;
+        color: #fff;
     }
 
     .bestsellers-grid {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Auto-fit for flexible column count */
-        gap: 1.5rem;
+        display: grid;
+        grid-template-columns: 1fr; /* Single column for mobile */
+        gap: 1rem; /* Reduced gap */
+        max-width: 1200px;
+        margin: 0 auto;
     }
 
     .bestseller-card {
-        padding: 1.5rem;
+        background-color: #F5ECE2;
+        padding: 1rem; /* Reduced padding */
+        transition: transform 0.3s ease;
+    }
+
+    .bestseller-card:hover {
+        transform: translateY(-5px);
     }
 
     .bestseller-card img {
-        width: 180px; /* Slightly larger images */
-        height: 180px;
-        margin-bottom: 1rem;
+        width: 150px; /* Smaller image size */
+        height: 150px; /* Smaller image size */
+        object-fit: contain;
+        margin-bottom: 0.8rem; /* Reduced margin */
     }
 
     .bestseller-card h3 {
-        font-size: 1rem;
-        margin-bottom: 0.5rem;
+        font-size: 0.95rem; /* Adjusted font size */
+        margin-bottom: 0.4rem; /* Reduced margin */
     }
 
     .bestseller-card p {
-        margin-bottom: 1rem;
-        font-size: 1rem;
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 0.8rem; /* Reduced margin */
+        font-size: 0.9rem; /* Adjusted font size */
     }
 
     .cart-btn {
-        padding: 0.5rem 1rem;
-        font-size: 0.85rem;
-    }
-}
-
-
-/* Desktop (min-width: 1025px) */
-@media (min-width: 1025px) {
-    .top-bar-content,
-    .header-content,
-    .hero-content,
-    .features-content,
-    .bestsellers-header,
-    .bestsellers-grid {
-        padding: 0 20px; /* Consistent padding for wider screens */
+        padding: 0.4rem 0.8rem; /* Adjusted padding */
+        border: 2px solid #c9b8a6;
+        background: none;
+        font-size: 0.8rem; /* Adjusted font size */
+        cursor: pointer;
+        transition: background-color 0.3s ease;
     }
 
-    .hero-text h1 {
-        font-size: 3.5rem; /* Larger for desktop */
+    .cart-btn:hover {
+        background-color: #c9b8a6;
+        color: white;
     }
 
-    .hero-text p {
-        font-size: 1.1rem;
+    /* --- Media Queries for Larger Screens (Tablet, Desktop) --- */
+
+    /* Tablet (min-width: 768px) */
+    @media (min-width: 768px) {
+        .top-bar-content {
+            flex-direction: row;
+            text-align: left;
+            gap: 10px;
+        }
+
+        .support-info {
+            flex-direction: row;
+            gap: 10px;
+        }
+
+        .header-content {
+            flex-direction: row;
+            gap: 20px;
+            justify-content: space-between;
+        }
+
+        .navigation {
+            flex-direction: row; /* Align categories button and nav menu horizontally */
+            width: auto; /* Allow width to be content-driven */
+            gap: 20px;
+        }
+
+        .nav-menu {
+            display: flex; /* Always show nav menu on tablet+ */
+            flex-direction: row;
+            width: auto;
+            gap: 20px;
+        }
+
+        .categories-btn {
+            display: inline-block; /* Revert to inline-block */
+            margin: 0; /* Remove auto margin */
+        }
+
+        .header-icons {
+            margin-top: 0;
+        }
+
+        .hero {
+            min-height: 570px; /* Restore original min-height */
+            padding: 0 20px; /* Restore original padding */
+        }
+
+        .hero-content {
+            flex-direction: row; /* Layout hero text and product side-by-side */
+            text-align: left;
+            gap: 40px; /* Space between hero text and product */
+        }
+
+        .hero-text {
+            text-align: left;
+            max-width: 600px; /* Restore original max-width */
+            margin-bottom: 0; /* Remove bottom margin */
+        }
+
+        .hero-text h1 {
+            font-size: 2.8rem; /* Adjusted for tablets */
+            margin-bottom: 20px;
+        }
+
+        .hero-text p {
+            font-size: 1rem;
+            margin-bottom: 30px;
+        }
+
+        .cta-button {
+            padding: 12px 30px;
+            font-size: 16px;
+        }
+
+        .featured-container {
+            position: absolute; /* Restore absolute positioning */
+            right: 0px; /* Adjust as needed */
+            justify-content: flex-end; /* Align to the right */
+            padding: 20px;
+            /* Ensure it doesn't overlap on very small tablets if content is wide */
+            width: auto;
+        }
+
+        .featured-product {
+            max-width: 300px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-image {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 20px;
+        }
+
+        .rudraksha-bead {
+            width: 100px;
+            height: 100px;
+        }
+
+        .product-badges {
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .badge {
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 12px;
+        }
+
+        .product-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .product-details {
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .product-price {
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .current-price {
+            font-size: 1.3rem;
+        }
+
+        .original-price {
+            font-size: 1rem;
+        }
+
+        .add-to-cart {
+            padding: 10px 20px;
+            font-size: 1rem;
+        }
+
+        .features {
+            padding: 60px 20px;
+        }
+
+        .features-grid {
+            grid-template-columns: repeat(2, 1fr); /* Two columns for tablets */
+            gap: 40px; /* Adjust gap */
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 20px;
+        }
+
+        .feature-icon img {
+            width: 40px;
+            height: 40px;
+        }
+
+        .feature h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        .feature p {
+            font-size: 1rem;
+        }
+
+        .bestsellers {
+            padding: 4rem 2rem;
+        }
+
+        .bestsellers-header {
+            flex-direction: row; /* Revert to row for tablet+ */
+            margin-bottom: 2rem;
+        }
+
+        .bestsellers-header h2 {
+            font-size: 2rem;
+        }
+
+        .more-btn {
+            padding: 0.4rem 1rem;
+            font-size: 0.9rem;
+        }
+
+        .bestsellers-grid {
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Auto-fit for flexible column count */
+            gap: 1.5rem;
+        }
+
+        .bestseller-card {
+            padding: 1.5rem;
+        }
+
+        .bestseller-card img {
+            width: 180px; /* Slightly larger images */
+            height: 180px;
+            margin-bottom: 1rem;
+        }
+
+        .bestseller-card h3 {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .bestseller-card p {
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        .cart-btn {
+            padding: 0.5rem 1rem;
+            font-size: 0.85rem;
+        }
     }
 
-    .featured-container {
-        right: -20px; /* Original offset */
+
+    /* Desktop (min-width: 1025px) */
+    @media (min-width: 1025px) {
+        .top-bar-content,
+        .header-content,
+        .hero-content,
+        .features-content,
+        .bestsellers-header,
+        .bestsellers-grid {
+            padding: 0 20px; /* Consistent padding for wider screens */
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem; /* Larger for desktop */
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+        }
+
+        .featured-container {
+            right: -20px; /* Original offset */
+        }
+
+        .featured-product {
+            max-width: 350px;
+        }
+
+        .features-grid {
+            grid-template-columns: repeat(4, 1fr); /* Four columns for larger desktops */
+            gap: 50px;
+        }
+
+        .bestsellers-grid {
+            grid-template-columns: repeat(4, 1fr); /* Four columns for desktops */
+        }
+
+        .bestseller-card img {
+            width: 200px; /* Full size images for desktop */
+            height: 200px;
+        }
     }
 
-    .featured-product {
-        max-width: 350px;
+    /* Larger Desktops (min-width: 1441px) - Optional, for very large screens */
+    @media (min-width: 1441px) {
+        /* You can add further adjustments here if needed for ultra-wide screens */
     }
 
-    .features-grid {
-        grid-template-columns: repeat(4, 1fr); /* Four columns for larger desktops */
-        gap: 50px;
-    }
-
-    .bestsellers-grid {
-        grid-template-columns: repeat(4, 1fr); /* Four columns for desktops */
-    }
-
-    .bestseller-card img {
-        width: 200px; /* Full size images for desktop */
-        height: 200px;
-    }
-}
-
-/* Larger Desktops (min-width: 1441px) - Optional, for very large screens */
-@media (min-width: 1441px) {
-    /* You can add further adjustments here if needed for ultra-wide screens */
-}
-
-/* Shop by Categories Section */
-.shop-by-categories {
-    background-color: #2b211a; /* Dark background as per image */
-    padding: 6rem 20px; /* Adjust padding for top/bottom */
-    color: white;
-    overflow: hidden; /* To contain any potential overflow from designs */
-    position: relative;
-}
-
-/* Diagonal line background pattern */
-.shop-by-categories::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    /* Create a repeating diagonal line pattern */
-    background: repeating-linear-gradient(
-        45deg,
-        rgba(255, 255, 255, 0.05),
-        rgba(255, 255, 255, 0.05) 1px, /* Line thickness */
-        transparent 1px,
-        transparent 20px /* Spacing between lines */
-    );
-    opacity: 0.8; /* Adjust opacity for subtlety */
-    z-index: 0;
-}
-
-
-.shop-header {
-    max-width: 1200px;
-    margin: 0 auto 4rem; /* Space below header */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 20px;
-    position: relative; /* Ensure it stays above ::before */
-    z-index: 1;
-}
-
-.shop-header-text {
-    text-align: left;
-}
-
-.section-subtitle {
-    font-size: 0.9rem;
-    color: #BB9577; /* Accent color */
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    margin-bottom: 5px;
-    font-weight: 500;
-}
-
-.section-title {
-    font-size: 2.8rem; /* Larger font size as in the image */
-    font-weight: 400; /* Lighter font weight */
-    /* Changed to Playfair Display as it's a good elegant serif alternative and commonly imported */
-    font-family: 'Playfair Display', serif;
-    line-height: 1.2;
-}
-
-.make-order-btn {
-    border: 1px solid white;
-    padding: 0.8rem 1.8rem;
-    text-decoration: none;
-    color: white;
-    font-size: 0.9rem;
-    transition: all 0.3s ease;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    text-transform: uppercase;
-}
-
-.make-order-btn:hover {
-    background-color: white;
-    color: #2b211a;
-}
-
-.category-list {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex; /* Use flexbox for the linear layout */
-    justify-content: space-between; /* Distribute items evenly */
-    align-items: center;
-    gap: 30px; /* Space between cards */
-    padding: 0 20px;
-    position: relative; /* For the connecting line */
-    z-index: 1;
-}
-
-/* Connecting Line */
-.category-list::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 0;
-    right: 0;
-    height: 1px; /* Line thickness */
-    background-color: #BB9577; /* Line color */
-    transform: translateY(-50%);
-    z-index: 0;
-}
-
-/* Dot at left end of the line */
-.category-list::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: -8px; /* Offset to place it slightly outside the grid start */
-    width: 16px;
-    height: 16px;
-    background-color: #BB9577; /* Dot color */
-    border-radius: 50%;
-    transform: translateY(-50%);
-    z-index: 1; /* Above the line */
-}
-
-/* Right end dot - using a separate class or specific targeting for the last child is better */
-/* For simplicity and directly targeting the visual, we can extend the `::after` usage here */
-/* A more robust solution for independent dots would involve adding specific classes in HTML */
-/* or more complex pseudo-element targeting if the number of cards is dynamic. */
-/* For this fixed 4-card layout, we'll keep it as a general ::after and
-   then override for the last card for the right dot positioning if needed,
-   or rely on the .category-card::after for the central dots */
-
-/* Assuming the request means dots *at the ends* of the line, and *at each card's connection point*.
-   The previous `category-list::after` was used for the right end dot.
-   Let's ensure it covers both left and right if that's the intent.
-   The current setup uses `category-list::after` for the left end dot,
-   and for the right end dot, it's implicitly handled by the `category-card::after` on the last card,
-   or needs a separate rule if the line extends past the last card's dot.
-   Based on the image, the line seems to extend past the last card with a dot.
-   So, we need a separate pseudo-element for the rightmost dot on `category-list`.
-*/
-.category-list.has-right-dot::after { /* Add a class to category-list for the right dot */
-    content: '';
-    position: absolute;
-    top: 50%;
-    right: -8px; /* Offset for the right end dot */
-    width: 16px;
-    height: 16px;
-    background-color: #BB9577;
-    border-radius: 50%;
-    transform: translateY(-50%);
-    z-index: 1;
-}
-
- /*category-card style */
-.category-card {
-    position: relative;
-    z-index: 1; /* Keep cards above the line */
-    background-color: transparent; /* Make this transparent so the ::before element's background shows */
-    padding: 30px 15px; /* Adjusted padding for the octagonal shape */
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    flex-basis: 25%; /* Each card takes roughly 25% width in a 4-column layout */
-    min-width: 220px; /* Minimum width to prevent crushing */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-
-    /* --- OCTAGON SHAPE --- */
-    clip-path: polygon(
-        25% 0%, 75% 0%, 100% 25%, 100% 75%, 75% 100%, 25% 100%, 0% 75%, 0% 25%
-    );
-    -webkit-clip-path: polygon(25% 0%, 75% 0%, 100% 25%, 100% 75%, 75% 100%, 25% 100%, 0% 75%, 0% 25%);
-
-    border: none; /* Ensure no direct border on the main element */
-}
-
-.category-card::before {
-    content: '';
-    position: absolute;
-    /* These negative values make the ::before element slightly larger than its parent */
-    top: -1px; 
-    left: -1px;
-    right: -1px;
-    bottom: -1px;
-     background-color: #3f322b;
-    /* This is the actual dark background color of the card */
-    border: 1px solid white; /* This creates the visible white border */
-    z-index: -1; /* Place it behind the main content (image, text) */
-    clip-path: inherit; /* Inherit the octagonal shape from the parent */
-    -webkit-clip-path: inherit;
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Match parent transition for hover effects */
-}
-
-.category-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
-}
-
-.category-card:hover::before {
-    transform: translateY(-5px); /* Match parent hover effect */
-    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3); /* Ensure the shadow also applies to the background shape */
-}
-
-/* Dot on the connecting line at each card's center */
-.category-card::after {
-    content: '';
-    position: absolute;
-    /* Adjust this to align with the horizontal line's vertical center.
-       (padding-top + image height/2 + image margin + h3 margin + h3 line-height/2) - (dot height/2)
-       A simpler approach is to align relative to the bottom or top
-       and ensure the main line's position is adjusted.
-       Let's place it based on 50% height of the overall card's content area
-       or explicitly align with the `category-list::before` line's `top: 50%`
-    */
-    top: calc(50% - 8px); /* Position it vertically centered on the line (line is at 50% height) */
-    left: 50%;
-    width: 16px; /* Dot size */
-    height: 16px; /* Dot size */
-    background-color: #BB9577; /* Dot color */
-    border-radius: 50%;
-    transform: translateX(-50%); /* Center horizontally */
-    z-index: 2; /* Ensure dot is above the card and line */
-}
-
-
-.category-image {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    overflow: hidden;
-    margin-bottom: 15px;
-    border: 2px solid #BB9577;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-}
-
-.category-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-
-.category-card h3 {
-    font-size: 1.2rem;
-    margin-bottom: 10px; /* Increased margin to fit the line */
-    color: #e0e0e0;
-    position: relative; /* Needed for ::after positioning */
-    padding-bottom: 8px; /* Add padding to give space for the line */
-}
-
-/* Horizontal line under category text */
-.category-card h3::after {
-    content: '';
-    display: block;
-    width: 40px; /* Length of the line */
-    height: 1px; /* Thickness of the line */
-    background-color: #BB9577; /* Color of the line */
-    margin: 5px auto 0; /* Center the line and provide spacing */
-    position: absolute; /* Position relative to h3 */
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 0; /* Position at the bottom of the h3's content box */
-}
-
-.category-card p {
-    font-size: 0.85rem;
-    color: #b0b0b0;
-    margin-top: 5px; /* Add a bit of space from the line under h3 */
-}
-
-/* Responsive adjustments for this new section */
-@media (max-width: 768px) {
+    /* Shop by Categories Section */
     .shop-by-categories {
-        padding: 3rem 15px; /* Adjust padding for mobile */
+        background: url(images/category/categorybanner.jpg);
+        padding: 6rem 5px; /* Adjust padding for top/bottom */
+        color: white;
+        overflow: hidden; /* To contain any potential overflow from designs */
+        position: relative;
     }
 
+    /* Diagonal line background pattern */
     .shop-by-categories::before {
-        background: none; /* Hide diagonal background pattern on mobile for simplicity */
+        content: '';
+        position:absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        /* Create a repeating diagonal line pattern */
+        background: url(images/category/categorybanner.jpg);
+        opacity: 0.8; /* Adjust opacity for subtlety */
+        z-index: 0;
     }
+
 
     .shop-header {
-        flex-direction: column; /* Stack title and button */
-        text-align: center;
-        margin-bottom: 2rem;
-        padding: 0;
-        gap: 15px;
+        max-width: 1200px;
+        margin: 0 auto 4rem; /* Space below header */
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+        position: relative; /* Ensure it stays above ::before */
+        z-index: 1;
     }
 
     .shop-header-text {
-        text-align: center;
+        text-align: left;
+    }
+
+    .section-subtitle {
+        font-size: 0.9rem;
+        color: #BB9577; /* Accent color */
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin-bottom: 5px;
+        font-weight: 500;
     }
 
     .section-title {
-        font-size: 2rem; /* Smaller title for mobile */
+        font-size: 2.8rem; /* Larger font size as in the image */
+        font-weight: 400; /* Lighter font weight */
+        /* Changed to Playfair Display as it's a good elegant serif alternative and commonly imported */
+        font-family: 'Playfair Display', serif;
+        line-height: 1.2;
     }
 
     .make-order-btn {
-        width: fit-content; /* Adjust width to content */
-        margin: 0 auto; /* Center the button */
-        padding: 0.6rem 1.5rem;
-        font-size: 0.8rem;
+        border: 1px solid white;
+        padding: 0.8rem 1.8rem;
+        text-decoration: none;
+        color: white;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        text-transform: uppercase;
+    }
+
+    .make-order-btn:hover {
+        background-color: white;
+        color: #2b211a;
     }
 
     .category-list {
-        flex-direction: column; /* Stack cards vertically on mobile */
-        gap: 20px; /* Space between stacked cards */
-        padding: 0;
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex; /* Use flexbox for the linear layout */
+        justify-content: space-between; /* Distribute items evenly */
+        align-items: center;
+        gap: 30px; /* Space between cards */
+        padding: 0 20px;
+        position: relative; /* For the connecting line */
+        z-index: 1;
     }
 
-    /* Hide all connecting lines and dots on mobile */
-    .category-list::before,
-    .category-list::after,
-    .category-list.has-right-dot::after,
-    .category-card::after {
-        content: none;
+    /* Connecting Line */
+    .category-list::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        height: 1px; /* Line thickness */
+        background-color: #BB9577; /* Line color */
+        transform: translateY(-50%);
+        z-index: 0;
     }
 
+    /* Dot at left end of the line */
+    .category-list::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: -8px; /* Offset to place it slightly outside the grid start */
+        width: 16px;
+        height: 16px;
+        background-color: #BB9577; /* Dot color */
+        border-radius: 50%;
+        transform: translateY(-50%);
+        z-index: 1; /* Above the line */
+    }
+
+    /* Right end dot - using a separate class or specific targeting for the last child is better */
+    /* For simplicity and directly targeting the visual, we can extend the `::after` usage here */
+    /* A more robust solution for independent dots would involve adding specific classes in HTML */
+    /* or more complex pseudo-element targeting if the number of cards is dynamic. */
+    /* For this fixed 4-card layout, we'll keep it as a general ::after and
+    then override for the last card for the right dot positioning if needed,
+    or rely on the .category-card::after for the central dots */
+
+    /* Assuming the request means dots *at the ends* of the line, and *at each card's connection point*.
+    The previous `category-list::after` was used for the right end dot.
+    Let's ensure it covers both left and right if that's the intent.
+    The current setup uses `category-list::after` for the left end dot,
+    and for the right end dot, it's implicitly handled by the `category-card::after` on the last card,
+    or needs a separate rule if the line extends past the last card's dot.
+    Based on the image, the line seems to extend past the last card with a dot.
+    So, we need a separate pseudo-element for the rightmost dot on `category-list`.
+    */
+    .category-list.has-right-dot::after { /* Add a class to category-list for the right dot */
+        content: '';
+        position: absolute;
+        top: 50%;
+        right: -8px; /* Offset for the right end dot */
+        width: 16px;
+        height: 16px;
+        background-color: #BB9577;
+        border-radius: 50%;
+        transform: translateY(-50%);
+        z-index: 1;
+    }
+
+    /*category-card style */
     .category-card {
-        width: 80%; /* Make cards take more width on mobile */
-        max-width: 250px; /* Limit max width for readability */
-        padding: 20px 15px; /* Adjusted padding for mobile octagons */
-        min-width: unset; /* Remove min-width constraint */
+        position: relative;
+        z-index: 1; /* Keep cards above the line */
+        padding: 30px 15px; /* Adjusted padding for the octagonal shape */
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex-basis: 25%; /* Each card takes roughly 25% width in a 4-column layout */
+        min-width: 220px; /* Minimum width to prevent crushing */
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+        /* --- OCTAGON SHAPE --- */
+        clip-path: polygon(
+            25% 0%, 75% 0%, 100% 25%, 100% 75%, 75% 100%, 25% 100%, 0% 75%, 0% 25%
+        );
+        -webkit-clip-path: polygon(25% 0%, 75% 0%, 100% 25%, 100% 75%, 75% 100%, 25% 100%, 0% 75%, 0% 25%);
+
+        border: none; /* Ensure no direct border on the main element */
+    }
+    .category-card::before {
+        content: '';
+        position: absolute;
+        top: 1rem;
+        left: 2.5rem;
+        right: 2.5rem;
+        bottom: 1rem;
+        background-color: #2b1f1a;/* This ensures the background of the pseudo-element itself is transparent */
+        z-index: -1;
+        clip-path: inherit; /* Inherits the clip-path from .category-card */
+        -webkit-clip-path: inherit;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .category-card::before { /* Ensure the border pseudo-element is shown on mobile */
+    .category-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+    }
+
+    .category-card:hover::before {
+        transform: translateY(-5px); /* Match parent hover effect */
+        box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3); /* Ensure the shadow also applies to the background shape */
+    }
+
+    /* Dot on the connecting line at each card's center */
+    .category-card::after {
+        content: '';
+        position: absolute;
+        /* Adjust this to align with the horizontal line's vertical center.
+        (padding-top + image height/2 + image margin + h3 margin + h3 line-height/2) - (dot height/2)
+        A simpler approach is to align relative to the bottom or top
+        and ensure the main line's position is adjusted.
+        Let's place it based on 50% height of the overall card's content area
+        or explicitly align with the `category-list::before` line's `top: 50%`
+        */
+        top: calc(50% - 8px); /* Position it vertically centered on the line (line is at 50% height) */
+        left: 50%;
+        width: 16px; /* Dot size */
+        height: 16px; /* Dot size */
+        background-color: #BB9577; /* Dot color */
+        border-radius: 50%;
+        transform: translateX(-50%); /* Center horizontally */
+        z-index: 2; /* Ensure dot is above the card and line */
+    }
+
+
+    .category-image {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin-bottom: 15px;
+        border: 2px solid #BB9577;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+    }
+
+    .category-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
         display: block;
     }
 
-    .category-image {
-        width: 100px; /* Smaller images for mobile */
-        height: 100px;
-        margin-bottom: 10px;
+    .category-card h3 {
+        font-size: 1.2rem;
+        margin-bottom: 10px; /* Increased margin to fit the line */
+        color: #e0e0e0;
+        position: relative; /* Needed for ::after positioning */
+        padding-bottom: 8px; /* Add padding to give space for the line */
     }
 
-    .category-card h3 {
-        font-size: 1.1rem;
-        margin-bottom: 8px; /* Adjust margin for mobile line */
-        padding-bottom: 6px;
-    }
+    /* Horizontal line under category text */
     .category-card h3::after {
-        bottom: 0;
-        margin: 3px auto 0; /* Adjust line spacing for mobile */
+        content: '';
+        display: block;
+        width: 40px; /* Length of the line */
+        height: 1px; /* Thickness of the line */
+        background-color: #BB9577; /* Color of the line */
+        margin: 5px auto 0; /* Center the line and provide spacing */
+        position: absolute; /* Position relative to h3 */
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 0; /* Position at the bottom of the h3's content box */
     }
 
     .category-card p {
-        font-size: 0.8rem;
-    }
-}
-
-@media (min-width: 769px) and (max-width: 1024px) {
-    .shop-by-categories {
-        padding: 5rem 20px;
+        font-size: 0.85rem;
+        color: #b0b0b0;
+        margin-top: 5px; /* Add a bit of space from the line under h3 */
     }
 
-    .shop-header {
-        margin-bottom: 3rem;
+    /* Responsive adjustments for this new section */
+    @media (max-width: 768px) {
+        .shop-by-categories {
+            padding: 3rem 15px; /* Adjust padding for mobile */
+        }
+
+        .shop-by-categories::before {
+            background: none; /* Hide diagonal background pattern on mobile for simplicity */
+        }
+
+        .shop-header {
+            flex-direction: column; /* Stack title and button */
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 0;
+            gap: 15px;
+        }
+
+        .shop-header-text {
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2rem; /* Smaller title for mobile */
+        }
+
+        .make-order-btn {
+            width: fit-content; /* Adjust width to content */
+            margin: 0 auto; /* Center the button */
+            padding: 0.6rem 1.5rem;
+            font-size: 0.8rem;
+        }
+
+        .category-list {
+            flex-direction: column; /* Stack cards vertically on mobile */
+            gap: 20px; /* Space between stacked cards */
+            padding: 0;
+        }
+
+        /* Hide all connecting lines and dots on mobile */
+        .category-list::before,
+        .category-list::after,
+        .category-list.has-right-dot::after,
+        .category-card::after {
+            content: none;
+        }
+
+        .category-card {
+            width: 80%; /* Make cards take more width on mobile */
+            max-width: 250px; /* Limit max width for readability */
+            padding: 20px 15px; /* Adjusted padding for mobile octagons */
+            min-width: unset; /* Remove min-width constraint */
+        }
+
+        .category-card::before { /* Ensure the border pseudo-element is shown on mobile */
+            display: block;
+        }
+
+        .category-image {
+            width: 100px; /* Smaller images for mobile */
+            height: 100px;
+            margin-bottom: 10px;
+        }
+
+        .category-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 8px; /* Adjust margin for mobile line */
+            padding-bottom: 6px;
+        }
+        .category-card h3::after {
+            bottom: 0;
+            margin: 3px auto 0; /* Adjust line spacing for mobile */
+        }
+
+        .category-card p {
+            font-size: 0.8rem;
+        }
     }
 
-    .section-title {
-        font-size: 2.5rem; /* Slightly smaller for tablets */
+    @media (min-width: 769px) and (max-width: 1024px) {
+        .shop-by-categories {
+            padding: 5rem 20px;
+        }
+
+        .shop-header {
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem; /* Slightly smaller for tablets */
+        }
+
+        .category-list {
+            flex-wrap: wrap; /* Allow cards to wrap to next line */
+            justify-content: center; /* Center cards if they wrap */
+            gap: 25px;
+        }
+
+        .category-list::before {
+            left: 5%; /* Adjust line start/end */
+            right: 5%;
+            content: ''; /* Ensure line is visible */
+        }
+
+        /* Show end dots for tablet but position within grid range */
+        .category-list::after { /* Left end dot */
+            left: calc(2.5% + 10px); /* Adjust to align with first card */
+            content: ''; /* Ensure dots are visible */
+        }
+        .category-list.has-right-dot::after { /* Right end dot */
+            right: calc(2.5% + 10px); /* Adjust to align with last card */
+            content: ''; /* Ensure dots are visible */
+        }
+
+        .category-card {
+            flex-basis: 45%; /* Two cards per row on tablets */
+            max-width: 280px; /* Limit max-width to keep them manageable */
+            min-width: 200px;
+        }
+        .category-card::after { /* Show card connection dots for tablet */
+            content: '';
+        }
     }
 
-    .category-list {
-        flex-wrap: wrap; /* Allow cards to wrap to next line */
-        justify-content: center; /* Center cards if they wrap */
-        gap: 25px;
-    }
+    @media (min-width: 1025px) {
+        .shop-by-categories {
+            padding: 6rem 20px;
+        }
 
-    .category-list::before {
-        left: 5%; /* Adjust line start/end */
-        right: 5%;
-        content: ''; /* Ensure line is visible */
-    }
+        .shop-header {
+            margin-bottom: 4rem;
+        }
 
-    /* Show end dots for tablet but position within grid range */
-    .category-list::after { /* Left end dot */
-        left: calc(2.5% + 10px); /* Adjust to align with first card */
-        content: ''; /* Ensure dots are visible */
-    }
-    .category-list.has-right-dot::after { /* Right end dot */
-        right: calc(2.5% + 10px); /* Adjust to align with last card */
-        content: ''; /* Ensure dots are visible */
-    }
+        .section-title {
+            font-size: 2.8rem; /* Restore original desktop size */
+        }
 
-    .category-card {
-        flex-basis: 45%; /* Two cards per row on tablets */
-        max-width: 280px; /* Limit max-width to keep them manageable */
-        min-width: 200px;
-    }
-    .category-card::after { /* Show card connection dots for tablet */
-        content: '';
-    }
-}
+        .category-list {
+            flex-wrap: nowrap; /* No wrapping on large screens */
+            justify-content: space-between;
+            gap: 30px;
+        }
 
-@media (min-width: 1025px) {
-    .shop-by-categories {
-        padding: 6rem 20px;
-    }
-
-    .shop-header {
-        margin-bottom: 4rem;
-    }
-
-    .section-title {
-        font-size: 2.8rem; /* Restore original desktop size */
-    }
-
-    .category-list {
-        flex-wrap: nowrap; /* No wrapping on large screens */
-        justify-content: space-between;
-        gap: 30px;
-    }
-
-    .category-list::before {
-        left: 0;
-        right: 0;
-        content: ''; /* Ensure line is visible */
-    }
-    .category-list::after { /* Left end dot */
-        left: -8px; /* Restore original desktop positioning for end dots */
-        content: ''; /* Ensure dots are visible */
-    }
-    .category-list.has-right-dot::after { /* Right end dot */
-        right: -8px; /* Restore original desktop positioning for end dots */
-        content: ''; /* Ensure dots are visible */
-    }
+        .category-list::before {
+            left: 0;
+            right: 0;
+            content: ''; /* Ensure line is visible */
+        }
+        .category-list::after { /* Left end dot */
+            left: -8px; /* Restore original desktop positioning for end dots */
+            content: ''; /* Ensure dots are visible */
+        }
+        .category-list.has-right-dot::after { /* Right end dot */
+            right: -8px; /* Restore original desktop positioning for end dots */
+            content: ''; /* Ensure dots are visible */
+        }
 
 
-    .category-card {
-        flex-basis: 25%; /* Restore 4-column layout */
-        min-width: 220px;
+        .category-card {
+            flex-basis: 25%; /* Restore 4-column layout */
+            min-width: 220px;
+        }
+        .category-card::after { /* Show card connection dots for desktop */
+            content: '';
+        }
     }
-    .category-card::after { /* Show card connection dots for desktop */
-        content: '';
+    .slider-wrapper {
+    position: relative;
+    max-width: 1400px;
+    margin: 60px auto;
+    overflow: hidden;
+    padding: 0 20px;
     }
-}
-.slider-wrapper {
-  position: relative;
-  max-width: 1400px;
-  margin: 60px auto;
-  overflow: hidden;
-  padding: 0 20px;
-}
 
-.product-list {
-  display: flex;
-  gap: 40px;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  padding: 20px 0;
-}
-.product-list::-webkit-scrollbar {
-  display: none;
-}
+    .product-list {
+    display: flex;
+    gap: 40px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 20px 0;
+    }
+    .product-list::-webkit-scrollbar {
+    display: none;
+    }
 
-.product-card {
-  flex: 0 0 300px;
-  background-color: #2b1f1a;
-  border-radius: 12px;
-  padding: 20px;
-  text-align: center;
-  position: relative;
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
-}
-.product-card img {
-  width: 100%;
-  height: 220px;
-  object-fit: contain;
-  margin-bottom: 10px;
-}
-.tag {
-  position: absolute;
-  top: 15px;
-  left: 15px;
-  background: #f6b46e;
-  color: black;
-  padding: 4px 10px;
-  border-radius: 4px;
-  font-size: 0.75rem;
-  font-weight: bold;
-}
-.timer {
-  display: inline-block;
-  background: #000;
-  padding: 6px 10px;
-  border-radius: 6px;
-  font-size: 0.85rem;
-  margin: 10px 0;
-}
-h3 {
-  font-size: 1.1rem;
-  margin-bottom: 6px;
-}
-p {
-  font-size: 0.85rem;
-  color: #ccc;
-}
-.price {
-  margin: 12px 0;
-}
-.current {
-  font-size: 1.4rem;
-  font-weight: bold;
-  color: #f6b46e;
-}
-.old {
-  font-size: 0.9rem;
-  text-decoration: line-through;
-  color: #999;
-  margin-left: 8px;
-}
-.btn {
-  border: 1px solid #fff;
-  background: transparent;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 4px;
-  margin-top: 10px;
-  cursor: pointer;
-  transition: all 0.3s;
-}
-.btn:hover {
-  background-color: #f6b46e;
-  color: #1a1410;
-  border-color: transparent;
-}
-.icon-row {
-  margin-top: 14px;
-  background: white;
-  color: black;
-  border-radius: 50px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  padding: 8px 12px;
-  font-size: 1.1rem;
-}
+    .product-card {
+    flex: 0 0 300px;
+    background-color: #2b1f1a;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
+    }
+    .product-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: contain;
+    margin-bottom: 10px;
+    }
+    .tag {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: #f6b46e;
+    color: black;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    }
+    .timer {
+    display: inline-block;
+    background: #000;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    margin: 10px 0;
+    }
+    h3 {
+    font-size: 1.1rem;
+    margin-bottom: 6px;
+    }
+    p {
+    font-size: 0.85rem;
+    color: #ccc;
+    }
+    .price {
+    margin: 12px 0;
+    }
+    .current {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #f6b46e;
+    }
+    .old {
+    font-size: 0.9rem;
+    text-decoration: line-through;
+    color: #999;
+    margin-left: 8px;
+    }
+    .btn {
+    border: 1px solid #fff;
+    background: transparent;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 4px;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+    }
+    .btn:hover {
+    background-color: #f6b46e;
+    color: #1a1410;
+    border-color: transparent;
+    }
+    .icon-row {
+    margin-top: 14px;
+    background: white;
+    color: black;
+    border-radius: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 8px 12px;
+    font-size: 1.1rem;
+    }
 
-.slider-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(255, 255, 255, 0.1);
-  border: none;
-  font-size: 1.5rem;
-  color: white;
-  padding: 10px;
-  cursor: pointer;
-  z-index: 1;
-  border-radius: 6px;
-  transition: background 0.3s;
-}
-.slider-arrow:hover {
-  background: rgba(255, 255, 255, 0.3);
-}
-.slider-arrow.left {
-  left: 0;
-}
-.slider-arrow.right {
-  right: 0;
-}
-.promo-video {
-  padding: 40px 20px;
-  background-color: #f5f5f5;
-}
+    .slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    font-size: 1.5rem;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1;
+    border-radius: 6px;
+    transition: background 0.3s;
+    }
+    .slider-arrow:hover {
+    background: rgba(255, 255, 255, 0.3);
+    }
+    .slider-arrow.left {
+    left: 0;
+    }
+    .slider-arrow.right {
+    right: 0;
+    }
+    .promo-video {
+    background-color: #f5f5f5;
+    }
 
-.video-wrapper {
-  position: relative;
-  width: 100%;
-  max-width: 1000px;
-  margin: 0 auto;
-  padding-bottom: 56.25%; /* 16:9 ratio */
-  height: 0;
-  overflow: hidden;
-  border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-}
+    .video-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 2000px;
+    margin: 0 auto;
+    padding-bottom: 56.25%; /* 16:9 ratio */
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
 
-.video-wrapper iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
+    .video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    }
 
