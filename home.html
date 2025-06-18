@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="home.css">
 </head>
 <body>
-    <!-- Top Bar -->
     <div class="top-bar">
         <div class="top-bar-content">
             <span>Welcome to our online store</span>
@@ -17,7 +16,6 @@
             </div>
         </div>
     </div>
-    <!-- Header -->
     <header class="header">
         <div class="header-content">
             <div class="logo">
@@ -47,8 +45,7 @@
             </div>
         </div>
     </header>
-    <!-- Hero Section -->
-<section class="hero">
+    <section class="hero">
     <div class="hero-content">
         <div class="hero-text">
             <h1>Your Source for Genuine Rudraksha</h1>
@@ -78,7 +75,6 @@
         </div>
     </div>
 </section>
-<!-- Features Section -->
 <section class="features">
     <div class="features-content">
         <div class="features-grid">
@@ -113,7 +109,6 @@
         </div>
     </div>
 </section>
-    <!-- Bestsellers Section -->
     <section class="bestsellers">
         <div class="bestsellers-header">
             <h2>Our Bestsellers</h2>
@@ -184,14 +179,92 @@
                 <p>12 Products</p>
             </div>
         </div>
-    </section>    
+        </div>
+  <div class="slider-wrapper">
+    <button class="slider-arrow left">&#8592;</button>
+
+    <div class="product-list">
+      <!-- Product Card -->
+      <div class="product-card">
+        <span class="tag">New</span>
+        <img src="images/category/category5.png" alt="15 Mukhi Rudraksha">
+        <div class="timer">⏱ 48 : 34 : 25</div>
+        <h3>15 Mukhi Rudraksha</h3>
+        <p>Size : 21 mm</p>
+        <p>Weight : 3.25 grams</p>
+        <div class="price">
+          <span class="current">$25.21</span>
+          <span class="old">$30.00</span>
+        </div>
+        <button class="btn">ADD TO CART →</button>
+      </div>
+
+      <!-- Repeat cards with different images/text -->
+      <div class="product-card">
+        <span class="tag">New</span>
+        <img src="images/category/category6.png" alt="14 Mukhi Rudraksha">
+        <div class="timer">⏱ 48 : 34 : 25</div>
+        <h3>14 Mukhi Rudraksha</h3>
+        <p>Size : 21 mm</p>
+        <p>Weight : 3.25 grams</p>
+        <div class="price">
+          <span class="current">$23.21</span>
+          <span class="old">$30.00</span>
+        </div>
+        <button class="btn">ADD TO CART →</button>
+      </div>
+
+      <div class="product-card">
+        <span class="tag">New</span>
+        <img src="images/category/category7.png" alt="Mala">
+        <div class="timer">⏱ 48 : 34 : 25</div>
+        <h3>Mala</h3>
+        <p>Size : 21 mm</p>
+        <p>Weight : 3.25 grams</p>
+        <div class="price">
+          <span class="current">$30.21</span>
+          <span class="old">$30.00</span>
+        </div>
+        <button class="btn">ADD TO CART →</button>
+      </div>
+
+      <div class="product-card">
+        <span class="tag">New</span>
+        <img src="images/category/category8.png" alt="13 Mukhi Rudraksha">
+        <div class="timer">⏱ 48 : 34 : 25</div>
+        <h3>13 Mukhi Rudraksha</h3>
+        <p>Size : 21 mm</p>
+        <p>Weight : 3.25 grams</p>
+        <div class="price">
+          <span class="current">$28.21</span>
+          <span class="old">$30.00</span>
+        </div>
+         <button class="btn">ADD TO CART →</button>
+    </div>
+    <div class="product-card">
+        <span class="tag">New</span>
+        <img src="images/category/category8.png" alt="13 Mukhi Rudraksha">
+        <div class="timer">⏱ 48 : 34 : 25</div>
+        <h3>13 Mukhi Rudraksha</h3>
+        <p>Size : 21 mm</p>
+        <p>Weight : 3.25 grams</p>
+        <div class="price">
+          <span class="current">$28.21</span>
+          <span class="old">$30.00</span>
+        </div>
+         <button class="btn">ADD TO CART →</button>
+    </div>
+    <button class="slider-arrow right">&#8594;</button>
+  </div>     
+     
+    </section>
     <script>
         // Simple JavaScript for interactivity
         document.querySelector('.cta-button').addEventListener('click', function() {
             alert('Order functionality would be implemented here!');
         });
 
-        document.querySelectorAll('.add-to-cart, .cart-btn').forEach(button => {
+        document.querySelectorAll('.add-to-cart, .cart-btn, .add-to-cart-btn').forEach(button => {
             button.addEventListener('click', function() {
                 alert('Product added to cart!');
             });
@@ -201,6 +274,9 @@
             const navMenu = document.querySelector('.nav-menu');
             navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
         });
+  const list = document.querySelector('.product-list');
+    document.querySelector('.slider-arrow.left').onclick = () => list.scrollBy({ left: -300, behavior: 'smooth' });
+    document.querySelector('.slider-arrow.right').onclick = () => list.scrollBy({ left: 300, behavior: 'smooth' });        
     </script>
 </body>
 </html>
