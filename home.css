@@ -475,15 +475,15 @@
         }
 
         .nav-menu {
-            display: flex; /* Always show nav menu on tablet+ */
+            display: flex;
             flex-direction: row;
             width: auto;
             gap: 20px;
         }
 
         .categories-btn {
-            display: inline-block; /* Revert to inline-block */
-            margin: 0; /* Remove auto margin */
+            display: inline-block;
+            margin: 0; 
         }
 
         .header-icons {
@@ -491,24 +491,24 @@
         }
 
         .hero {
-            min-height: 570px; /* Restore original min-height */
-            padding: 0 20px; /* Restore original padding */
+            min-height: 570px;
+            padding: 0 20px; 
         }
 
         .hero-content {
-            flex-direction: row; /* Layout hero text and product side-by-side */
+            flex-direction: row; 
             text-align: left;
-            gap: 40px; /* Space between hero text and product */
+            gap: 40px; 
         }
 
         .hero-text {
             text-align: left;
-            max-width: 600px; /* Restore original max-width */
-            margin-bottom: 0; /* Remove bottom margin */
+            max-width: 600px; 
+            margin-bottom: 0; 
         }
 
         .hero-text h1 {
-            font-size: 2.8rem; /* Adjusted for tablets */
+            font-size: 2.8rem; 
             margin-bottom: 20px;
         }
 
@@ -523,11 +523,10 @@
         }
 
         .featured-container {
-            position: absolute; /* Restore absolute positioning */
-            right: 0px; /* Adjust as needed */
-            justify-content: flex-end; /* Align to the right */
+            position: absolute; 
+            right: 0px;
+            justify-content: flex-end;
             padding: 20px;
-            /* Ensure it doesn't overlap on very small tablets if content is wide */
             width: auto;
         }
 
@@ -591,8 +590,8 @@
         }
 
         .features-grid {
-            grid-template-columns: repeat(2, 1fr); /* Two columns for tablets */
-            gap: 40px; /* Adjust gap */
+            grid-template-columns: repeat(2, 1fr); 
+            gap: 40px; 
         }
 
         .feature-icon {
@@ -620,7 +619,7 @@
         }
 
         .bestsellers-header {
-            flex-direction: row; /* Revert to row for tablet+ */
+            flex-direction: row; 
             margin-bottom: 2rem;
         }
 
@@ -634,7 +633,7 @@
         }
 
         .bestsellers-grid {
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Auto-fit for flexible column count */
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
             gap: 1.5rem;
         }
 
@@ -643,7 +642,7 @@
         }
 
         .bestseller-card img {
-            width: 180px; /* Slightly larger images */
+            width: 180px; 
             height: 180px;
             margin-bottom: 1rem;
         }
@@ -673,11 +672,11 @@
         .features-content,
         .bestsellers-header,
         .bestsellers-grid {
-            padding: 0 20px; /* Consistent padding for wider screens */
+            padding: 0 20px; 
         }
 
         .hero-text h1 {
-            font-size: 3.5rem; /* Larger for desktop */
+            font-size: 3.5rem; 
         }
 
         .hero-text p {
@@ -685,7 +684,7 @@
         }
 
         .featured-container {
-            right: -20px; /* Original offset */
+            right: -20px; 
         }
 
         .featured-product {
@@ -693,31 +692,30 @@
         }
 
         .features-grid {
-            grid-template-columns: repeat(4, 1fr); /* Four columns for larger desktops */
+            grid-template-columns: repeat(4, 1fr); 
             gap: 50px;
         }
 
         .bestsellers-grid {
-            grid-template-columns: repeat(4, 1fr); /* Four columns for desktops */
+            grid-template-columns: repeat(4, 1fr); 
         }
 
         .bestseller-card img {
-            width: 200px; /* Full size images for desktop */
+            width: 200px; 
             height: 200px;
         }
     }
 
-    /* Larger Desktops (min-width: 1441px) - Optional, for very large screens */
     @media (min-width: 1441px) {
-        /* You can add further adjustments here if needed for ultra-wide screens */
+
     }
 
     /* Shop by Categories Section */
     .shop-by-categories {
         background: url(images/category/categorybanner.jpg);
-        padding: 6rem 5px; /* Adjust padding for top/bottom */
+        padding: 6rem 5px;
         color: white;
-        overflow: hidden; /* To contain any potential overflow from designs */
+        overflow: hidden; 
         position: relative;
     }
 
@@ -729,21 +727,19 @@
         left: 0;
         right: 0;
         bottom: 0;
-        /* Create a repeating diagonal line pattern */
         background: url(images/category/categorybanner.jpg);
-        opacity: 0.8; /* Adjust opacity for subtlety */
+        opacity: 0.8; 
         z-index: 0;
     }
 
 
     .shop-header {
         max-width: 1200px;
-        margin: 0 auto 4rem; /* Space below header */
-        display: flex;
+        margin: 0 auto 4rem; 
         justify-content: space-between;
         align-items: center;
         padding: 0 20px;
-        position: relative; /* Ensure it stays above ::before */
+        position: relative; 
         z-index: 1;
     }
 
@@ -753,7 +749,7 @@
 
     .section-subtitle {
         font-size: 0.9rem;
-        color: #BB9577; /* Accent color */
+        color: #BB9577; 
         letter-spacing: 2px;
         text-transform: uppercase;
         margin-bottom: 5px;
@@ -761,9 +757,8 @@
     }
 
     .section-title {
-        font-size: 2.8rem; /* Larger font size as in the image */
-        font-weight: 400; /* Lighter font weight */
-        /* Changed to Playfair Display as it's a good elegant serif alternative and commonly imported */
+        font-size: 2.8rem; 
+        font-weight: 400;
         font-family: 'Playfair Display', serif;
         line-height: 1.2;
     }
@@ -789,12 +784,12 @@
     .category-list {
         max-width: 1200px;
         margin: 0 auto;
-        display: flex; /* Use flexbox for the linear layout */
-        justify-content: space-between; /* Distribute items evenly */
+        display: flex; 
+        justify-content: space-between; 
         align-items: center;
-        gap: 30px; /* Space between cards */
+        gap: 30px; 
         padding: 0 20px;
-        position: relative; /* For the connecting line */
+        position: relative;
         z-index: 1;
     }
 
@@ -805,8 +800,8 @@
         top: 50%;
         left: 0;
         right: 0;
-        height: 1px; /* Line thickness */
-        background-color: #BB9577; /* Line color */
+        height: 1px; 
+        background-color: #BB9577; 
         transform: translateY(-50%);
         z-index: 0;
     }
@@ -816,37 +811,20 @@
         content: '';
         position: absolute;
         top: 50%;
-        left: -8px; /* Offset to place it slightly outside the grid start */
+        left: -8px; 
         width: 16px;
         height: 16px;
-        background-color: #BB9577; /* Dot color */
+        background-color: #BB9577; 
         border-radius: 50%;
         transform: translateY(-50%);
-        z-index: 1; /* Above the line */
+        z-index: 1;
     }
 
-    /* Right end dot - using a separate class or specific targeting for the last child is better */
-    /* For simplicity and directly targeting the visual, we can extend the `::after` usage here */
-    /* A more robust solution for independent dots would involve adding specific classes in HTML */
-    /* or more complex pseudo-element targeting if the number of cards is dynamic. */
-    /* For this fixed 4-card layout, we'll keep it as a general ::after and
-    then override for the last card for the right dot positioning if needed,
-    or rely on the .category-card::after for the central dots */
-
-    /* Assuming the request means dots *at the ends* of the line, and *at each card's connection point*.
-    The previous `category-list::after` was used for the right end dot.
-    Let's ensure it covers both left and right if that's the intent.
-    The current setup uses `category-list::after` for the left end dot,
-    and for the right end dot, it's implicitly handled by the `category-card::after` on the last card,
-    or needs a separate rule if the line extends past the last card's dot.
-    Based on the image, the line seems to extend past the last card with a dot.
-    So, we need a separate pseudo-element for the rightmost dot on `category-list`.
-    */
-    .category-list.has-right-dot::after { /* Add a class to category-list for the right dot */
+    .category-list.has-right-dot::after { 
         content: '';
         position: absolute;
         top: 50%;
-        right: -8px; /* Offset for the right end dot */
+        right: -8px; 
         width: 16px;
         height: 16px;
         background-color: #BB9577;
@@ -858,14 +836,14 @@
     /*category-card style */
     .category-card {
         position: relative;
-        z-index: 1; /* Keep cards above the line */
-        padding: 30px 15px; /* Adjusted padding for the octagonal shape */
+        z-index: 1; 
+        padding: 30px 15px; 
         text-align: center;
         display: flex;
         flex-direction: column;
         align-items: center;
-        flex-basis: 25%; /* Each card takes roughly 25% width in a 4-column layout */
-        min-width: 220px; /* Minimum width to prevent crushing */
+        flex-basis: 25%; 
+        min-width: 220px; 
         box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
         transition: transform 0.3s ease, box-shadow 0.3s ease;
 
@@ -875,7 +853,7 @@
         );
         -webkit-clip-path: polygon(25% 0%, 75% 0%, 100% 25%, 100% 75%, 75% 100%, 25% 100%, 0% 75%, 0% 25%);
 
-        border: none; /* Ensure no direct border on the main element */
+        border: none;
     }
     .category-card::before {
         content: '';
@@ -884,9 +862,9 @@
         left: 2.5rem;
         right: 2.5rem;
         bottom: 1rem;
-        background-color: #2b1f1a;/* This ensures the background of the pseudo-element itself is transparent */
+        background-color: #2b1f1a;
         z-index: -1;
-        clip-path: inherit; /* Inherits the clip-path from .category-card */
+        clip-path: inherit; 
         -webkit-clip-path: inherit;
         transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
@@ -897,29 +875,22 @@
     }
 
     .category-card:hover::before {
-        transform: translateY(-5px); /* Match parent hover effect */
-        box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3); /* Ensure the shadow also applies to the background shape */
+        transform: translateY(-5px);
+        box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3); 
     }
 
     /* Dot on the connecting line at each card's center */
     .category-card::after {
         content: '';
         position: absolute;
-        /* Adjust this to align with the horizontal line's vertical center.
-        (padding-top + image height/2 + image margin + h3 margin + h3 line-height/2) - (dot height/2)
-        A simpler approach is to align relative to the bottom or top
-        and ensure the main line's position is adjusted.
-        Let's place it based on 50% height of the overall card's content area
-        or explicitly align with the `category-list::before` line's `top: 50%`
-        */
-        top: calc(50% - 8px); /* Position it vertically centered on the line (line is at 50% height) */
+        top: calc(50% - 8px); 
         left: 50%;
-        width: 16px; /* Dot size */
-        height: 16px; /* Dot size */
-        background-color: #BB9577; /* Dot color */
+        width: 16px; 
+        height: 16px;
+        background-color: #BB9577; 
         border-radius: 50%;
-        transform: translateX(-50%); /* Center horizontally */
-        z-index: 2; /* Ensure dot is above the card and line */
+        transform: translateX(-50%);
+        z-index: 2; 
     }
 
 
@@ -945,44 +916,44 @@
 
     .category-card h3 {
         font-size: 1.2rem;
-        margin-bottom: 10px; /* Increased margin to fit the line */
+        margin-bottom: 10px;
         color: #e0e0e0;
-        position: relative; /* Needed for ::after positioning */
-        padding-bottom: 8px; /* Add padding to give space for the line */
+        position: relative; 
+        padding-bottom: 8px; 
     }
 
     /* Horizontal line under category text */
     .category-card h3::after {
         content: '';
         display: block;
-        width: 40px; /* Length of the line */
-        height: 1px; /* Thickness of the line */
-        background-color: #BB9577; /* Color of the line */
-        margin: 5px auto 0; /* Center the line and provide spacing */
-        position: absolute; /* Position relative to h3 */
+        width: 40px; 
+        height: 1px; 
+        background-color: #BB9577; 
+        margin: 5px auto 0; 
+        position: absolute; 
         left: 50%;
         transform: translateX(-50%);
-        bottom: 0; /* Position at the bottom of the h3's content box */
+        bottom: 0; 
     }
 
     .category-card p {
         font-size: 0.85rem;
         color: #b0b0b0;
-        margin-top: 5px; /* Add a bit of space from the line under h3 */
+        margin-top: 5px; 
     }
 
     /* Responsive adjustments for this new section */
     @media (max-width: 768px) {
         .shop-by-categories {
-            padding: 3rem 15px; /* Adjust padding for mobile */
+            padding: 3rem 15px;
         }
 
         .shop-by-categories::before {
-            background: none; /* Hide diagonal background pattern on mobile for simplicity */
+            background: none; 
         }
 
         .shop-header {
-            flex-direction: column; /* Stack title and button */
+            flex-direction: column; 
             text-align: center;
             margin-bottom: 2rem;
             padding: 0;
@@ -994,23 +965,23 @@
         }
 
         .section-title {
-            font-size: 2rem; /* Smaller title for mobile */
+            font-size: 2rem; 
         }
 
         .make-order-btn {
-            width: fit-content; /* Adjust width to content */
-            margin: 0 auto; /* Center the button */
+            width: fit-content; 
+            margin: 0 auto;
             padding: 0.6rem 1.5rem;
             font-size: 0.8rem;
         }
 
         .category-list {
-            flex-direction: column; /* Stack cards vertically on mobile */
-            gap: 20px; /* Space between stacked cards */
+            flex-direction: column; 
+            gap: 20px; 
             padding: 0;
         }
 
-        /* Hide all connecting lines and dots on mobile */
+      
         .category-list::before,
         .category-list::after,
         .category-list.has-right-dot::after,
@@ -1019,30 +990,30 @@
         }
 
         .category-card {
-            width: 80%; /* Make cards take more width on mobile */
-            max-width: 250px; /* Limit max width for readability */
-            padding: 20px 15px; /* Adjusted padding for mobile octagons */
-            min-width: unset; /* Remove min-width constraint */
+            width: 80%; 
+            max-width: 250px; 
+            padding: 20px 15px; 
+            min-width: unset; 
         }
 
-        .category-card::before { /* Ensure the border pseudo-element is shown on mobile */
+        .category-card::before { 
             display: block;
         }
 
         .category-image {
-            width: 100px; /* Smaller images for mobile */
+            width: 100px; 
             height: 100px;
             margin-bottom: 10px;
         }
 
         .category-card h3 {
             font-size: 1.1rem;
-            margin-bottom: 8px; /* Adjust margin for mobile line */
+            margin-bottom: 8px;
             padding-bottom: 6px;
         }
         .category-card h3::after {
             bottom: 0;
-            margin: 3px auto 0; /* Adjust line spacing for mobile */
+            margin: 3px auto 0; 
         }
 
         .category-card p {
@@ -1060,28 +1031,27 @@
         }
 
         .section-title {
-            font-size: 2.5rem; /* Slightly smaller for tablets */
+            font-size: 2.5rem; 
         }
 
         .category-list {
-            flex-wrap: wrap; /* Allow cards to wrap to next line */
-            justify-content: center; /* Center cards if they wrap */
+            flex-wrap: wrap; 
+            justify-content: center; 
             gap: 25px;
         }
 
         .category-list::before {
-            left: 5%; /* Adjust line start/end */
+            left: 5%; 
             right: 5%;
-            content: ''; /* Ensure line is visible */
+            content: ''; 
         }
 
-        /* Show end dots for tablet but position within grid range */
-        .category-list::after { /* Left end dot */
-            left: calc(2.5% + 10px); /* Adjust to align with first card */
-            content: ''; /* Ensure dots are visible */
+        .category-list::after { 
+            left: calc(2.5% + 10px); 
+            content: '';
         }
-        .category-list.has-right-dot::after { /* Right end dot */
-            right: calc(2.5% + 10px); /* Adjust to align with last card */
+        .category-list.has-right-dot::after { 
+            right: calc(2.5% + 10px); 
             content: ''; 
         }
 
