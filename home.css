@@ -1,4 +1,4 @@
-/* Base styles - Mobile First Approach */
+
 * {
     margin: 0;
     padding: 0;
@@ -710,4 +710,441 @@ body {
 /* Larger Desktops (min-width: 1441px) - Optional, for very large screens */
 @media (min-width: 1441px) {
     /* You can add further adjustments here if needed for ultra-wide screens */
+}
+
+/* Shop by Categories Section */
+.shop-by-categories {
+    background-color: #2b211a; /* Dark background as per image */
+    padding: 6rem 20px; /* Adjust padding for top/bottom */
+    color: white;
+    overflow: hidden; /* To contain any potential overflow from designs */
+    position: relative;
+}
+
+/* Diagonal line background pattern */
+.shop-by-categories::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* Create a repeating diagonal line pattern */
+    background: repeating-linear-gradient(
+        45deg,
+        rgba(255, 255, 255, 0.05),
+        rgba(255, 255, 255, 0.05) 1px, /* Line thickness */
+        transparent 1px,
+        transparent 20px /* Spacing between lines */
+    );
+    opacity: 0.8; /* Adjust opacity for subtlety */
+    z-index: 0;
+}
+
+
+.shop-header {
+    max-width: 1200px;
+    margin: 0 auto 4rem; /* Space below header */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    position: relative; /* Ensure it stays above ::before */
+    z-index: 1;
+}
+
+.shop-header-text {
+    text-align: left;
+}
+
+.section-subtitle {
+    font-size: 0.9rem;
+    color: #BB9577; /* Accent color */
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.section-title {
+    font-size: 2.8rem; /* Larger font size as in the image */
+    font-weight: 400; /* Lighter font weight */
+    /* Changed to Playfair Display as it's a good elegant serif alternative and commonly imported */
+    font-family: 'Playfair Display', serif;
+    line-height: 1.2;
+}
+
+.make-order-btn {
+    border: 1px solid white;
+    padding: 0.8rem 1.8rem;
+    text-decoration: none;
+    color: white;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-transform: uppercase;
+}
+
+.make-order-btn:hover {
+    background-color: white;
+    color: #2b211a;
+}
+
+.category-list {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex; /* Use flexbox for the linear layout */
+    justify-content: space-between; /* Distribute items evenly */
+    align-items: center;
+    gap: 30px; /* Space between cards */
+    padding: 0 20px;
+    position: relative; /* For the connecting line */
+    z-index: 1;
+}
+
+/* Connecting Line */
+.category-list::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px; /* Line thickness */
+    background-color: #BB9577; /* Line color */
+    transform: translateY(-50%);
+    z-index: 0;
+}
+
+/* Dot at left end of the line */
+.category-list::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -8px; /* Offset to place it slightly outside the grid start */
+    width: 16px;
+    height: 16px;
+    background-color: #BB9577; /* Dot color */
+    border-radius: 50%;
+    transform: translateY(-50%);
+    z-index: 1; /* Above the line */
+}
+
+/* Right end dot - using a separate class or specific targeting for the last child is better */
+/* For simplicity and directly targeting the visual, we can extend the `::after` usage here */
+/* A more robust solution for independent dots would involve adding specific classes in HTML */
+/* or more complex pseudo-element targeting if the number of cards is dynamic. */
+/* For this fixed 4-card layout, we'll keep it as a general ::after and
+   then override for the last card for the right dot positioning if needed,
+   or rely on the .category-card::after for the central dots */
+
+/* Assuming the request means dots *at the ends* of the line, and *at each card's connection point*.
+   The previous `category-list::after` was used for the right end dot.
+   Let's ensure it covers both left and right if that's the intent.
+   The current setup uses `category-list::after` for the left end dot,
+   and for the right end dot, it's implicitly handled by the `category-card::after` on the last card,
+   or needs a separate rule if the line extends past the last card's dot.
+   Based on the image, the line seems to extend past the last card with a dot.
+   So, we need a separate pseudo-element for the rightmost dot on `category-list`.
+*/
+.category-list.has-right-dot::after { /* Add a class to category-list for the right dot */
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -8px; /* Offset for the right end dot */
+    width: 16px;
+    height: 16px;
+    background-color: #BB9577;
+    border-radius: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+ /*category-card style */
+.category-card {
+    position: relative;
+    z-index: 1; /* Keep cards above the line */
+    background-color: transparent; /* Make this transparent so the ::before element's background shows */
+    padding: 30px 15px; /* Adjusted padding for the octagonal shape */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-basis: 25%; /* Each card takes roughly 25% width in a 4-column layout */
+    min-width: 220px; /* Minimum width to prevent crushing */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    /* --- OCTAGON SHAPE --- */
+    clip-path: polygon(
+        25% 0%, 75% 0%, 100% 25%, 100% 75%, 75% 100%, 25% 100%, 0% 75%, 0% 25%
+    );
+    -webkit-clip-path: polygon(25% 0%, 75% 0%, 100% 25%, 100% 75%, 75% 100%, 25% 100%, 0% 75%, 0% 25%);
+
+    border: none; /* Ensure no direct border on the main element */
+}
+
+.category-card::before {
+    content: '';
+    position: absolute;
+    /* These negative values make the ::before element slightly larger than its parent */
+    top: -1px; 
+    left: -1px;
+    right: -1px;
+    bottom: -1px;
+     background-color: #3f322b;
+    /* This is the actual dark background color of the card */
+    border: 1px solid white; /* This creates the visible white border */
+    z-index: -1; /* Place it behind the main content (image, text) */
+    clip-path: inherit; /* Inherit the octagonal shape from the parent */
+    -webkit-clip-path: inherit;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Match parent transition for hover effects */
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+}
+
+.category-card:hover::before {
+    transform: translateY(-5px); /* Match parent hover effect */
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3); /* Ensure the shadow also applies to the background shape */
+}
+
+/* Dot on the connecting line at each card's center */
+.category-card::after {
+    content: '';
+    position: absolute;
+    /* Adjust this to align with the horizontal line's vertical center.
+       (padding-top + image height/2 + image margin + h3 margin + h3 line-height/2) - (dot height/2)
+       A simpler approach is to align relative to the bottom or top
+       and ensure the main line's position is adjusted.
+       Let's place it based on 50% height of the overall card's content area
+       or explicitly align with the `category-list::before` line's `top: 50%`
+    */
+    top: calc(50% - 8px); /* Position it vertically centered on the line (line is at 50% height) */
+    left: 50%;
+    width: 16px; /* Dot size */
+    height: 16px; /* Dot size */
+    background-color: #BB9577; /* Dot color */
+    border-radius: 50%;
+    transform: translateX(-50%); /* Center horizontally */
+    z-index: 2; /* Ensure dot is above the card and line */
+}
+
+
+.category-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 15px;
+    border: 2px solid #BB9577;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.category-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.category-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px; /* Increased margin to fit the line */
+    color: #e0e0e0;
+    position: relative; /* Needed for ::after positioning */
+    padding-bottom: 8px; /* Add padding to give space for the line */
+}
+
+/* Horizontal line under category text */
+.category-card h3::after {
+    content: '';
+    display: block;
+    width: 40px; /* Length of the line */
+    height: 1px; /* Thickness of the line */
+    background-color: #BB9577; /* Color of the line */
+    margin: 5px auto 0; /* Center the line and provide spacing */
+    position: absolute; /* Position relative to h3 */
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0; /* Position at the bottom of the h3's content box */
+}
+
+.category-card p {
+    font-size: 0.85rem;
+    color: #b0b0b0;
+    margin-top: 5px; /* Add a bit of space from the line under h3 */
+}
+
+/* Responsive adjustments for this new section */
+@media (max-width: 768px) {
+    .shop-by-categories {
+        padding: 3rem 15px; /* Adjust padding for mobile */
+    }
+
+    .shop-by-categories::before {
+        background: none; /* Hide diagonal background pattern on mobile for simplicity */
+    }
+
+    .shop-header {
+        flex-direction: column; /* Stack title and button */
+        text-align: center;
+        margin-bottom: 2rem;
+        padding: 0;
+        gap: 15px;
+    }
+
+    .shop-header-text {
+        text-align: center;
+    }
+
+    .section-title {
+        font-size: 2rem; /* Smaller title for mobile */
+    }
+
+    .make-order-btn {
+        width: fit-content; /* Adjust width to content */
+        margin: 0 auto; /* Center the button */
+        padding: 0.6rem 1.5rem;
+        font-size: 0.8rem;
+    }
+
+    .category-list {
+        flex-direction: column; /* Stack cards vertically on mobile */
+        gap: 20px; /* Space between stacked cards */
+        padding: 0;
+    }
+
+    /* Hide all connecting lines and dots on mobile */
+    .category-list::before,
+    .category-list::after,
+    .category-list.has-right-dot::after,
+    .category-card::after {
+        content: none;
+    }
+
+    .category-card {
+        width: 80%; /* Make cards take more width on mobile */
+        max-width: 250px; /* Limit max width for readability */
+        padding: 20px 15px; /* Adjusted padding for mobile octagons */
+        min-width: unset; /* Remove min-width constraint */
+    }
+
+    .category-card::before { /* Ensure the border pseudo-element is shown on mobile */
+        display: block;
+    }
+
+    .category-image {
+        width: 100px; /* Smaller images for mobile */
+        height: 100px;
+        margin-bottom: 10px;
+    }
+
+    .category-card h3 {
+        font-size: 1.1rem;
+        margin-bottom: 8px; /* Adjust margin for mobile line */
+        padding-bottom: 6px;
+    }
+    .category-card h3::after {
+        bottom: 0;
+        margin: 3px auto 0; /* Adjust line spacing for mobile */
+    }
+
+    .category-card p {
+        font-size: 0.8rem;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .shop-by-categories {
+        padding: 5rem 20px;
+    }
+
+    .shop-header {
+        margin-bottom: 3rem;
+    }
+
+    .section-title {
+        font-size: 2.5rem; /* Slightly smaller for tablets */
+    }
+
+    .category-list {
+        flex-wrap: wrap; /* Allow cards to wrap to next line */
+        justify-content: center; /* Center cards if they wrap */
+        gap: 25px;
+    }
+
+    .category-list::before {
+        left: 5%; /* Adjust line start/end */
+        right: 5%;
+        content: ''; /* Ensure line is visible */
+    }
+
+    /* Show end dots for tablet but position within grid range */
+    .category-list::after { /* Left end dot */
+        left: calc(2.5% + 10px); /* Adjust to align with first card */
+        content: ''; /* Ensure dots are visible */
+    }
+    .category-list.has-right-dot::after { /* Right end dot */
+        right: calc(2.5% + 10px); /* Adjust to align with last card */
+        content: ''; /* Ensure dots are visible */
+    }
+
+    .category-card {
+        flex-basis: 45%; /* Two cards per row on tablets */
+        max-width: 280px; /* Limit max-width to keep them manageable */
+        min-width: 200px;
+    }
+    .category-card::after { /* Show card connection dots for tablet */
+        content: '';
+    }
+}
+
+@media (min-width: 1025px) {
+    .shop-by-categories {
+        padding: 6rem 20px;
+    }
+
+    .shop-header {
+        margin-bottom: 4rem;
+    }
+
+    .section-title {
+        font-size: 2.8rem; /* Restore original desktop size */
+    }
+
+    .category-list {
+        flex-wrap: nowrap; /* No wrapping on large screens */
+        justify-content: space-between;
+        gap: 30px;
+    }
+
+    .category-list::before {
+        left: 0;
+        right: 0;
+        content: ''; /* Ensure line is visible */
+    }
+    .category-list::after { /* Left end dot */
+        left: -8px; /* Restore original desktop positioning for end dots */
+        content: ''; /* Ensure dots are visible */
+    }
+    .category-list.has-right-dot::after { /* Right end dot */
+        right: -8px; /* Restore original desktop positioning for end dots */
+        content: ''; /* Ensure dots are visible */
+    }
+
+
+    .category-card {
+        flex-basis: 25%; /* Restore 4-column layout */
+        min-width: 220px;
+    }
+    .category-card::after { /* Show card connection dots for desktop */
+        content: '';
+    }
 }
