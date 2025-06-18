@@ -1264,7 +1264,6 @@
     .promo-video {
     background-color: #f5f5f5;
     }
-
     .video-wrapper {
     position: relative;
     width: 100%;
@@ -1274,7 +1273,6 @@
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     }
-
     .video-wrapper iframe {
     position: absolute;
     top: 0;
