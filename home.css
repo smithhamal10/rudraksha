@@ -1729,5 +1729,88 @@
   width: 500px;
 }
 .image-wrapper img {
- width: 100%;
+ width: 80%;
+}
+.container {
+    display: flex; /* Arranges the two sections side by side */
+    justify-content: center; /* Centers the sections horizontally */
+    gap: 30px; /* Space between the two sections */
+    padding: 20px; /* Overall padding around the sections */
+    font-family: sans-serif; /* A common sans-serif font */
+}
+.product-section {
+    background-color: transparent; /* White background for each section */
+    border: 1px solid #E0C2AA; /* Light border */
+    padding: 20px;
+    width: 440px; /* Adjust width as needed, or use flex-basis */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    position: relative; /* For positioning the sale badge */
+    display: flex; /* To arrange content inside (image and text) */
+    flex-direction: column; /* Stack image and text vertically by default */
+    align-items: center; /* Center content horizontally */
+    text-align: center; /* Center text */
+}
+
+
+.product-section img {
+    max-width: 70%; /* Ensure images are responsive */
+    height: auto;
+    margin-bottom: 10px; /* Space below the image */
+}
+.sale-badge {
+    position: absolute;
+    top: 15px; /* Adjust as needed */
+    right: 15px; /* Adjust as needed */
+    background-color:burlywood;
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 50%; /* Makes it circular */
+    font-size: 0.8em;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px; /* Adjust for circular shape */
+    height: 60px; /* Adjust for circular shape */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Shadow for the badge */
+}
+
+.product-section.right .sale-badge {
+    top: auto; /* Override top for the right section */
+    bottom: 5px; /* Position at the bottom for the right section */
+}
+
+.text-content {
+    margin-top: 10px; /* Space above text content if needed */
+    width: 100%; /* Ensure text content takes full width within the section */
+}
+
+.text-content h3 {
+    font-size: 1em;
+    color: #894726;
+    margin-bottom: 10px;
+    font-weight: normal; /* Appears not bold */
+    margin-right: 180px;
+}
+
+.text-content p {
+    font-size: 1.6em;
+    color: black;
+    line-height: 1.5;
+    margin-bottom: 10px;
+    font-weight: bold;
+    margin-left: 59px;
+    text-align: left;
+}
+.add-to-cartb {
+    display: inline-block;
+    padding: 10px 30px;
+    color: #333; /* Dark text color */
+    border: 1px solid #E0C2AA; /* Border color */
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-size: 0.7em;
+    font-weight: bold;
+    margin-right:125px ;
+    
 }
