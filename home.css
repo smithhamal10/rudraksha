@@ -1245,9 +1245,10 @@
     width: 100%;
     height: 100%;
     }
+/* --- Premium Collection Section --- */
 .premium-collection {
     padding: 80px 20px;
-    background-color: #ffffff;
+    background-color: #ffffff; /* White background for the section */
     text-align: center;
 }
 
@@ -1259,44 +1260,43 @@
     font-size: 2.8em;
     color: #333;
     margin-bottom: 15px;
-    font-family: 'Times New Roman', serif; 
-    font-weight: normal; 
+    font-family: 'Times New Roman', serif;
+    font-weight: normal;
 }
 
 .premium-collection-header .section-subtitle {
     font-size: 1.1em;
-    color:black;
+    color: black;
     max-width: 700px;
     margin: 0 auto;
     line-height: 1.6;
 }
 
+/* --- Premium Collection Grid --- */
 .premium-collection-grid {
     max-width: 1200px;
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px; 
-    justify-content: center; 
-    align-items: stretch; 
+    gap: 20px;
+    justify-content: center;
+    align-items: stretch;
 }
 
+/* --- Base Premium Card Styles (for ALL cards) --- */
 .premium-card {
-    background-color: #000;
+    background-color: #000; /* Default black background */
     color: #fff;
     overflow: hidden;
     position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end; 
-    padding: 20px; 
-    min-height: 300px; 
+    padding: 0; /* Padding will be handled by inner wrappers */
+    min-height: 300px; /* Base min height */
     text-align: left;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.3); 
-    background-size: cover; 
-    background-position: center;
-    background-repeat: no-repeat;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    display: flex; /* Make premium-card a flex container */
+    flex-direction: column; /* Default for content to stack vertically */
+    border-radius: 10px; /* Added border-radius here for consistency */
 }
 
 .premium-card:hover {
@@ -1304,170 +1304,315 @@
     box-shadow: 0 12px 25px rgba(0,0,0,0.4);
 }
 
-
-
-.premium-collection-grid > div:nth-child(1) { 
-    background-image: url('images/collection/mala.png');
-    grid-column: span 2; 
-    min-height: 350px; /
-}
-
-.premium-collection-grid > div:nth-child(2) { 
-    background-image: url('images/collection/bracelet.png');
-     grid-column: span 2; 
-    min-height: 350px; 
-}
-
-.premium-collection-grid > div:nth-child(3) { 
-    background-image: url('images/collection/collection.png');
-    grid-column: span 2; 
-    min-height: 350px; 
-}
-
-.premium-collection-grid > div:nth-child(4) {
-    background-image: url('images/collection/rudraksha.png');
-}
-
-.premium-collection-grid > div:nth-child(5) { 
-    background-image: url('images/collection/mala2.png');
-}
-
-
-/* Overlay for text readability on images */
-.premium-card::before {
+/* Overlay for text readability (applies to cards where image is background) */
+/* This now only applies to .bg-image-card (if you choose to use it) */
+.premium-card.bg-image-card::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 50%); 
-    z-index: 1; 
-    border-radius: 10px; 
+    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 50%);
+    z-index: 1;
+    border-radius: 10px;
 }
 
+/* Wrapper for content inside ALL cards to ensure correct layering */
+.card-content-wrapper {
+    position: relative;
+    z-index: 2; /* Ensures content is above the overlay/background */
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Allows content wrapper to fill available space */
+    padding: 30px; /* Inner padding for text and button */
+    box-sizing: border-box;
+    /* Default justify-content is now set per card type */
+}
+
+/* --- Type 1: Large Card (Side-by-side layout) --- */
+.premium-card.large-card {
+    grid-column: span 2;
+    min-height: 350px; /* Made slightly taller to accommodate side-by-side */
+    background-color: #000;
+    /* Re-added the pattern background for large cards - uncomment and set path if you have one */
+    /* background-image: url('./images/patterns/dark_pattern.png'); */
+    background-repeat: repeat;
+    flex-direction: row; /* Arranges content and image side-by-side */
+    justify-content: space-between;
+    align-items: center; /* Vertically center content and image */
+    padding: 0; /* Padding handled by inner divs */
+}
+
+.premium-card.large-card .card-content-wrapper {
+    flex: 3; /* Content takes 60% of width */
+    padding: 40px;
+    height: 100%;
+    justify-content: flex-end; /* Push its children to the bottom */
+}
+
+.premium-card.large-card .card-image {
+    flex: 2; /* Image takes 40% of width */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 120%;
+    overflow: hidden;
+    padding: 60px;
+}
+
+.premium-card.large-card .card-image img {
+    max-width: 170%; /* Changed from 120% to avoid overflow on some images */
+    max-height: 100%; /* Changed from 120% */
+    object-fit: contain; /* Changed from 'cover' to 'contain' to prevent cropping for product images */
+    display: block;
+}
+
+.premium-card.large-card::before { /* No overlay for this type */
+    display: none;
+}
+
+/* --- Type 2: Small Centered Image Card (Rudraksha, Mala from image_5e0601.png) --- */
+.premium-card.bg-small-card { /* Using 'bg-small-card' as per your HTML */
+    background-color: #000; /* Solid black background */
+    min-height: 300px; /* Standard height for these cards */
+    /* flex-direction: column is default from .premium-card base style */
+}
+
+.premium-card.bg-small-card::before { /* No overlay for this type as image is explicit */
+    display: none;
+}
+
+.premium-card.bg-small-card .card-content-wrapper {
+    padding: 20px 30px; /* Padding for the content inside */
+    justify-content: space-between; /* Push top text and bottom button apart */
+    align-items: center; /* Center horizontally (for text, button, and image) */
+    text-align: center; /* Center align text elements */
+    height: 100%; /* Ensure wrapper takes full height */
+    box-sizing: border-box;
+}
+
+.premium-card.bg-small-card .new-collection-tag,
+.premium-card.bg-small-card h3,
+.premium-card.bg-small-card .add-to-cart-btn {
+    text-align: center; /* Override default left-align for these cards */
+    width: 100%; /* Ensure they take full width for centering */
+}
+
+.premium-card.bg-small-card h3 {
+    margin-top: 10px; /* Space between tag and title */
+    margin-bottom: auto; /* Push content below it (image and button) towards bottom */
+}
+
+.premium-card.bg-small-card .add-to-cart-btn {
+    margin-top: auto; /* Push button towards bottom */
+    align-self: center; /* Center the button itself within the flex container */
+}
+
+.premium-card.bg-small-card img { /* This targets the <img> directly inside card-content-wrapper for small cards */
+    max-width: 100%; /* Image fits its horizontal space */
+    max-height: 180px; /* Control image height to make it "small" */
+    object-fit: contain; /* Maintain aspect ratio */
+    margin: auto 0; /* Center vertically within the remaining space */
+    display: block; /* Remove extra space below img */
+}
+
+/* --- Type 3: Background Image Card (Example: if you want a card where image is background) --- */
+/* This section is currently NOT used by your provided HTML. */
+.premium-card.bg-image-card {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* The ::before overlay is defined specifically for this class above */
+}
+.premium-card.bg-image-card .card-content-wrapper {
+    justify-content: flex-end; /* Push content to bottom */
+    padding: 30px;
+}
+
+
+/* --- Common Card Content Styling (for all cards, overridden if needed) --- */
 .premium-card .new-collection-tag {
-    position: absolute;
-    top: 20px;
-    left: 20px;
     color: #f6b562;
-    padding: 8px 15px;
-    border-radius: 5px;
     font-size: 0.85em;
     font-weight: bold;
-    z-index: 2; 
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
 }
 
 .premium-card h3 {
-    font-size: 1.8em;
-    margin-bottom: 15px;
-    position: relative;
-    z-index: 2;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    font-size: 2.2em;
+    color: #fff;
+    margin-bottom: 20px;
+    font-family: 'Arial Black', sans-serif;
+    font-weight: 900;
+    line-height: 1.1;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
 }
 
 .premium-card .add-to-cart-btn {
-    background-color: transparent; 
-    color: #f6b562; 
-    border: 2px solid #f6b562; 
-    padding: 10px 10px;
+    background-color: transparent;
+    color: #f6b562;
+    border: 2px solid #f6b562;
+    padding: 12px 25px;
     cursor: pointer;
-    font-size: 0.95em;
+    font-size: 1.1em;
     font-weight: bold;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    position: relative; 
-    z-index: 2;
-    display: inline-flex; 
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    display: inline-flex;
     align-items: center;
-    gap: 3px; 
-    width: 150px;
+    gap: 8px;
+    width: fit-content;
+    text-decoration: none;
+    /* margin-top: auto; is handled specifically by each card type's wrapper */
 }
 
 .premium-card .add-to-cart-btn:hover {
-    background-color: #a0522d; 
+    background-color: #a0522d;
     border-color: #a0522d;
+    color: #fff;
 }
 
-/* Responsive Styles */
+/* --- Background Images for Specific Cards (for .bg-image-card, if used) --- */
+/* Your HTML currently doesn't use .bg-image-card, so these rules are not applied. */
+/* If you want card 4 or 5 to be bg-image-card type, you need to change their HTML class */
+/* and then add their background-image here, e.g.: */
+/* .premium-collection-grid > div:nth-child(4) {
+    background-image: url('images/collection/collection4.png');
+}
+.premium-collection-grid > div:nth-child(5) {
+    background-image: url('images/collection/colection5.png');
+} */
+
+
+/* --- Responsive Styles --- */
 @media (max-width: 992px) {
-    /* Adjust grid for tablets */
     .premium-collection-grid {
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    }
-    .premium-collection-grid > div:nth-child(1),
-    .premium-collection-grid > div:nth-child(3),
-    .premium-collection-grid > div:nth-child(2){
-        grid-column: span 1; /* Reset large cards to single column on tablets */
-    }
-}
-
-@media (max-width: 768px) {
-    /* Further adjust grid for smaller tablets/large phones */
-    .premium-collection-grid {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
         gap: 15px;
     }
 
-    .premium-card {
-        min-height: 280px;
-        padding: 15px;
+    /* Large cards will now revert to vertical stacking on tablets */
+    .premium-card.large-card {
+        grid-column: span 1; /* Revert to single column */
+        flex-direction: column; /* Stack image and content vertically */
+        min-height: 350px; /* Keep height for readability */
+        padding: 0; /* Padding handled by inner wrapper */
+        background-size: cover; /* Cover the whole card with its pattern/background */
     }
 
-    .premium-card h3 {
-        font-size: 1.6em;
+    .premium-card.large-card .card-content-wrapper {
+        flex: auto; /* Allow it to grow as needed */
+        padding: 30px; /* Adjust padding for stacked layout */
+        justify-content: flex-end; /* Push content to bottom */
     }
 
-    .premium-card .new-collection-tag {
-        top: 15px;
-        left: 15px;
-        padding: 6px 12px;
-        font-size: 0.8em;
+    .premium-card.large-card .card-image {
+        padding: 0; /* Remove padding */
+        height: 180px; /* Set a fixed height for image area */
+        flex: none; /* Don't let it grow */
+        width: 100%; /* Ensure it takes full width for stacking */
+    }
+    .premium-card.large-card .card-image img {
+        height: 100%; /* Image fills its container height */
+        width: auto; /* Auto width */
+        max-width: 100%; /* Ensure it doesn't overflow on mobile */
     }
 
-    .premium-card .add-to-cart-btn {
-        padding: 8px 16px;
-        font-size: 0.9em;
+    .premium-card.large-card::before { /* Re-introduce overlay for stacked large cards */
+        display: block;
+        background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 50%);
     }
 
-    .section-title {
+    /* Small Centered Image Cards */
+    .premium-card.bg-small-card img {
+        max-height: 150px; /* Adjust image size on smaller screens */
+    }
+    .premium-card.bg-small-card .card-content-wrapper {
+        padding: 20px;
+    }
+    .premium-card.bg-small-card h3 {
         font-size: 2em;
     }
-    .section-subtitle {
+
+    /* General card adjustments */
+    .premium-card:not(.large-card) { /* Targets bg-small-card and any potential bg-image-card */
+        min-height: 280px;
+    }
+    .premium-card h3 {
+        font-size: 2em;
+    }
+    .premium-card .add-to-cart-btn {
+        padding: 10px 20px;
         font-size: 1em;
     }
 }
 
-@media (max-width: 576px) {
-    /* Stack cards on extra small screens (mobile phones) */
+@media (max-width: 768px) {
     .premium-collection-grid {
-        grid-template-columns: 1fr; /* Single column */
-        gap: 20px;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
     }
-
-    .premium-collection-grid > div:nth-child(1),
-    .premium-collection-grid > div:nth-child(3) {
-        grid-column: span 1; /* Ensure they are single column */
-        min-height: 300px; /* Adjust height for mobile */
+    .card-content-wrapper {
+        padding: 20px;
     }
-
     .premium-card {
-        min-height: 250px; 
+        min-height: 250px;
     }
-
-    .premium-collection {
-        padding: 40px 15px;
+    .premium-card h3 {
+        font-size: 1.8em;
     }
-
-    .premium-collection-header {
-        margin-bottom: 30px;
+    .premium-card .new-collection-tag {
+        font-size: 0.8em;
     }
-
-    .premium-collection-header .section-title {
-        font-size: 2em;
-    }
-
-    .premium-collection-header .section-subtitle {
+    .premium-card .add-to-cart-btn {
+        padding: 8px 16px;
         font-size: 0.9em;
+        gap: 5px;
+    }
+    .premium-collection-header .section-title {
+        font-size: 2.2em;
+    }
+    .premium-collection-header .section-subtitle {
+        font-size: 1em;
+    }
+    .premium-card.bg-small-card img {
+        max-height: 120px;
     }
 }
 
+@media (max-width: 576px) {
+    .premium-collection-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    /* All cards will be single column on mobile */
+    .premium-card.large-card {
+        min-height: 280px;
+    }
+    .premium-card.large-card .card-image {
+        height: 120px; /* Smaller image height on mobile */
+    }
+    .premium-card {
+        min-height: 250px;
+    }
+    .card-content-wrapper {
+        padding: 20px;
+    }
+    .premium-collection {
+        padding: 40px 15px;
+    }
+    .premium-collection-header {
+        margin-bottom: 30px;
+    }
+    .premium-collection-header .section-title {
+        font-size: 1.8em;
+    }
+    .premium-collection-header .section-subtitle {
+        font-size: 0.9em;
+    }
+    .premium-card.bg-small-card img {
+        max-height: 100px;
+    }
+}
