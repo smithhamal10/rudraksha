@@ -1245,9 +1245,9 @@
     width: 100%;
     height: 100%;
     }
-    .premium-collection {
+.premium-collection {
     padding: 80px 20px;
-    background-color: #ffffff; /* White background for this section */
+    background-color: #ffffff;
     text-align: center;
 }
 
@@ -1259,13 +1259,13 @@
     font-size: 2.8em;
     color: #333;
     margin-bottom: 15px;
-    font-family: 'Times New Roman', serif; /* To match the elegant font from the image */
-    font-weight: normal; /* To match the image style */
+    font-family: 'Times New Roman', serif; 
+    font-weight: normal; 
 }
 
 .premium-collection-header .section-subtitle {
     font-size: 1.1em;
-    color: #666;
+    color:black;
     max-width: 700px;
     margin: 0 auto;
     line-height: 1.6;
@@ -1275,26 +1275,25 @@
     max-width: 1200px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Default for smaller cards, adaptable */
-    gap: 20px; /* Space between cards */
-    justify-content: center; /* Center items when they don't fill the row */
-    align-items: stretch; /* Ensure cards of similar height if content varies (though we're setting min-height) */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px; 
+    justify-content: center; 
+    align-items: stretch; 
 }
 
 .premium-card {
-    background-color: #000; /* Black background for cards */
+    background-color: #000;
     color: #fff;
-    border-radius: 10px;
     overflow: hidden;
     position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end; /* Align content to the bottom */
-    padding: 20px; /* Inner padding */
-    min-height: 300px; /* Minimum height for cards to maintain consistent sizing */
+    justify-content: flex-end; 
+    padding: 20px; 
+    min-height: 300px; 
     text-align: left;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.3); /* Subtle shadow */
-    background-size: cover; /* Ensure background image covers the area */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3); 
+    background-size: cover; 
     background-position: center;
     background-repeat: no-repeat;
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
@@ -1305,31 +1304,31 @@
     box-shadow: 0 12px 25px rgba(0,0,0,0.4);
 }
 
-/* Specific background images for each card, matching the layout in your image */
-/* Make sure these image paths are correct for your project */
-.premium-collection-grid > div:nth-child(1) { /* First card: Mala */
+
+
+.premium-collection-grid > div:nth-child(1) { 
     background-image: url('images/collection/mala.png');
-    /* This card in the image looks wider than others */
-    grid-column: span 2; /* Span two columns on larger screens */
-    min-height: 350px; /* Slightly taller for the large card */
+    grid-column: span 2; 
+    min-height: 350px; /
 }
 
-.premium-collection-grid > div:nth-child(2) { /* Second card: Bracelet */
+.premium-collection-grid > div:nth-child(2) { 
     background-image: url('images/collection/bracelet.png');
+     grid-column: span 2; 
+    min-height: 350px; 
 }
 
-.premium-collection-grid > div:nth-child(3) { /* Third card: Collection */
+.premium-collection-grid > div:nth-child(3) { 
     background-image: url('images/collection/collection.png');
-    /* This card in the image also looks wider */
-    grid-column: span 2; /* Span two columns on larger screens */
-    min-height: 350px; /* Slightly taller for the large card */
+    grid-column: span 2; 
+    min-height: 350px; 
 }
 
-.premium-collection-grid > div:nth-child(4) { /* Fourth card: Rudraksha */
+.premium-collection-grid > div:nth-child(4) {
     background-image: url('images/collection/rudraksha.png');
 }
 
-.premium-collection-grid > div:nth-child(5) { /* Fifth card: Mala (second) */
+.premium-collection-grid > div:nth-child(5) { 
     background-image: url('images/collection/mala2.png');
 }
 
@@ -1342,53 +1341,51 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 50%); /* Dark gradient from bottom */
-    z-index: 1; /* Ensure overlay is below text but above image */
-    border-radius: 10px; /* Match card border-radius */
+    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 50%); 
+    z-index: 1; 
+    border-radius: 10px; 
 }
 
 .premium-card .new-collection-tag {
     position: absolute;
     top: 20px;
     left: 20px;
-    background-color: #a0522d; /* Sienna color for the tag */
-    color: #fff;
+    color: #f6b562;
     padding: 8px 15px;
     border-radius: 5px;
     font-size: 0.85em;
     font-weight: bold;
-    z-index: 2; /* Above the overlay */
+    z-index: 2; 
 }
 
 .premium-card h3 {
     font-size: 1.8em;
     margin-bottom: 15px;
-    position: relative; /* To be above the overlay */
+    position: relative;
     z-index: 2;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.5); /* For better readability on image */
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
 }
 
 .premium-card .add-to-cart-btn {
-    background-color: transparent; /* Transparent background */
-    color: #fff; /* White text */
-    border: 2px solid #fff; /* White border */
-    padding: 10px 20px;
-    border-radius: 5px;
+    background-color: transparent; 
+    color: #f6b562; 
+    border: 2px solid #f6b562; 
+    padding: 10px 10px;
     cursor: pointer;
     font-size: 0.95em;
     font-weight: bold;
     transition: background-color 0.3s ease, color 0.3s ease;
-    position: relative; /* To be above the overlay */
+    position: relative; 
     z-index: 2;
-    display: inline-flex; /* Allows text and arrow to align */
+    display: inline-flex; 
     align-items: center;
-    gap: 8px; /* Space between text and arrow */
+    gap: 3px; 
+    width: 150px;
 }
 
 .premium-card .add-to-cart-btn:hover {
-    background-color: #a0522d; /* Sienna background on hover */
-    border-color: #a0522d; /* Sienna border on hover */
-    color: #fff;
+    background-color: #a0522d; 
+    border-color: #a0522d;
 }
 
 /* Responsive Styles */
