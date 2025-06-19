@@ -1746,9 +1746,9 @@
     box-sizing: border-box; /* Include padding and border in the element's total width and height */
     position: relative; /* For positioning the sale badge */
     display: flex; /* To arrange content inside (image and text) */
-    flex-direction: column; /* Stack image and text vertically by default */
-    align-items: center; /* Center content horizontally */
-    text-align: center; /* Center text */
+    flex-direction: column; 
+    align-items: center; 
+    text-align: center; 
 }
 
 
