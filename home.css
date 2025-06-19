@@ -164,7 +164,7 @@
     }
 
     .hero-content {
-        max-width: 1200px;
+        max-width: 100px;
         margin: 0 auto;
         padding: 0; 
         display: flex;
@@ -1226,25 +1226,60 @@
     .slider-arrow.right {
     right: 0;
     }
-    .promo-video {
+/* Base Styles for all screen sizes */
+.promo-video {
     background-color: #f5f5f5;
-    }
-    .video-wrapper {
-    position: relative;
-    width: 100%;
-    max-width: 2000px;
-    margin: 0 auto;
-    padding-bottom: 56.25%; 
+}
+.video-wrapper {
+    position: relative;/* Adjust this max-width for typical desktop video width */
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio (9 / 16 = 0.5625) */
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    }
-    .video-wrapper iframe {
+}
+
+.video-wrapper iframe {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+    border: none; /* Remove default iframe border */
+}
+
+/* Tablet (Portrait and Landscape) & Smaller Laptops */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .promo-video {
+        padding: 50px 25px;
     }
+    .video-wrapper {
+        max-width: 90%; /* Adjust maximum width to fit tablets better */
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08); /* Slightly less pronounced shadow */
+    }
+}
+
+/* Mobile Devices (Portrait and Landscape) */
+@media (max-width: 767px) {
+    .promo-video {
+        padding: 30px 15px; /* Less padding for mobile screens */
+    }
+    .video-wrapper {
+        width: 95%; /* Take almost full width, with a small margin */
+        padding-bottom: 65%; /* Adjust aspect ratio slightly for some mobile devices if needed, e.g., 4:3 videos or to make it a bit taller for easier tapping */
+        /* Or stick to 56.25% if 16:9 is strictly desired */
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05); /* Lighter shadow on mobile */
+        border-radius: 5px; /* Slightly less rounded corners */
+    }
+}
+
+/* Even smaller mobile devices (e.g., iPhone SE) */
+@media (max-width: 480px) {
+    .promo-video {
+        padding: 20px 10px;
+    }
+    .video-wrapper {
+        width: 98%; /* Almost full width with minimal side padding */
+    }
+}
 /* --- Premium Collection Section --- */
 .premium-collection {
     padding: 80px 20px;
@@ -1474,19 +1509,6 @@
     border-color: #a0522d;
     color: #fff;
 }
-
-/* --- Background Images for Specific Cards (for .bg-image-card, if used) --- */
-/* Your HTML currently doesn't use .bg-image-card, so these rules are not applied. */
-/* If you want card 4 or 5 to be bg-image-card type, you need to change their HTML class */
-/* and then add their background-image here, e.g.: */
-/* .premium-collection-grid > div:nth-child(4) {
-    background-image: url('images/collection/collection4.png');
-}
-.premium-collection-grid > div:nth-child(5) {
-    background-image: url('images/collection/colection5.png');
-} */
-
-
 /* --- Responsive Styles --- */
 @media (max-width: 992px) {
     .premium-collection-grid {
@@ -1619,528 +1641,3 @@
         max-height: 100px;
     }
 }
-.product-showcase {
-    display: flex;
-    /* Main background color will come from .product-details and .product-image-container */
-    width: 90%; /* Adjust as needed, or set max-width */
-    max-width: 1200px; /* Max width for the section */
-    border-radius: 5px; /* Slightly rounded corners for the whole section (optional, image doesn't show it) */
-    overflow: hidden; /* Important for containing angled sections or pseudo-elements */
-    position: relative; /* For positioning absolute elements like corners */
-    min-height: 550px; /* Minimum height to ensure content fits and angles are visible */
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1); /* Subtle shadow for depth */
-}
-
-.product-details {
-    flex: 1.2; /* Takes slightly more space than the image */
-    padding: 80px 60px; /* Adjust padding as needed for spacing */
-    position: relative;
-    z-index: 2; /* Ensures content is above potential background shapes */
-    color: #E0DEDC; /* Slightly lighter text for readability in dark section */
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Vertically center content */
-    align-items: flex-start; /* Align text to the left */
-
-    /* Angled background for the product-details section */
-    background-color: #4C413E; /* Dark brown from the image */
-    /* This clip-path creates the top-right and bottom-right angles */
-    /* Values are approximate, fine-tune them if needed */
-    clip-path: polygon(0% 0%, 95% 0%, 100% 100%, 0% 100%);
-    /* Transition for a subtle effect if content changes or layout animates */
-    transition: clip-path 0.3s ease-in-out;
-}
-
-
-.product-image-container {
-    flex: 1; /* Takes slightly less space than the details section */
-    background-color: #F8F8F8; /* Very light grey/white background for the image section */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden; /* Hide overflowing parts of the image */
-    position: relative;
-    z-index: 1; /* Image background is behind the details section for the angle overlap */
-}
-
-.product-image-container img {
-    max-width: 90%; /* Adjust max-width of the image within its container */
-    height: auto;
-    display: block;
-    object-fit: contain; /* Ensures the whole image is visible within its container */
-    padding: 20px; /* Add some padding around the image if needed, or remove if already well-spaced */
-    position: relative; /* To be above pseudo-elements */
-    z-index: 2; /* Ensure image is above the background outlines */
-}
-
-/* Subtle background rectangle outlines on the image side */
-.product-image-container::before,
-.product-image-container::after {
-    content: '';
-    position: absolute;
-    border: 1px solid rgba(0, 0, 0, 0.05); /* Very subtle, light grey border */
-    z-index: 1; /* Behind the image */
-}
-
-.product-image-container::before {
-    width: 60%; /* Adjust size */
-    height: 70%; /* Adjust size */
-    top: 15%;
-    left: 10%;
-    transform: rotate(5deg); /* Slight rotation as seen in the image */
-}
-
-.product-image-container::after {
-    width: 50%; /* Adjust size */
-    height: 60%; /* Adjust size */
-    bottom: 10%;
-    right: 15%;
-    transform: rotate(-8deg); /* Slight rotation in the opposite direction */
-}
-
-
-.tagline {
-    font-size: 0.85em;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    margin-bottom: 15px;
-    color: #CCAA88; /* Gold/bronze color for tagline */
-    font-weight: 600;
-}
-
-.product-title {
-    font-family: 'Playfair Display', serif; /* Elegant serif font */
-    font-size: 3.2em; /* Adjust size for impact */
-    font-weight: 700;
-    line-height: 1.1;
-    margin-bottom: 25px;
-    color: #FFF; /* Pure white for the main title */
-    /* For the faint, semi-transparent bracelet illustration in the background */
-    /* This requires a background image (SVG or PNG) and careful positioning */
-    background-image: url('images/collection/bracelet_outline.png'); /* Replace with your actual faint bracelet image */
-    background-repeat: no-repeat;
-    background-size: 70% auto; /* Adjust size as needed */
-    background-position: 80% 120px; /* Adjust position relative to the title */
-    background-blend-mode: overlay; /* To make it blend subtly */
-    opacity: 0.08; /* Make it very faint */
-    position: relative; /* To ensure text is above this background */
-    z-index: 0; /* Behind the text content */
-}
-
-.product-title::before { /* To ensure text is on top of the background image */
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 1; /* Higher z-index for the text content */
-}
-
-.description {
-    font-size: 0.9em;
-    line-height: 1.8;
-    margin-bottom: 35px;
-    max-width: 480px; /* Limit description width for readability */
-    color: #C0C0C0; /* Lighter grey for description */
-}
-
-.price-info {
-    display: flex;
-    align-items: baseline;
-    margin-bottom: 35px;
-}
-
-.current-price {
-    font-size: 2.2em; /* Larger current price */
-    font-weight: 600;
-    color: #CCAA88; /* Gold/bronze for current price */
-    margin-right: 18px;
-}
-
-.original-price {
-    font-size: 1.1em;
-    text-decoration: line-through;
-    color: #888; /* Faded color for original price */
-}
-
-.make-order-button {
-    background-color: transparent;
-    color: #FFF;
-    border: 1px solid #CCAA88; /* Gold/bronze border */
-    padding: 14px 30px; /* More padding for a larger button */
-    font-size: 0.9em;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-    display: flex;
-    align-items: center;
-    width: fit-content; /* Button width adjusts to content */
-    font-weight: 600;
-}
-
-.make-order-button:hover {
-    background-color: #CCAA88; /* Gold/bronze on hover */
-    color: #4C413E; /* Dark text on hover */
-    border-color: #CCAA88; /* Keep border color consistent */
-}
-
-.make-order-button::after {
-    content: '→'; /* Right arrow character */
-    margin-left: 12px; /* Space between text and arrow */
-    font-size: 1.2em; /* Make arrow slightly larger */
-    line-height: 1; /* Align arrow vertically */
-}
-
-/* Decorative Corners - This is where using SVG is crucial for exact match */
-/* The HTML already includes <div class="corner top-left"></div> and <div class="corner bottom-right"></div> */
-
-.corner {
-    position: absolute;
-    width: 100px; /* Adjust size of the corner SVG as needed */
-    height: 100px;
-    background-repeat: no-repeat;
-    background-size: contain; /* Ensure SVG scales within the div */
-    z-index: 3; /* Ensure corners are on top */
-    /* You NEED to create/find SVG files for your ornate corners */
-    /* Example: path/to/your/ornate_corner_tl.svg */
-}
-
-.corner.top-left {
-    top: 25px; /* Adjust positioning */
-    left: 25px;
-    background-image: url('images/decorative_corners/corner-top-left.svg'); /* Replace with your actual SVG path */
-    transform: rotate(0deg); /* Adjust rotation if your SVG isn't already oriented */
-}
-
-.corner.bottom-right {
-    bottom: 25px; /* Adjust positioning */
-    right: 25px;
-    background-image: url('images/decorative_corners/corner-bottom-right.svg'); /* Replace with your actual SVG path */
-    transform: rotate(180deg); /* Rotate if the SVG is the same for all corners */
-}
-
-/* Responsive Design */
-@media (max-width: 992px) {
-    .product-showcase {
-        flex-direction: column; /* Stack columns on smaller screens */
-        width: 100%;
-        margin: 0;
-        border-radius: 0;
-        min-height: auto; /* Allow height to adjust */
-    }
-
-    .product-details {
-        padding: 50px 30px;
-        text-align: center;
-        clip-path: none; /* Remove clip-path on small screens for a cleaner stack */
-        width: 100%; /* Take full width */
-        order: 2; /* Put details below image on mobile */
-    }
-
-    .product-title {
-        font-size: 2.5em; /* Adjust font size for smaller screens */
-        background-image: none; /* Hide background bracelet on small screens */
-    }
-
-    .description {
-        max-width: 100%;
-    }
-
-    .price-info {
-        justify-content: center; /* Center price info */
-    }
-
-    .make-order-button {
-        margin: 0 auto; /* Center button */
-    }
-
-    .product-image-container {
-        min-height: 350px; /* Give image some height when stacked */
-        order: 1; /* Put image above details on mobile */
-        width: 100%; /* Take full width */
-        clip-path: none; /* No angle on image container on mobile */
-    }
-
-    .product-image-container::before,
-    .product-image-container::after {
-        display: none; /* Hide decorative background shapes on small screens */
-    }
-
-    .corner {
-        display: none; /* Hide decorative corners on small screens if they look bad or are not mobile-friendly */
-    }
-}
-
-@media (max-width: 576px) {
-    .product-details {
-        padding: 40px 20px;
-    }
-
-    .product-title {
-        font-size: 2em;
-    }
-
-    .current-price {
-        font-size: 1.8em;
-    }
-
-    .original-price {
-        font-size: 0.9em;
-    }
-}
- .product-showcase {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            max-width: 1200px;
-            width: 100%;
-            background: linear-gradient(135deg, #6b5b52 0%, #4a3f37 100%);
-            border-radius: 0;
-            overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-        }
-        
-        .product-details {
-            padding: 80px 60px;
-            color: white;
-            position: relative;
-            background: linear-gradient(135deg, #6b5b52 0%, #4a3f37 100%);
-        }
-        
-        .tagline {
-            font-size: 12px;
-            letter-spacing: 3px;
-            font-weight: 300;
-            color: #d4af7a;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-        }
-        
-        .product-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 48px;
-            font-weight: 400;
-            line-height: 1.1;
-            margin-bottom: 30px;
-            color: white;
-        }
-        
-        .description {
-            font-size: 14px;
-            line-height: 1.8;
-            color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 40px;
-            font-weight: 300;
-        }
-        
-        .price-info {
-            margin-bottom: 40px;
-        }
-        
-        .current-price {
-            font-size: 28px;
-            font-weight: 500;
-            color: white;
-            margin-right: 15px;
-        }
-        
-        .original-price {
-            font-size: 16px;
-            color: rgba(255, 255, 255, 0.5);
-            text-decoration: line-through;
-        }
-        
-        .make-order-button {
-            background: transparent;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            color: white;
-            padding: 15px 30px;
-            font-size: 12px;
-            letter-spacing: 2px;
-            font-weight: 400;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-        }
-        
-        .make-order-button:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: rgba(255, 255, 255, 0.5);
-        }
-        
-        .corner {
-            position: absolute;
-            width: 60px;
-            height: 60px;
-            border: 2px solid #d4af7a;
-        }
-        
-        .corner.top-left {
-            top: 30px;
-            left: 30px;
-            border-right: none;
-            border-bottom: none;
-        }
-        
-        .corner.bottom-right {
-            bottom: 30px;
-            right: 30px;
-            border-left: none;
-            border-top: none;
-        }
-        
-        .corner::before {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M20,20 Q50,10 80,20 Q90,50 80,80 Q50,90 20,80 Q10,50 20,20" fill="none" stroke="%23d4af7a" stroke-width="2"/></svg>') no-repeat center;
-            background-size: contain;
-        }
-        
-        .corner.top-left::before {
-            top: -10px;
-            left: -10px;
-        }
-        
-        .corner.bottom-right::before {
-            bottom: -10px;
-            right: -10px;
-            transform: rotate(180deg);
-        }
-        
-        .product-image-container {
-            background: linear-gradient(135deg, #e8e8e8 0%, #f5f5f5 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 60px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .product-image-container::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at center, transparent 30%, rgba(255, 255, 255, 0.1) 70%);
-        }
-        
-        .product-image {
-            max-width: 100%;
-            height: auto;
-            filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.2));
-            position: relative;
-            z-index: 2;
-        }
-        
-        .decorative-dot {
-            position: absolute;
-            width: 8px;
-            height: 8px;
-            background: #d4af7a;
-            border-radius: 50%;
-        }
-        
-        .decorative-dot.left {
-            bottom: 120px;
-            left: 80px;
-        }
-        
-        .decorative-dot.right {
-            top: 100px;
-            right: 120px;
-        }
-        
-        /* Placeholder for the actual product image */
-        .product-placeholder {
-            width: 300px;
-            height: 300px;
-            background: linear-gradient(45deg, #4a5c8a 0%, #2d3c5a 100%);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-        }
-        
-        .bracelet-display {
-            width: 120px;
-            height: 80px;
-            background: linear-gradient(45deg, #c4621a 0%, #e67e22 50%, #d35400 100%);
-            border-radius: 50px;
-            position: relative;
-            box-shadow: inset 0 5px 15px rgba(0, 0, 0, 0.3);
-        }
-        
-        .bracelet-display::before {
-            content: '';
-            position: absolute;
-            top: -10px;
-            left: -10px;
-            right: -10px;
-            bottom: -10px;
-            background: linear-gradient(45deg, #c4621a 0%, #e67e22 50%, #d35400 100%);
-            border-radius: 50px;
-            z-index: -1;
-            opacity: 0.7;
-        }
-        
-        .shiva-lingam {
-            position: absolute;
-            top: -80px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 40px;
-            height: 100px;
-            background: linear-gradient(180deg, #2c3e50 0%, #34495e 100%);
-            border-radius: 20px 20px 5px 5px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
-        }
-        
-        .red-cloth {
-            position: absolute;
-            bottom: -20px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 30px;
-            height: 15px;
-            background: #e74c3c;
-            border-radius: 0 0 15px 15px;
-            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
-        }
-        
-        @media (max-width: 768px) {
-            .product-showcase {
-                grid-template-columns: 1fr;
-                max-width: 100%;
-            }
-            
-            .product-details {
-                padding: 40px 30px;
-            }
-            
-            .product-title {
-                font-size: 36px;
-            }
-            
-            .corner {
-                width: 40px;
-                height: 40px;
-            }
-            
-            .corner.top-left {
-                top: 20px;
-                left: 20px;
-            }
-            
-            .corner.bottom-right {
-                bottom: 20px;
-                right: 20px;
-            }
-        }
