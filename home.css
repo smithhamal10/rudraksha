@@ -1759,8 +1759,8 @@
 }
 .sale-badge {
     position: absolute;
-    top: 15px; /* Adjust as needed */
-    right: 15px; /* Adjust as needed */
+    top: 15px; 
+    right: 15px; 
     background-color:burlywood;
     color: #fff;
     padding: 8px 12px;
