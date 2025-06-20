@@ -1735,6 +1735,7 @@
     gap: 30px; /* Space between the two sections */
     padding: 20px; /* Overall padding around the sections */
     font-family: sans-serif; /* A common sans-serif font */
+    margin-top: 70px;
 }
 .product-section {
     background-color: transparent; /* White background for each section */
@@ -1972,7 +1973,7 @@
     position: relative;
     margin-top: 20px;
     background: url(images/containerb/conatinerb1.png);
-    height: 700px;
+    height: 900px;
 }
 
 .containerb::before {
@@ -2355,18 +2356,20 @@
     min-width: 300px; /* Minimum width for this column */
     padding: 0 20px; /* Add some padding on the sides */
     box-sizing: border-box;
+    margin-bottom: 20px;
 }
 
 .faq-header {
-    margin-bottom: 30px;
+    margin-bottom: 10px;
 }
 .faq-header h2 {
     font-family: 'Playfair Display', serif; /* A serif font for headings */
-    font-size: 2em;
+    font-size: 2.5em;
     font-weight: 700;
     color: #fff;
     margin: 0;
     line-height: 1.2;
+    margin-top: 50px;
 }
 
 /* Accordion Styling */
@@ -2460,9 +2463,11 @@
 
 /* Still Have Questions Section */
 .still-have-questions {
-    background-color: #4A3A2F; /* A brownish-gold background */
+    background-color:#BB9577 ; /* A brownish-gold background */
     padding: 10px;
     text-align: center;
+    height: 100px;
+    position: relative;
 }
 
 .still-have-questions-title {
@@ -2492,6 +2497,10 @@
     text-transform: uppercase;
     cursor: pointer;
     transition: background-color 0.3s ease, color 0.3s ease;
+    position: absolute;
+    top:25%;
+    right:90px;
+
 }
 
 .get-in-touch-button:hover {
