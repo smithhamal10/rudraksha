@@ -362,6 +362,106 @@
     </div>
        <div class ="content" style="border: 1px solid #E0C2AA; width: 100px;" ></div>
 </div>
+   <section class="limited-collection">
+        <div class="section-headera">
+            <div class="section-subtitlea">Stunning Designs</div>
+            <h2 class="section-titlea">Limited Collection</h2>
+            
+            <div class="countdown">
+                <div class="countdown-item">
+                    <span class="countdown-number" id="days">04</span>
+                    <span class="countdown-label">Days</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="hours">08</span>
+                    <span class="countdown-label">Hrs</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="minutes">29</span>
+                    <span class="countdown-label">Mins</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="seconds">12</span>
+                    <span class="countdown-label">Sec</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-grida">
+            <div class="product-carda">
+                <div class="product-imagea">
+                    <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=300&fit=crop" alt="Woven Basket">
+                </div>
+                <div class="product-namea">Lorem Ipsum Ishrot</div>
+                <div class="product-pricea">From $20</div>
+                <button class="add-to-cartc">Add To Cart</button>
+            </div>
+
+            <div class="product-carda">
+                <div class="product-imagea">
+                    <img src="https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?w=300&h=300&fit=crop" alt="Decorative Items">
+                </div>
+                <div class="product-namea">Lorem Ipsum Ishrot</div>
+                <div class="product-pricea">From $30</div>
+                <button class="add-to-cartc">Add To Cart</button>
+            </div>
+
+            <div class="product-carda">
+                <div class="product-imagea">
+                    <img src="https://images.unsplash.com/photo-1544787219-6b3c6b4d6d4c?w=300&h=300&fit=crop" alt="Ceramic Mug">
+                </div>
+                <div class="product-namea">Lorem Ipsum Ishrot</div>
+                <div class="product-pricea">From $20</div>
+                <button class="add-to-cartc">Add To Cart</button>
+            </div>
+
+            <div class="product-carda">
+                <div class="product-imagea">
+                    <img src="https://images.unsplash.com/photo-1610701596007-11502861dcfa?w=300&h=300&fit=crop" alt="Blue Cups">
+                </div>
+                <div class="product-namea">Lorem Ipsum Ishrot</div>
+                <div class="product-pricea">From $30</div>
+                <button class="add-to-cartc">Add To Cart</button>
+            </div>
+
+            <div class="product-carda">
+                <div class="product-imagea">
+                    <img src="https://images.unsplash.com/photo-1544787219-6b3c6b4d6d4c?w=300&h=300&fit=crop" alt="Copper Mugs">
+                </div>
+                <div class="product-namea">Lorem Ipsum Ishrot</div>
+                <div class="product-pricea">From $20</div>
+                <button class="add-to-cartc">Add To Cart</button>
+            </div>
+
+            <div class="product-carda">
+                <div class="product-imagea">
+                    <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=300&fit=crop" alt="Decorative Pitcher">
+                </div>
+                <div class="product-namea">Lorem Ipsum Ishrot</div>
+                <div class="product-pricea">From $20</div>
+                <button class="add-to-cartc">Add To Cart</button>
+            </div>
+
+            <div class="product-carda">
+                <div class="product-imagea">
+                    <img src="https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?w=300&h=300&fit=crop" alt="Red Package">
+                </div>
+                <div class="product-namea">Lorem Ipsum Ishrot</div>
+                <div class="product-pricea">From $20</div>
+                <button class="add-to-cartc">Add To Cart</button>
+            </div>
+
+            <div class="product-carda">
+                <div class="product-imagea">
+                    <img src="https://images.unsplash.com/photo-1610701596007-11502861dcfa?w=300&h=300&fit=crop" alt="Copper Vases">
+                </div>
+                <div class="product-namea">Lorem Ipsum Ishrot</div>
+                <div class="product-pricea">From $20</div>
+                <button class="add-to-cartc">Add To Cart</button>
+            </div>
+        </div>
+    </section>
+
     <script>
         // Simple JavaScript for interactivity
         document.querySelector('.cta-button').addEventListener('click', function() {
@@ -379,7 +479,60 @@
         });
   const list = document.querySelector('.product-list');
     document.querySelector('.slider-arrow.left').onclick = () => list.scrollBy({ left: -300, behavior: 'smooth' });
-    document.querySelector('.slider-arrow.right').onclick = () => list.scrollBy({ left: 300, behavior: 'smooth' });        
+    document.querySelector('.slider-arrow.right').onclick = () => list.scrollBy({ left: 300, behavior: 'smooth' });    
+     function updateCountdown() {
+            const days = document.getElementById('days');
+            const hours = document.getElementById('hours');
+            const minutes = document.getElementById('minutes');
+            const seconds = document.getElementById('seconds');
+            
+            let d = parseInt(days.textContent);
+            let h = parseInt(hours.textContent);
+            let m = parseInt(minutes.textContent);
+            let s = parseInt(seconds.textContent);
+            
+            s--;
+            if (s < 0) {
+                s = 59;
+                m--;
+                if (m < 0) {
+                    m = 59;
+                    h--;
+                    if (h < 0) {
+                        h = 23;
+                        d--;
+                        if (d < 0) {
+                            d = 0;
+                            h = 0;
+                            m = 0;
+                            s = 0;
+                        }
+                    }
+                }
+            }
+            
+            days.textContent = d.toString().padStart(2, '0');
+            hours.textContent = h.toString().padStart(2, '0');
+            minutes.textContent = m.toString().padStart(2, '0');
+            seconds.textContent = s.toString().padStart(2, '0');
+        }
+        
+        // Update countdown every second
+        setInterval(updateCountdown, 1000);
+        
+        // Add to cart functionality
+        document.querySelectorAll('.add-to-cartc').forEach(button => {
+            button.addEventListener('click', function() {
+                this.textContent = 'Added!';
+                this.style.background = '#8b6f47';
+                this.style.color = 'white';
+                setTimeout(() => {
+                    this.textContent = 'Add To Cart';
+                    this.style.background = 'transparent';
+                    this.style.color = '#8b6f47';
+                }, 2000);
+            });
+        });    
     </script>
 </body>
 </html>
