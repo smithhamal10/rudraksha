@@ -595,6 +595,36 @@
             </div>
         </div>
     </section>
+        <div class="testimonial-section">
+        <div class="logo logo-left">
+            ॐ
+        </div>
+        
+        <div class="testimonial-label">Testimonial</div>
+        <h2 class="testimonial-title">Positive Client Feedback</h2>
+        
+        <div class="quote-mark">"</div>
+        
+        <p class="testimonial-content">
+            "I had an incredible experience with Shiva Shakti Dineja. The quality of the Rudraksha beads was exceptional
+            —genuine, well-energized, and beautifully packaged. I could feel a difference in my energy and focus within
+            days of wearing them."
+        </p>
+        
+        <div class="client-name">Mark Luther</div>
+        
+        <div class="rating">
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star">★</span>
+        </div>
+        
+        <div class="logo logo-right">
+            ॐ
+        </div>
+    </div>
     <script>
         // Simple JavaScript for interactivity
         document.querySelector('.cta-button').addEventListener('click', function() {
@@ -666,6 +696,16 @@
                 }, 2000);
             });
         });    
+         document.querySelectorAll('.logo').forEach(logo => {
+            logo.addEventListener('mouseenter', function() {
+                this.style.cursor = 'pointer';
+            });
+            
+            logo.addEventListener('click', function() {
+                console.log('Logo clicked');
+                // Add your logo click logic here
+            });
+        });
     </script>
 </body>
 </html>
