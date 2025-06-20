@@ -1968,9 +1968,9 @@
 
 .containerb {
     display: flex;
-    max-width: 1700px;
+    max-width: 1600px;
     position: relative;
-    margin-top: 30px;
+    margin-top: 20px;
     background: url(images/containerb/conatinerb1.png);
     height: 700px;
 }
@@ -2287,23 +2287,25 @@
     padding: 20px;
     box-sizing: border-box;
     background-color: #050201;
+    margin-top: 100px;
 }
 
 .faq-content-wrapper {
     display: flex;
     flex-wrap: wrap; /* Allows items to wrap on smaller screens */
-    gap: 60px; /* Space between the image/stats and questions */
+    gap: 50px; /* Space between the image/stats and questions */
     justify-content: center;
     align-items: flex-start; /* Align items to the top */
 }
 
 /* Image and Stats Column */
 .faq-image-stats {
-    flex: 1 1 300px; /* Allows flexibility but with a base width */
+    flex: 1 1 200px; /* Allows flexibility but with a base width */
     position: relative;
     color: #fff;
-    min-width: 300px; /* Minimum width for this column */
+    min-width: 200px; /* Minimum width for this column */
     margin-left: 50px;
+    font-weight: 500;
 }
 
 .faq-main-image {
@@ -2318,14 +2320,13 @@
     bottom: 0;
     left: 0;
     right: 0;
-    background: rgba(0, 0, 0, 0.6); /* Semi-transparent dark background for stats */
+    background: transparent;
     padding: 20px;
     display: flex;
     justify-content: space-around;
-    gap: 10px;
+    gap: 20px;
     flex-wrap: wrap;
 }
-
 .stat-item {
     text-align: center;
     flex: 2; /* Distributes space evenly */
@@ -2343,7 +2344,7 @@
 .stat-text {
     font-size: 0.8em;
     text-transform: uppercase;
-    color: #ccc;
+    color: #fff;
     display: block;
     letter-spacing: 1px;
 }
@@ -2359,18 +2360,9 @@
 .faq-header {
     margin-bottom: 30px;
 }
-
-.faq-label {
-    font-size: 0.9em;
-    color: #050201;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    margin-bottom: 10px;
-}
-
 .faq-header h2 {
     font-family: 'Playfair Display', serif; /* A serif font for headings */
-    font-size: 2.5em;
+    font-size: 2em;
     font-weight: 700;
     color: #fff;
     margin: 0;
