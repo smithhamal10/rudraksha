@@ -181,21 +181,18 @@
         max-width: 100%; 
         margin-bottom: 30px; 
     }
-
     .hero-text h1 {
         font-size: 2.2rem;
         font-weight: 300;
         margin-bottom: 15px; 
         line-height: 1.2;
     }
-
     .hero-text p {
         margin-bottom: 25px; 
         opacity: 0.9;
         font-size: 0.9rem; 
         color: white;
     }
-
     .cta-button {
         background: transparent;
         color: white;
