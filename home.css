@@ -2279,3 +2279,288 @@
         font-size: 0.9em;
     }
 }
+
+/* Section Styling */
+.faq-section {
+    width: 100%;
+    max-width: 1700px; /* Adjust max-width as needed */
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #050201;
+}
+
+.faq-content-wrapper {
+    display: flex;
+    flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+    gap: 60px; /* Space between the image/stats and questions */
+    justify-content: center;
+    align-items: flex-start; /* Align items to the top */
+}
+
+/* Image and Stats Column */
+.faq-image-stats {
+    flex: 1 1 300px; /* Allows flexibility but with a base width */
+    position: relative;
+    color: #fff;
+    min-width: 300px; /* Minimum width for this column */
+    margin-left: 50px;
+}
+
+.faq-main-image {
+    width: 100%;
+    display: block;; /* Optional: subtle rounded corners */
+    height: 650px;
+    margin-top: 40px;
+}
+
+.faq-stats {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.6); /* Semi-transparent dark background for stats */
+    padding: 20px;
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.stat-item {
+    text-align: center;
+    flex: 2; /* Distributes space evenly */
+    min-width: 50px; /* Ensure stats don't get too squished */
+}
+
+.stat-number {
+    font-size: 2.2em;
+    font-weight: 700;
+    color: #fff;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.stat-text {
+    font-size: 0.8em;
+    text-transform: uppercase;
+    color: #ccc;
+    display: block;
+    letter-spacing: 1px;
+}
+
+/* Questions and Contact Column */
+.faq-questions-contact {
+    flex: 1 1 600px; /* Allows flexibility but with a base width */
+    min-width: 300px; /* Minimum width for this column */
+    padding: 0 20px; /* Add some padding on the sides */
+    box-sizing: border-box;
+}
+
+.faq-header {
+    margin-bottom: 30px;
+}
+
+.faq-label {
+    font-size: 0.9em;
+    color: #050201;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 10px;
+}
+
+.faq-header h2 {
+    font-family: 'Playfair Display', serif; /* A serif font for headings */
+    font-size: 2.5em;
+    font-weight: 700;
+    color: #fff;
+    margin: 0;
+    line-height: 1.2;
+}
+
+/* Accordion Styling */
+.accordion {
+    border-top: 1px solid #333; /* Top border for the accordion section */
+    margin-bottom: 40px;
+}
+
+.accordion-item {
+    border-bottom: 1px solid #333; /* Separator for each question */
+}
+
+.accordion-toggle {
+    display: none; /* Hide the default checkbox */
+}
+
+.accordion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: 400;
+    color: #fff;
+    transition: color 0.3s ease;
+}
+
+.accordion-header:hover {
+    color: #bbb;
+}
+
+.accordion-icon {
+    width: 20px;
+    height: 20px;
+    position: relative;
+}
+
+.accordion-icon::before,
+.accordion-icon::after {
+    content: '';
+    position: absolute;
+    background-color: #fff;
+    transition: transform 0.3s ease;
+}
+
+.accordion-icon::before {
+    width: 2px;
+    height: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.accordion-icon::after {
+    width: 100%;
+    height: 2px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Rotate the plus to a minus when checked */
+.accordion-toggle:checked + .accordion-header .accordion-icon::before {
+    transform: translateX(-50%) rotate(90deg); /* Stays vertical */
+}
+
+.accordion-toggle:checked + .accordion-header .accordion-icon::after {
+    transform: translateY(-50%) rotate(180deg); /* Rotates to horizontal line */
+}
+
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+    padding-left: 0;
+    padding-right: 0;
+    color: #ccc;
+    font-size: 0.95em;
+}
+
+.accordion-toggle:checked ~ .accordion-content {
+    max-height: 200px; /* Adjust this value based on your content length */
+    padding-bottom: 20px;
+}
+
+.accordion-content p {
+    margin: 0;
+    padding-top: 10px;
+}
+
+
+/* Still Have Questions Section */
+.still-have-questions {
+    background-color: #4A3A2F; /* A brownish-gold background */
+    padding: 10px;
+    text-align: center;
+}
+
+.still-have-questions-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5em;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 10px;
+    margin-right: 500px;
+}
+
+.still-have-questions-text {
+    font-size: 0.9em;
+    color: #eee;
+    margin-bottom: 25px;
+    line-height: 1.5;
+    margin-right:250px ;
+}
+
+.get-in-touch-button {
+    background-color: #fff;
+    color: #000;
+    padding: 12px 25px;
+    border: none;
+    font-size: 0.9em;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.get-in-touch-button:hover {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+    .faq-content-wrapper {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .faq-image-stats,
+    .faq-questions-contact {
+        flex: none; /* Remove flex grow/shrink properties */
+        width: 100%; /* Take full width */
+        max-width: 700px; /* Constrain overall width on smaller screens */
+    }
+
+    .faq-stats {
+        position: static; /* Stack stats normally */
+        background: rgba(0, 0, 0, 0.8);
+        border-radius: 0;
+        margin-top: 20px;
+    }
+
+    .faq-header h2 {
+        font-size: 2em;
+    }
+}
+
+@media (max-width: 600px) {
+    .faq-section {
+        padding: 15px;
+    }
+
+    .faq-header h2 {
+        font-size: 1.8em;
+    }
+
+    .stat-number {
+        font-size: 1.8em;
+    }
+
+    .stat-text {
+        font-size: 0.7em;
+    }
+
+    .accordion-header {
+        font-size: 1em;
+        padding: 15px 0;
+    }
+
+    .still-have-questions {
+        padding: 20px;
+    }
+
+    .still-have-questions-title {
+        font-size: 1.3em;
+    }
+}
