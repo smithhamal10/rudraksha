@@ -2145,22 +2145,21 @@
     color: #c7a77e;
     font-size: 1.5rem;
     letter-spacing: 2px;
-    margin-top: 50px;
+    margin-top: -200px;
 }
 
 .right-columnb h1 {
     font-family: 'Playfair Display', serif;
     font-size: 2.8rem;
     color: #333333;
-    line-height: 1.2;
-    margin-bottom: 2px;
+    line-height: 1;
 }
 
 .right-columnb .descriptionb {
     font-size: 1.2rem;
     line-height: 1.8;
     color: #666666;
-    margin-bottom: 50px;
+    margin-bottom: 90px;
 }
 
 .more-buttonb {
