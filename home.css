@@ -2570,6 +2570,7 @@
             text-align: center;
             position: relative;
             margin-top: 100px;
+            
         }
 
         .testimonial-label {
@@ -2676,7 +2677,7 @@
             }
         }
          .site-footer {
-            background: linear-gradient(135deg, #2c2c2c 0%, #1a1a1a 100%);
+            background: linear-gradient(135deg, #191925 0%, #1a1a1a 100%);
             position: relative;
             overflow: hidden;
             padding: 60px 0 30px;
@@ -2715,10 +2716,11 @@
             letter-spacing: 3px;
             margin-bottom: 10px;
             text-transform: uppercase;
+            color: white;
         }
 
         .signup-description {
-            color: #888;
+            color: white;
             margin-bottom: 30px;
             font-size: 0.9rem;
         }
@@ -2727,42 +2729,33 @@
             display: flex;
             justify-content: center;
             gap: 0;
-            max-width: 400px;
             margin: 0 auto;
+            width: 500px;
+            color: white;
+              
         }
-
         .email-field {
             flex: 1;
             padding: 15px 20px;
             border: none;
-            background: rgba(255,255,255,0.1);
+            background: white;
             color: #fff;
             font-size: 0.9rem;
-            border-radius: 5px 0 0 5px;
-        }
-
-        .email-field::placeholder {
-            color: #888;
         }
 
         .submit-button {
             padding: 15px 25px;
-            background: linear-gradient(45deg, #ff6b35, #f7931e);
+            background: linear-gradient(45deg, #F6B562, #F6B562);
             color: #fff;
             border: none;
             cursor: pointer;
             font-weight: bold;
             text-transform: uppercase;
             letter-spacing: 1px;
-            border-radius: 0 5px 5px 0;
             transition: all 0.3s ease;
-        }
+            width: 200px;
 
-        .submit-button:hover {
-            background: linear-gradient(45deg, #e55a2b, #e8841a);
-            transform: translateY(-2px);
         }
-
         .showcase-grid {
             display: flex;
             justify-content: center;
@@ -2772,9 +2765,8 @@
         }
 
         .showcase-card {
-            width: 180px;
-            height: 120px;
-            border-radius: 10px;
+            width: 250px;
+            height: 150px;
             overflow: hidden;
             position: relative;
             cursor: pointer;
@@ -2803,10 +2795,11 @@
             font-size: 1.5rem;
             margin-bottom: 20px;
             font-weight: 300;
+            color: white;
         }
 
         .info-column p {
-            color: #888;
+            color: white;
             line-height: 1.6;
             margin-bottom: 20px;
         }
@@ -2820,7 +2813,7 @@
         }
 
         .nav-list a {
-            color: #888;
+            color: white;
             text-decoration: none;
             transition: color 0.3s ease;
         }
@@ -2830,7 +2823,7 @@
         }
 
         .contact-details {
-            color: #888;
+            color: white;
             line-height: 1.6;
         }
 
@@ -2847,17 +2840,19 @@
             font-size: 1.2rem;
             margin-bottom: 15px;
             font-weight: 300;
+            color:white;
         }
 
         .social-links {
             display: flex;
             gap: 15px;
+            color: white;
         }
 
         .social-link {
             width: 40px;
             height: 40px;
-            background: rgba(255,255,255,0.1);
+            background: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -2867,10 +2862,6 @@
             transition: all 0.3s ease;
         }
 
-        .social-link:hover {
-            background: #ff6b35;
-            transform: translateY(-3px);
-        }
 
         .bottom-bar {
             border-top: 1px solid rgba(255,255,255,0.1);
@@ -2880,10 +2871,12 @@
             align-items: center;
             flex-wrap: wrap;
             gap: 20px;
+            margin-left: 400px;
+
         }
 
         .copyright-text {
-            color: #888;
+            color: white;
             font-size: 0.9rem;
         }
 
@@ -2893,7 +2886,7 @@
         }
 
         .legal-links a {
-            color: #888;
+            color: white;
             text-decoration: none;
             font-size: 0.9rem;
             transition: color 0.3s ease;
