@@ -2517,13 +2517,13 @@
 
     .faq-image-stats,
     .faq-questions-contact {
-        flex: none; /* Remove flex grow/shrink properties */
+        flex: none; 
         width: 100%;
         max-width: 700px; 
     }
 
     .faq-stats {
-        position: static; /* Stack stats normally */
+        position: static; 
         background: rgba(0, 0, 0, 0.8);
         border-radius: 0;
         margin-top: 20px;
