@@ -2431,11 +2431,11 @@
 
 /* Rotate the plus to a minus when checked */
 .accordion-toggle:checked + .accordion-header .accordion-icon::before {
-    transform: translateX(-50%) rotate(90deg); /* Stays vertical */
+    transform: translateX(-50%) rotate(90deg); 
 }
 
 .accordion-toggle:checked + .accordion-header .accordion-icon::after {
-    transform: translateY(-50%) rotate(180deg); /* Rotates to horizontal line */
+    transform: translateY(-50%) rotate(180deg);
 }
 
 
@@ -2450,7 +2450,7 @@
 }
 
 .accordion-toggle:checked ~ .accordion-content {
-    max-height: 200px; /* Adjust this value based on your content length */
+    max-height: 200px; 
     padding-bottom: 20px;
 }
 
@@ -2462,7 +2462,7 @@
 
 /* Still Have Questions Section */
 .still-have-questions {
-    background-color:#BB9577 ; /* A brownish-gold background */
+    background-color:#BB9577 ; 
     padding: 10px;
     text-align: center;
     height: 100px;
