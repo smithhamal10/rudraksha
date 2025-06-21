@@ -2518,7 +2518,7 @@
     .faq-image-stats,
     .faq-questions-contact {
         flex: none; /* Remove flex grow/shrink properties */
-        width: 100%; /* Take full width */
+        width: 100%;
         max-width: 700px; 
     }
 
