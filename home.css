@@ -2519,7 +2519,7 @@
     .faq-questions-contact {
         flex: none; /* Remove flex grow/shrink properties */
         width: 100%; /* Take full width */
-        max-width: 700px; /* Constrain overall width on smaller screens */
+        max-width: 700px; 
     }
 
     .faq-stats {
