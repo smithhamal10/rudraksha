@@ -2373,16 +2373,16 @@
 
 /* Accordion Styling */
 .accordion {
-    border-top: 1px solid #333; /* Top border for the accordion section */
+    border-top: 1px solid #333; 
     margin-bottom: 40px;
 }
 
 .accordion-item {
-    border-bottom: 1px solid #333; /* Separator for each question */
+    border-bottom: 1px solid #333; 
 }
 
 .accordion-toggle {
-    display: none; /* Hide the default checkbox */
+    display: none; 
 }
 
 .accordion-header {
@@ -2930,4 +2930,257 @@
                 text-align: center;
             }
         }
-     
+     /* ===== RESPONSIVE IMPROVEMENTS ===== */
+
+/* Mobile First Approach - Additional responsive rules */
+
+/* Extra small devices (phones, less than 576px) */
+@media (max-width: 575px) {
+    .hero-content {
+        max-width: 100%;
+        padding: 0 15px;
+    }
+    
+    .hero-text h1 {
+        font-size: 1.8rem;
+    }
+    
+    .featured-product {
+        max-width: 100%;
+        margin: 0 15px;
+    }
+    
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .bestsellers-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    /* Shop by categories mobile fixes */
+    .category-card {
+        width: 90%;
+        max-width: 280px;
+    }
+    
+    /* Product slider mobile */
+    .product-card {
+        flex: 0 0 280px;
+    }
+    
+    /* Premium collection mobile */
+    .premium-collection-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    /* Bracelet section mobile */
+    .bracelet-section {
+        flex-direction: column;
+    }
+    
+    .left-section {
+        width: 100%;
+        padding: 40px 20px;
+        text-align: center;
+    }
+    
+    .right-section {
+        position: static;
+        width: 100%;
+        padding: 20px;
+    }
+    
+    /* Container sections mobile */
+    .container {
+        flex-direction: column;
+        gap: 20px;
+        padding: 15px;
+    }
+    
+    .product-section {
+        width: 100%;
+    }
+    
+    /* Limited collection mobile */
+    .countdown {
+        position: static;
+        justify-content: center;
+        margin: 20px 0;
+        flex-wrap: wrap;
+    }
+    
+    .countdown-item {
+        min-width: 70px;
+        padding: 8px 15px;
+    }
+    
+    /* FAQ section mobile */
+    .faq-image-stats {
+        margin-left: 0;
+    }
+    
+    .still-have-questions {
+        text-align: center;
+        height: auto;
+        padding: 20px;
+    }
+    
+    .still-have-questions-title,
+    .still-have-questions-text {
+        margin-right: 0;
+        text-align: center;
+    }
+    
+    .get-in-touch-button {
+        position: static;
+        margin-top: 15px;
+    }
+    
+    /* Footer mobile */
+    .email-form {
+        width: 100%;
+        flex-direction: column;
+    }
+    
+    .bottom-bar {
+        margin-left: 0;
+        text-align: center;
+    }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767px) {
+    .bestsellers-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .premium-collection-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Additional fixes for better mobile experience */
+@media (max-width: 768px) {
+    /* Ensure images are responsive */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+    
+    /* Fix navigation for mobile */
+    .nav-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        padding: 15px;
+        z-index: 1000;
+    }
+    
+    .nav-menu.active {
+        display: flex;
+    }
+    
+    /* Better button spacing on mobile */
+    .cta-button,
+    .add-to-cart,
+    .cart-btn {
+        width: 100%;
+        margin: 10px 0;
+    }
+    
+    /* Video responsive */
+    .video-wrapper {
+        width: 100%;
+        padding-bottom: 56.25%;
+    }
+    
+    /* Text sizing for mobile */
+    .section-title {
+        font-size: 1.8rem !important;
+    }
+    
+    .section-subtitle {
+        font-size: 0.8rem;
+    }
+    
+    /* Spacing adjustments */
+    .premium-collection,
+    .features,
+    .bestsellers,
+    .shop-by-categories {
+        padding: 40px 15px;
+    }
+}
+
+/* Landscape orientation fixes */
+@media (max-width: 768px) and (orientation: landscape) {
+    .hero {
+        min-height: 400px;
+    }
+    
+    .hero-text h1 {
+        font-size: 2rem;
+    }
+}
+
+/* Fix for very wide screens */
+@media (min-width: 1600px) {
+    .top-bar-content,
+    .header-content,
+    .hero-content,
+    .features-content {
+        max-width: 1400px;
+    }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+    .category-card:hover,
+    .premium-card:hover,
+    .bestseller-card:hover {
+        transform: none;
+    }
+    
+    .category-card,
+    .premium-card,
+    .bestseller-card {
+        transition: none;
+    }
+    
+    /* Make buttons more touch-friendly */
+    .add-to-cart,
+    .cart-btn,
+    .cta-button {
+        min-height: 44px;
+        padding: 12px 20px;
+    }
+}
+
+/* Print styles */
+@media print {
+    .header,
+    .hero,
+    .nav-menu,
+    .cta-button,
+    .add-to-cart,
+    .cart-btn {
+        display: none;
+    }
+    
+    body {
+        background: white;
+        color: black;
+    }
+}
