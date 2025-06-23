@@ -21,17 +21,66 @@
             <div class="logo">
                 <div class="logo-circle">R</div>
             </div>
-            <div class="navigation">
-                <button class="categories-btn">≡ ALL CATEGORIES</button>
-                <nav>
-                    <ul class="nav-menu">
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#faq">FAQ</a></li>
-                        <li><a href="#blogs">Blogs</a></li>
-                    </ul>
-                </nav>
+           <div class="navigation">
+    <button class="categories-btn" id="categoriesBtn">≡ ALL CATEGORIES</button>
+    
+    <!-- Dropdown Menu -->
+    <div class="categories-dropdown" id="categoriesDropdown">
+        <div class="dropdown-content">
+            <div class="dropdown-column">
+                <h3>Rudraksha</h3>
+                <ul>
+                    <li><a href="#">1 Mukhi</a></li>
+                    <li><a href="#">2 Mukhi</a></li>
+                    <li><a href="#">3 Mukhi</a></li>
+                    <li><a href="#">4 Mukhi</a></li>
+                    <li><a href="#">5 Mukhi</a></li>
+                    <li><a href="#">6 Mukhi</a></li>
+                    <li><a href="#">7 Mukhi</a></li>
+                    <li><a href="#">8 Mukhi</a></li>
+                    <li><a href="#">9 Mukhi</a></li>
+                    <li><a href="#">10 Mukhi</a></li>
+                    <li><a href="#">11 Mukhi</a></li>
+                    <li><a href="#">12 Mukhi</a></li>
+                    <li><a href="#">13 Mukhi</a></li>
+                    <li><a href="#">14 Mukhi</a></li>
+                    <li><a href="#">15 Mukhi</a></li>
+                </ul>
             </div>
+            
+            <div class="dropdown-column">
+                <h3>Mala</h3>
+                <ul>
+                    <li><a href="#">Shiva Shakti Mala</a></li>
+                    <li><a href="#">Shiva Mala</a></li>
+                    <li><a href="#">Shiva Shakti Mala</a></li>
+                    <li><a href="#">Shiva Mala</a></li>
+                    <li><a href="#">Shiva Shakti Mala</a></li>
+                </ul>
+            </div>
+            
+            <div class="dropdown-column">
+                <h3>Bracelets</h3>
+                <ul>
+                    <li><a href="#">Shiva Shakti Bracelet</a></li>
+                    <li><a href="#">Shiva Bracelet</a></li>
+                    <li><a href="#">Shiva Shakti Bracelet</a></li>
+                    <li><a href="#">Shiva Bracelet</a></li>
+                    <li><a href="#">Shiva Shakti Bracelet</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <nav>
+        <ul class="nav-menu">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#blogs">Blogs</a></li>
+        </ul>
+    </nav>
+</div>
           <div class="header-icons">
     <!-- Replace the search SVG icon with this search bar -->
     <div class="search-container">
@@ -727,86 +776,118 @@
         </div>
     </footer>
     <script>
-        // Simple JavaScript for interactivity
-        document.querySelector('.cta-button').addEventListener('click', function() {
-            alert('Order functionality would be implemented here!');
-        });
+    // Simple JavaScript for interactivity
+    document.querySelector('.cta-button').addEventListener('click', function() {
+        alert('Order functionality would be implemented here!');
+    });
 
-        document.querySelectorAll('.add-to-cart, .cart-btn, .add-to-cart-btn').forEach(button => {
-            button.addEventListener('click', function() {
-                alert('Product added to cart!');
-            });
+    document.querySelectorAll('.add-to-cart, .cart-btn, .add-to-cart-btn').forEach(button => {
+        button.addEventListener('click', function() {
+            alert('Product added to cart!');
         });
-        document.querySelector('.categories-btn').addEventListener('click', function() {
-            const navMenu = document.querySelector('.nav-menu');
-            navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
+    });
+
+    // REMOVED THE OLD CATEGORIES BUTTON CODE THAT WAS CAUSING CONFLICT
+    // Categories Dropdown Functionality (NEW)
+    document.addEventListener('DOMContentLoaded', function() {
+        const categoriesBtn = document.getElementById('categoriesBtn');
+        const categoriesDropdown = document.getElementById('categoriesDropdown');
+        
+        // Toggle dropdown
+        categoriesBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            categoriesDropdown.classList.toggle('active');
+            categoriesBtn.classList.toggle('active');
         });
-  const list = document.querySelector('.product-list');
+        
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!categoriesBtn.contains(e.target) && !categoriesDropdown.contains(e.target)) {
+                categoriesDropdown.classList.remove('active');
+                categoriesBtn.classList.remove('active');
+            }
+        });
+        
+        // Close dropdown when pressing Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                categoriesDropdown.classList.remove('active');
+                categoriesBtn.classList.remove('active');
+            }
+        });
+    });
+
+    // Product slider functionality
+    const list = document.querySelector('.product-list');
     document.querySelector('.slider-arrow.left').onclick = () => list.scrollBy({ left: -300, behavior: 'smooth' });
     document.querySelector('.slider-arrow.right').onclick = () => list.scrollBy({ left: 300, behavior: 'smooth' });    
-     function updateCountdown() {
-            const days = document.getElementById('days');
-            const hours = document.getElementById('hours');
-            const minutes = document.getElementById('minutes');
-            const seconds = document.getElementById('seconds');
-            
-            let d = parseInt(days.textContent);
-            let h = parseInt(hours.textContent);
-            let m = parseInt(minutes.textContent);
-            let s = parseInt(seconds.textContent);
-            
-            s--;
-            if (s < 0) {
-                s = 59;
-                m--;
-                if (m < 0) {
-                    m = 59;
-                    h--;
-                    if (h < 0) {
-                        h = 23;
-                        d--;
-                        if (d < 0) {
-                            d = 0;
-                            h = 0;
-                            m = 0;
-                            s = 0;
-                        }
+
+    // Countdown functionality
+    function updateCountdown() {
+        const days = document.getElementById('days');
+        const hours = document.getElementById('hours');
+        const minutes = document.getElementById('minutes');
+        const seconds = document.getElementById('seconds');
+        
+        let d = parseInt(days.textContent);
+        let h = parseInt(hours.textContent);
+        let m = parseInt(minutes.textContent);
+        let s = parseInt(seconds.textContent);
+        
+        s--;
+        if (s < 0) {
+            s = 59;
+            m--;
+            if (m < 0) {
+                m = 59;
+                h--;
+                if (h < 0) {
+                    h = 23;
+                    d--;
+                    if (d < 0) {
+                        d = 0;
+                        h = 0;
+                        m = 0;
+                        s = 0;
                     }
                 }
             }
-            
-            days.textContent = d.toString().padStart(2, '0');
-            hours.textContent = h.toString().padStart(2, '0');
-            minutes.textContent = m.toString().padStart(2, '0');
-            seconds.textContent = s.toString().padStart(2, '0');
         }
         
-        // Update countdown every second
-        setInterval(updateCountdown, 1000);
-        
-        // Add to cart functionality
-        document.querySelectorAll('.add-to-cartc').forEach(button => {
-            button.addEventListener('click', function() {
-                this.textContent = 'Added!';
-                this.style.background = '#8b6f47';
-                this.style.color = 'white';
-                setTimeout(() => {
-                    this.textContent = 'Add To Cart';
-                    this.style.background = 'transparent';
-                    this.style.color = '#8b6f47';
-                }, 2000);
-            });
-        });    
-         document.querySelectorAll('.logo').forEach(logo => {
-            logo.addEventListener('mouseenter', function() {
-                this.style.cursor = 'pointer';
-            });
-            
-            logo.addEventListener('click', function() {
-                console.log('Logo clicked');
-                // Add your logo click logic here
-            });
+        days.textContent = d.toString().padStart(2, '0');
+        hours.textContent = h.toString().padStart(2, '0');
+        minutes.textContent = m.toString().padStart(2, '0');
+        seconds.textContent = s.toString().padStart(2, '0');
+    }
+    
+    // Update countdown every second
+    setInterval(updateCountdown, 1000);
+    
+    // Add to cart functionality for limited collection
+    document.querySelectorAll('.add-to-cartc').forEach(button => {
+        button.addEventListener('click', function() {
+            this.textContent = 'Added!';
+            this.style.background = '#8b6f47';
+            this.style.color = 'white';
+            setTimeout(() => {
+                this.textContent = 'Add To Cart';
+                this.style.background = 'transparent';
+                this.style.color = '#8b6f47';
+            }, 2000);
         });
-    </script>
+    });    
+
+    // Logo click functionality
+    document.querySelectorAll('.logo').forEach(logo => {
+        logo.addEventListener('mouseenter', function() {
+            this.style.cursor = 'pointer';
+        });
+        
+        logo.addEventListener('click', function() {
+            console.log('Logo clicked');
+            // Add your logo click logic here
+        });
+    });
+</script>
 </body>
 </html>
