@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Add this to your <head> section for better mobile support -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    <meta name="theme-color" content="#BB9577">
+
+    <!-- Add this for better iOS web app support -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <title>About Us - Rudraksha Store - Your Source for Genuine Rudraksha</title>
+    <link rel="stylesheet" href="about.css">
+</head>
+<body>
+    <div class="top-bar">
+        <div class="top-bar-content">
+            <span>Welcome to our online store</span>
+            <div class="support-info">
+                <span>📞 Call Us</span>
+                <span>Free Support: +91-756-123</span>
+            </div>
+        </div>
+    </div>
+    
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <img src="images/logo/logo.png" alt="Rudraksha Store Logo"> 
+            </div>
+            <div class="navigation">
+                <button class="categories-btn" id="categoriesBtn">≡ ALL CATEGORIES</button>
+                
+                <!-- Dropdown Menu -->
+                <div class="categories-dropdown" id="categoriesDropdown">
+                    <div class="dropdown-content">
+                        <div class="dropdown-column">
+                            <h3>Rudraksha</h3>
+                            <ul>
+                                <li><a href="#">1 Mukhi</a></li>
+                                <li><a href="#">2 Mukhi</a></li>
+                                <li><a href="#">3 Mukhi</a></li>
+                                <li><a href="#">4 Mukhi</a></li>
+                                <li><a href="#">5 Mukhi</a></li>
+                                <li><a href="#">6 Mukhi</a></li>
+                                <li><a href="#">7 Mukhi</a></li>
+                                <li><a href="#">8 Mukhi</a></li>
+                                <li><a href="#">9 Mukhi</a></li>
+                                <li><a href="#">10 Mukhi</a></li>
+                                <li><a href="#">11 Mukhi</a></li>
+                                <li><a href="#">12 Mukhi</a></li>
+                                <li><a href="#">13 Mukhi</a></li>
+                                <li><a href="#">14 Mukhi</a></li>
+                                <li><a href="#">15 Mukhi</a></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="dropdown-column">
+                            <h3>Mala</h3>
+                            <ul>
+                                <li><a href="#">Shiva Shakti Mala</a></li>
+                                <li><a href="#">Shiva Mala</a></li>
+                                <li><a href="#">Shiva Shakti Mala</a></li>
+                                <li><a href="#">Shiva Mala</a></li>
+                                <li><a href="#">Shiva Shakti Mala</a></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="dropdown-column">
+                            <h3>Bracelets</h3>
+                            <ul>
+                                <li><a href="#">Shiva Shakti Bracelet</a></li>
+                                <li><a href="#">Shiva Bracelet</a></li>
+                                <li><a href="#">Shiva Shakti Bracelet</a></li>
+                                <li><a href="#">Shiva Bracelet</a></li>
+                                <li><a href="#">Shiva Shakti Bracelet</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <nav>
+                    <ul class="nav-menu">
+                        <li><a href="home.html">Home</a></li>
+                        <li><a href="about.html" class="active">About Us</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#blogs">Blogs</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="header-icons">
+                <!-- Replace the search SVG icon with this search bar -->
+                <div class="search-container">
+                    <form class="search-form" id="searchForm">
+                        <input type="text" class="search-input" placeholder="Search products..." id="searchInput">
+                        <button type="submit" class="search-button">
+                            <svg class="search-icon" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+                
+                <!-- Your existing user and cart icons stay the same -->
+                <svg class="icon" fill="currentColor" viewBox="0 0 24 24"><a href="login.html">
+                    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></a>
+                </svg>
+                <svg class="icon" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M7 18c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03L21.7 4H5.21l-.94-2H1zm16 16c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/>
+                </svg>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Hero Section -->
+    <section class="about-hero">
+        <div class="about-hero-content">
+            <div class="about-hero-text">
+                <h1>About Shiva Shakti Dingla</h1>
+                <p>Preserving tradition and spirituality through authentic Rudraksha for over two generations</p>
+                <div class="breadcrumb">
+                    <span>Home</span> > <span class="current">About Us</span>
+                </div>
+            </div>
+            <div class="about-hero-image">
+                <img src="images/aboutus/aboutus.png" alt="About Us" />
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Story Section -->
+    <section class="our-story">
+        <div class="story-container">
+            <div class="story-image">
+                <img src="images/aboutus/aboutus.png" alt="Our Story" />
+            </div>
+            <div class="story-content">
+                <p class="section-subtitle">OUR JOURNEY</p>
+                <h2 class="section-title">Our Story</h2>
+                <p class="story-description">
+                    Shiva Shakti Dingla Rudraksha Bhandar was founded with a sacred mission to bring the divine energy of authentic Rudraksha beads to devotees worldwide. Our journey began over two decades ago when our founder, deeply inspired by the spiritual significance of Rudraksha, decided to dedicate his life to sourcing and sharing these sacred beads.
+                </p>
+                <p class="story-description">
+                    What started as a small collection has now grown into one of Nepal's most trusted sources for genuine Rudraksha. We work directly with traditional collectors and maintain the highest standards of authenticity, ensuring that each bead carries the divine blessings it is meant to bestow.
+                </p>
+                <div class="story-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">2+</span>
+                        <span class="stat-text">Years of Trust</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">500+</span>
+                        <span class="stat-text">Happy Customers</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-text">Authentic Products</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Vision Section -->
+    <section class="mission-vision">
+        <div class="mission-vision-container">
+            <div class="mission-card">
+                <div class="card-icon">
+                    <img src="images/about/mission-icon.png" alt="Mission Icon" />
+                </div>
+                <h3>Our Mission</h3>
+                <p>To provide authentic, spiritually charged Rudraksha beads that help individuals on their spiritual journey, promoting peace, prosperity, and divine connection in their lives.</p>
+            </div>
+            <div class="vision-card">
+                <div class="card-icon">
+                    <img src="images/about/vision-icon.png" alt="Vision Icon" />
+                </div>
+                <h3>Our Vision</h3>
+                <p>To become the most trusted global source for authentic Rudraksha, preserving ancient wisdom while making these sacred beads accessible to modern seekers worldwide.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="our-values">
+        <div class="values-header">
+            <p class="section-subtitle">WHAT WE BELIEVE</p>
+            <h2 class="section-title">Our Core Values</h2>
+        </div>
+        <div class="values-grid">
+            <div class="value-card">
+                <div class="value-icon">
+                    <img src="images/about/authenticity-icon.png" alt="Authenticity" />
+                </div>
+                <h3>Authenticity</h3>
+                <p>Every Rudraksha bead we offer is 100% genuine, carefully sourced and verified for its natural origin and spiritual potency.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">
+                    <img src="images/about/quality-icon.png" alt="Quality" />
+                </div>
+                <h3>Quality</h3>
+                <p>We maintain the highest standards in selection, preparation, and energization of our Rudraksha beads to ensure maximum benefit.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">
+                    <img src="images/about/tradition-icon.png" alt="Tradition" />
+                </div>
+                <h3>Tradition</h3>
+                <p>We honor ancient Vedic traditions and rituals in the handling and preparation of our sacred Rudraksha collection.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">
+                    <img src="images/about/service-icon.png" alt="Service" />
+                </div>
+                <h3>Service</h3>
+                <p>Our dedicated team provides personalized guidance to help you choose the perfect Rudraksha for your spiritual needs.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="why-choose-us">
+        <div class="choose-us-container">
+            <div class="choose-us-content">
+                <p class="section-subtitle">WHY CHOOSE US</p>
+                <h2 class="section-title">What Makes Us Different</h2>
+                <div class="features-list">
+                    <div class="feature-item">
+                        <div class="feature-icon">✓</div>
+                        <div class="feature-text">
+                            <h4>Direct Sourcing</h4>
+                            <p>We source directly from authentic suppliers in Nepal and India, ensuring genuineness and fair pricing.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">✓</div>
+                        <div class="feature-text">
+                            <h4>Expert Verification</h4>
+                            <p>Each bead is carefully examined by our experts for authenticity, quality, and spiritual potency.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">✓</div>
+                        <div class="feature-text">
+                            <h4>Spiritual Guidance</h4>
+                            <p>Our knowledgeable team provides guidance on choosing the right Rudraksha for your specific needs.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">✓</div>
+                        <div class="feature-text">
+                            <h4>Global Shipping</h4>
+                            <p>We carefully package and ship worldwide, ensuring your sacred beads reach you safely.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="choose-us-image">
+                <img src="images/footer/footer3.png" alt="Why Choose Us" />
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial Section (reusing from home page) -->
+    <div class="testimonial-section">
+        <div class="logoa logoa-left">
+            ॐ
+        </div>
+        
+        <div class="testimonial-label">Testimonial</div>
+        <h2 class="testimonial-title">What Our Customers Say</h2>
+        
+        <div class="quote-mark">"</div>
+        
+        <p class="testimonial-content">
+            "Shiva Shakti Dingla has been my go-to source for authentic Rudraksha for years. Their knowledge, quality, and service are unmatched. Every bead I've purchased has brought positive energy into my life."
+        </p>
+        
+        <div class="client-name">Priya Sharma</div>
+        
+        <div class="rating">
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star">★</span>
+        </div>
+        
+        <div class="logoa logoa-right">
+            ॐ
+        </div>
+    </div>
+
+    <!-- Call to Action Section -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>Ready to Begin Your Spiritual Journey?</h2>
+            <p>Explore our authentic collection of Rudraksha beads and find the perfect one for your spiritual needs.</p>
+            <div class="cta-buttons">
+                <button class="cta-button primary">SHOP NOW →</button>
+                <button class="cta-button secondary">CONTACT US →</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (same as home page) -->
+    <footer class="site-footer">
+        <div class="main-wrapper">
+            <!-- Newsletter Section -->
+            <div class="email-signup-area">
+                <h2 class="signup-heading">Get Our Latest Update</h2>
+                <p class="signup-description">Sign up for latest update on the store</p>
+                <form class="email-form">
+                    <input type="email" class="email-field" placeholder="Enter your email address">
+                    <button type="submit" class="submit-button">Subscribe</button>
+                </form>
+            </div>
+
+            <!-- Product Gallery -->
+            <div class="showcase-grid">
+                <div class="showcase-card">
+                    <img src="images/footer/footer1.png" >
+                </div>
+                <div class="showcase-card">
+                    <img src="images/footer/footer2.png">
+                </div>
+                <div class="showcase-card">
+                    <img src="images/footer/footer3.png">
+                </div>
+                <div class="showcase-card">
+                    <img src="images/footer/footer4.png">
+                </div>
+            </div>
+
+            <!-- Footer Content -->
+            <div class="info-grid">
+                <div class="info-column">
+                    <h3>Shiva Shakti Dingla</h3>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when</p>
+                    <div class="social-media-area">
+                        <h4 class="social-heading">We are Social</h4>
+                        <div class="social-links">
+                            <a href="#" class="social-link">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="social-link">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                            <a href="#" class="social-link">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-column">
+                    <h3>Useful Links</h3>
+                    <ul class="nav-list">
+                        <li><a href="home.html">Home</a></li>
+                        <li><a href="about.html">About us</a></li>
+                        <li><a href="#">Contact us</a></li>
+                        <li><a href="#">Gallery</a></li>
+                        <li><a href="#">Blogs</a></li>
+                    </ul>
+                </div>
+
+                <div class="info-column">
+                    <h3>Shop</h3>
+                    <ul class="nav-list">
+                        <li><a href="#">All collection</a></li>
+                        <li><a href="#">All Products</a></li>
+                        <li><a href="#">My Cart</a></li>
+                        <li><a href="#">Custom order</a></li>
+                    </ul>
+                </div>
+
+                <div class="info-column">
+                    <h3>Contact Us</h3>
+                    <div class="contact-details">
+                        <p><i class="fas fa-phone"></i>+8440 766 8956</p>
+                        <p><i class="fas fa-envelope"></i>ShivaShaktiDingla@gmail.com</p>
+                        <p><strong>Store Address</strong></p>
+                        <p>Buddhanagar, Kathmandu</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="bottom-bar">
+                <div class="copyright-text">
+                    COPYRIGHT©SHIVASHAKTI DINGLA. ALL RIGHTS RESERVED.
+                </div>
+                <div class="legal-links">
+                    <a href="#">TERMS AND CONDITION</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Categories Dropdown Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const categoriesBtn = document.getElementById('categoriesBtn');
+            const categoriesDropdown = document.getElementById('categoriesDropdown');
+            
+            // Toggle dropdown
+            categoriesBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                categoriesDropdown.classList.toggle('active');
+                categoriesBtn.classList.toggle('active');
+            });
+            
+            // Close dropdown when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!categoriesBtn.contains(e.target) && !categoriesDropdown.contains(e.target)) {
+                    categoriesDropdown.classList.remove('active');
+                    categoriesBtn.classList.remove('active');
+                }
+            });
+            
+            // Close dropdown when pressing Escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    categoriesDropdown.classList.remove('active');
+                    categoriesBtn.classList.remove('active');
+                }
+            });
+        });
+
+        // CTA Button functionality
+        document.querySelectorAll('.cta-button').forEach(button => {
+            button.addEventListener('click', function() {
+                if (this.textContent.includes('SHOP NOW')) {
+                    window.location.href = 'home.html';
+                } else if (this.textContent.includes('CONTACT US')) {
+                    alert('Contact functionality would be implemented here!');
+                }
+            });
+        });
+
+        // Search functionality
+        document.getElementById('searchForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const searchTerm = document.getElementById('searchInput').value;
+            if (searchTerm.trim() !== '') {
+                alert(`Searching for: ${searchTerm}`);
+                // Implement actual search functionality here
+            }
+        });
+
+        // Logo click functionality
+        document.querySelector('.logo').addEventListener('click', function() {
+            window.location.href = 'home.html';
+        });
+    </script>
+</body>
+</html>
