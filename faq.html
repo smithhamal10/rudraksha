@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Add this to your <head> section for better mobile support -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    <meta name="theme-color" content="#BB9577">
+
+    <!-- Add this for better iOS web app support -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <title>FAQ - Rudraksha Store | Your Questions Answered</title>
+    <link rel="stylesheet" href="home.css">
+    <style>
+        /* FAQ Page Specific Styles */
+        .faq-hero {
+            background: linear-gradient(135deg, #BB9577 0%, #8b6f47 100%);
+            padding: 80px 0;
+            text-align: center;
+            color: white;
+        }
+        
+        .faq-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .faq-hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .faq-main-content {
+            padding: 80px 0;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+        
+        .faq-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .faq-category {
+            background: #f8f6f3;
+            padding: 30px;
+            border-radius: 10px;
+            border-left: 4px solid #BB9577;
+        }
+        
+        .faq-category h3 {
+            color: #8b6f47;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .faq-category p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .faq-comprehensive {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .faq-comprehensive-header {
+            background: #8b6f47;
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .faq-comprehensive-header h2 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+        
+        .faq-comprehensive-content {
+            padding: 40px;
+        }
+        
+        .faq-section {
+            margin-bottom: 40px;
+        }
+        
+        .faq-section-title {
+            color: #BB9577;
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        
+        .accordion-item {
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            overflow: hidden;
+        }
+        
+        .accordion-toggle {
+            display: none;
+        }
+        
+        .accordion-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 25px;
+            background: #f9f9f9;
+            cursor: pointer;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+        
+        .accordion-header:hover {
+            background: #f0f0f0;
+        }
+        
+        .accordion-icon {
+            width: 20px;
+            height: 20px;
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+        
+        .accordion-icon::before,
+        .accordion-icon::after {
+            content: '';
+            position: absolute;
+            background: #BB9577;
+            transition: transform 0.3s ease;
+        }
+        
+        .accordion-icon::before {
+            width: 20px;
+            height: 2px;
+            top: 9px;
+            left: 0;
+        }
+        
+        .accordion-icon::after {
+            width: 2px;
+            height: 20px;
+            top: 0;
+            left: 9px;
+        }
+        
+        .accordion-toggle:checked + .accordion-header .accordion-icon::after {
+            transform: rotate(90deg);
+        }
+        
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            background: white;
+        }
+        
+        .accordion-toggle:checked + .accordion-header + .accordion-content {
+            max-height: 500px;
+            padding: 25px;
+        }
+        
+        .accordion-content p {
+            color: #666;
+            line-height: 1.8;
+            margin: 0;
+        }
+        
+        .contact-support {
+            background: linear-gradient(135deg, #BB9577 0%, #8b6f47 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 50px;
+        }
+        
+        .contact-support h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+        
+        .contact-support p {
+            margin-bottom: 25px;
+            opacity: 0.9;
+        }
+        
+        .contact-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .contact-btn {
+            background: white;
+            color: #8b6f47;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .contact-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        @media (max-width: 768px) {
+            .faq-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .faq-main-content {
+                padding: 40px 15px;
+            }
+            
+            .faq-categories {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .contact-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <div class="top-bar-content">
+            <span>Welcome to our online store</span>
+            <div class="support-info">
+                <span>📞 Call Us</span>
+                <span>Free Support: +91-756-123</span>
+            </div>
+        </div>
+    </div>
+    
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <img src="images/logo/logo.png" alt="Rudraksha Store Logo">
+            </div>
+            <div class="navigation">
+                <button class="categories-btn" id="categoriesBtn">≡ ALL CATEGORIES</button>
+                
+                <!-- Dropdown Menu -->
+                <div class="categories-dropdown" id="categoriesDropdown">
+                    <div class="dropdown-content">
+                        <div class="dropdown-column">
+                            <h3>Rudraksha</h3>
+                            <ul>
+                                <li><a href="#">1 Mukhi</a></li>
+                                <li><a href="#">2 Mukhi</a></li>
+                                <li><a href="#">3 Mukhi</a></li>
+                                <li><a href="#">4 Mukhi</a></li>
+                                <li><a href="#">5 Mukhi</a></li>
+                                <li><a href="#">6 Mukhi</a></li>
+                                <li><a href="#">7 Mukhi</a></li>
+                                <li><a href="#">8 Mukhi</a></li>
+                                <li><a href="#">9 Mukhi</a></li>
+                                <li><a href="#">10 Mukhi</a></li>
+                                <li><a href="#">11 Mukhi</a></li>
+                                <li><a href="#">12 Mukhi</a></li>
+                                <li><a href="#">13 Mukhi</a></li>
+                                <li><a href="#">14 Mukhi</a></li>
+                                <li><a href="#">15 Mukhi</a></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="dropdown-column">
+                            <h3>Mala</h3>
+                            <ul>
+                                <li><a href="#">Shiva Shakti Mala</a></li>
+                                <li><a href="#">Shiva Mala</a></li>
+                                <li><a href="#">Shiva Shakti Mala</a></li>
+                                <li><a href="#">Shiva Mala</a></li>
+                                <li><a href="#">Shiva Shakti Mala</a></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="dropdown-column">
+                            <h3>Bracelets</h3>
+                            <ul>
+                                <li><a href="#">Shiva Shakti Bracelet</a></li>
+                                <li><a href="#">Shiva Bracelet</a></li>
+                                <li><a href="#">Shiva Shakti Bracelet</a></li>
+                                <li><a href="#">Shiva Bracelet</a></li>
+                                <li><a href="#">Shiva Shakti Bracelet</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <nav>
+                    <ul class="nav-menu">
+                        <li><a href="home.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="faq.html" style="color: #BB9577;">FAQ</a></li>
+                        <li><a href="blogs.html">Blogs</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="header-icons">
+                <!-- Search Container -->
+                <div class="search-container">
+                    <form class="search-form" id="searchForm">
+                        <input type="text" class="search-input" placeholder="Search products..." id="searchInput">
+                        <button type="submit" class="search-button">
+                            <svg class="search-icon" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+                
+                <svg class="icon" fill="currentColor" viewBox="0 0 24 24">
+                    <a href="login.html">
+                        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                    </a>
+                </svg>
+                <svg class="icon" fill="currentColor" viewBox="0 0 24 24">
+                    <a href="cart.html">
+                        <path d="M7 18c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03L21.7 4H5.21l-.94-2H1zm16 16c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/>
+                    </a>
+                </svg>
+            </div>
+        </div>
+    </header>
+
+    <!-- FAQ Hero Section -->
+    <section class="faq-hero">
+        <h1>Frequently Asked Questions</h1>
+        <p>Find answers to common questions about our authentic Rudraksha products, ordering process, and spiritual guidance</p>
+    </section>
+
+    <!-- Main FAQ Content -->
+    <main class="faq-main-content">
+        <!-- FAQ Categories Overview -->
+        <div class="faq-categories">
+            <div class="faq-category">
+                <h3>🔮 About Rudraksha</h3>
+                <p>Learn about the spiritual significance, types, and benefits of authentic Rudraksha beads from our expert collection.</p>
+            </div>
+            <div class="faq-category">
+                <h3>🛍️ Ordering & Shopping</h3>
+                <p>Get help with placing orders, payment methods, shipping details, and our return policies for a smooth shopping experience.</p>
+            </div>
+            <div class="faq-category">
+                <h3>✨ Authenticity & Quality</h3>
+                <p>Understand how we ensure genuine products, quality checks, and certifications for all our Rudraksha items.</p>
+            </div>
+            <div class="faq-category">
+                <h3>🕉️ Spiritual Guidance</h3>
+                <p>Discover proper care, wearing methods, spiritual practices, and choosing the right Rudraksha for your needs.</p>
+            </div>
+        </div>
+
+        <!-- Comprehensive FAQ Section -->
+        <div class="faq-comprehensive">
+            <div class="faq-comprehensive-header">
+                <h2>Complete FAQ Guide</h2>
+                <p>Everything you need to know about our Rudraksha products and services</p>
+            </div>
+            
+            <div class="faq-comprehensive-content">
+                <!-- About Rudraksha Section -->
+                <div class="faq-section">
+                    <h3 class="faq-section-title">🔮 About Rudraksha</h3>
+                    
+                    <div class="accordion-item">
+                        <input type="checkbox" id="about1" class="accordion-toggle">
+                        <label for="about1" class="accordion-header">
+                            What is Rudraksha, and why is it considered sacred?
+                            <span class="accordion-icon"></span>
+                        </label>
+                        <div class="accordion-content">
+                            <p>Rudraksha beads are seeds from the Rudraksha tree (Elaeocarpus ganitrus), found primarily in the Himalayan regions, Indonesia, and parts of Southeast Asia. They are considered sacred in Hinduism and Buddhism, particularly associated with Lord Shiva. The word "Rudraksha" comes from "Rudra" (another name for Shiva) and "Aksha" (teardrops), literally meaning "tears of Shiva." These beads are believed to possess powerful spiritual, mental, and physical healing properties.</p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <input type="checkbox" id="about2" class="accordion-toggle">
+                        <label for="about2" class="accordion-header">
+                            What do the different Mukhi (faces) represent?
+                            <span class="accordion-icon"></span>
+                        </label>
+                        <div class="accordion-content">
+                            <p>Mukhi refers to the natural lines or segments on a Rudraksha bead. Each Mukhi has specific spiritual significance: 1 Mukhi represents Lord Shiva and brings spiritual awakening; 2 Mukhi symbolizes Ardhanarishvara and improves relationships; 3 Mukhi represents Agni and helps overcome past karma; 4 Mukhi symbolizes Lord Brahma and enhances creativity; 5 Mukhi represents Kalagni Rudra and is most common for meditation; and so on up to 21 Mukhi, each with unique properties and ruling deities.</p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <input type="checkbox" id="about3" class="accordion-toggle">
+                        <label for="about3" class="accordion-header">
+                            What are the scientific benefits of wearing Rudraksha?
+                            <span class="accordion-icon"></span>
+                        </label>
+                        <div class="accordion-content">
+                            <p>Scientific studies have shown that Rudraksha beads have unique electromagnetic properties. They can help stabilize heart rate, reduce stress, lower blood pressure, and improve concentration. The beads create a protective cocoon of positive energy around the wearer. Research indicates they have anti-aging properties, boost immunity, and help balance the nervous system. The bioelectric properties of Rudraksha can enhance mental clarity and emotional stability.</p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <input type="checkbox" id="about4" class="accordion-toggle">
+                        <label for="about4" class="accordion-header">
+                            Which Rudraksha should I choose for my specific needs?
+                            <span class="accordion-icon"></span>
+                        </label>
+                        <div class="accordion-content">
+                            <p>The choice depends on your specific goals: For general spiritual growth and peace, 5 Mukhi is ideal. For health and healing, consider 2 or 3 Mukhi. For wealth and prosperity, 6 or 8 Mukhi works well. For students and knowledge seekers, 4 Mukhi is recommended. For leadership and confidence, 1 or 9 Mukhi is suitable. For emotional balance and relationships, 2 Mukhi is perfect. We recommend consulting with our spiritual advisors for personalized recommendations based on your birth chart and intentions.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Authenticity & Quality Section -->
+                <div class="faq-section">
+                    <h3 class="faq-section-title">✨ Authenticity & Quality</h3>
+                    
+                    <div class="accordion-item">
+                        <input type="checkbox" id="quality1" class="accordion-toggle">
+                        <label for="quality1" class="accordion-header">
+                            How do I know if your Rudraksha beads are genuine?
+                            <span class="accordion-icon"></span>
+                        </label>
+                        <div class="accordion-content">
+                            <p>All our Rudraksha beads come with certificates of authenticity from recognized gemological institutes. We source directly from authentic suppliers in Nepal and Indonesia. Genuine Rudraksha beads will sink in water, have clear natural Mukhi lines, feel heavy for their size, and have a slightly rough texture. We provide detailed authenticity verification methods with each purchase, including the water test, boiling test, and microscopic examination guidelines.</p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <input type="checkbox" id="quality2" class="accordion-toggle">
+                        <label for="quality2" class="accordion-header">
+                            What quality standards do you maintain?
+                            <span class="accordion-icon"></span>
+                        </label>
+                        <div class="accordion-content">
+                            <p>We maintain the highest quality standards through rigorous selection processes. Each bead undergoes multiple quality checks including X-ray testing for internal structure, physical examination for cracks or damage, and verification of natural Mukhi formation. We only select beads with clear, well-defined natural lines, proper weight, and optimal size. Our quality control team ensures that each bead meets traditional and modern authenticity standards before reaching our customers.</p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <input type="checkbox" id="quality3" class="accordion-toggle">
+                        <label for="quality3" class="accordion-header">
+                            Do you provide laboratory certificates?
+                            <span class="accordion-icon"></span>
+                        </label>
+                        <div class="accordion-content">
+                            <p>Yes, we provide laboratory certificates from recognized gemological institutes for high-value Rudraksha beads (typically above $100). For regular purchases, we provide our own authenticity certificates backed by our guarantee. Laboratory certificates include detailed analysis of the bead's structure, origin verification, and confirmation of natural formation. These certificates are internationally recognized and can be used for insurance or resale purposes.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ordering & Shopping Section -->
+                <div class="faq-section">
+                    <h3 class="faq-section-title">🛍️ Ordering & Shopping</h3>
+                    
+                    <div class="accordion-item">
+                        <input type="checkbox" id="order1" class="accordion-toggle">
+                        <label for="order1" class="accordion-header">
+                            What payment methods do you accept?
+                            <span class="accordion-icon"></span>
+                        </label>
+                        <div class="accordion-content">
+                            <p>We accept various payment methods for your convenience: Credit/Debit cards (Visa, MasterCard, American Express), PayPal, bank transfers, eSewa, Khalti, and other digital wallets. For international orders, we accept major international payment gateways. Cash on delivery is available for orders within Kathmandu valley. All transactions are secured with SSL encryption for your safety.</p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <input type="checkbox" id="order2" class="accordion-toggle">
+                        <label for="order2" class="accordion-header">
+                            Do you deliver across Nepal and internationally?
+                            <span class="accordion-icon"></span>
+                        </label>
+                        <div class="accordion-content">
+                            <p>Yes, we provide delivery services across all major locations in Nepal through our logistics partners. Delivery within Kathmandu valley takes 1-2 days, while other cities take 3-5 days. For international shipping, we cover most countries worldwide with delivery times ranging from 7-21 days depending on location. International shipping costs vary by destination and package weight. We provide tracking numbers for all shipments.</p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <input type="checkbox" id="order3" class="accordion-toggle">
+                        <label for="order3" class="accordion-header">
+                            What is your return or exchange policy?
+                            <span class="accordion-icon"></span>
+                        </label>
+                        <div class="accordion-content">
+                            <p>We offer a 7-day return and exchange policy for all products, provided they are in original condition with packaging intact. Returns are accepted for manufacturing defects, shipping damage, or if the product doesn't match the description. Custom-made items and personalized jewelry cannot be returned unless defective. Return shipping costs are borne by us for defective products, otherwise by the customer. Refunds are processed within 5-7 business days after receiving the returned item.</p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <input type="checkbox" id="order4" class="accordion-toggle">
+                        <label for="order4" class="accordion-header">
+                            Do you offer bulk discounts for large orders?
+                            <span class="accordion-icon"></span>
+                        </label>
+                        <div class="accordion-content">
+                            <p>Yes, we offer attractive bulk discounts for wholesale purchases, spiritual centers, yoga studios, and large orders. Discounts start from 10% for orders above $500 and can go up to 25% for orders above $2000. We also provide special pricing for spiritual institutions and regular customers. Please contact our sales team with your requirements for a customized quote with bulk pricing.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Spiritual Guidance Section -->
+                <div class="faq-section">
+                    <h3 class="faq-section-title">🕉️ Spiritual Guidance</h3>
+                    
+                    <div class="accordion-item">
+                        <input type="checkbox" id="spiritual1" class="accordion-toggle">
+                        <label for="spiritual1" class="accordion-header">
+                            How should I wear and care for my Rudraksha?
+                            <span class="accordion-icon"></span>
+                        </label>
+                        <div class="accordion-content">
+                            <p>Rudraksha should be worn touching the skin, preferably around the neck or wrist. Before first wearing, cleanse with Ganga water or clean water while chanting "Om Namah Shivaya." Wear on Monday morning after a bath. Clean weekly with soft brush and water, apply few drops of olive oil monthly to maintain luster. Avoid wearing during funeral ceremonies, while eating non-vegetarian food, or during intimate moments. Remove before sleeping if it causes discomfort.</p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <input type="checkbox" id="spiritual2" class="accordion-toggle">
+                        <label for="spiritual2" class="accordion-header">
+                            Can anyone wear Rudraksha, or are there restrictions?
+                            <span class="accordion-icon"></span>
+                        </label>
+                        <div class="accordion-content">
+                            <p>Rudraksha can be worn by anyone regardless of age, gender, religion, or caste. There are no religious restrictions. However, it should be worn with respect and positive intentions. Pregnant women can safely wear Rudraksha as it provides protection and positive energy. Children can wear it for better concentration and protection. The key is to wear it with faith, respect, and maintain physical and mental cleanliness.</p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <input type="checkbox" id="spiritual3" class="accordion-toggle">
+                        <label for="spiritual3" class="accordion-header">
+                            What mantras should I chant with Rudraksha?
+                            <span class="accordion-icon"></span>
+                        </label>
+                        <div class="accordion-content">
+                            <p>The primary mantra for all Rudraksha is "Om Namah Shivaya." Each Mukhi also has specific mantras: 1 Mukhi - "Om Hreem Namah," 2 Mukhi - "Om Namah," 3 Mukhi - "Om Kleem Namah," 4 Mukhi - "Om Hreem Namah," 5 Mukhi - "Om Hreem Namah Shivaya." Chant these mantras 108 times daily while holding or wearing the Rudraksha. Regular chanting enhances the spiritual benefits and creates a deeper connection with the divine energy.</p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <input type="checkbox" id="spiritual4" class="accordion-toggle">
+                        <label for="spiritual4" class="accordion-header">
+                            How long does it take to experience benefits?
+                            <span class="accordion-icon"></span>
+                        </label>
+                        <div class="accordion-content">
+                            <p>Benefits can be experienced at different levels and timeframes. Immediate effects like calmness and improved concentration may be felt within days. Physical benefits such as better sleep and reduced stress typically manifest within 2-4 weeks. Deeper spiritual benefits and life transformations may take 2-3 months of regular wearing and spiritual practice. The key is consistent wearing, positive mindset, and complementing with meditation and mantra chanting for maximum benefits.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Care and Maintenance Section -->
+                <div class="faq-section">
+                    <h3 class="faq-section-title">🔧 Care & Maintenance</h3>
+                    
+                    <div class="accordion-item">
+                        <input type="checkbox" id="care1" class="accordion-toggle">
+                        <label for="care1" class="accordion-header">
+                            How do I clean and maintain my Rudraksha products?
+                            <span class="accordion-icon"></span>
+                        </label>
+                        <div class="accordion-content">
+                            <p>Clean your Rudraksha weekly with lukewarm water and a soft brush. Gently scrub to remove dirt from natural grooves. After cleaning, dry completely and apply 1-2 drops of olive oil or almond oil to maintain luster and prevent cracking. Avoid harsh chemicals, soap, or detergents. Store in a clean, dry place when not wearing. For malas, oil the silk thread occasionally and replace if it becomes worn or frayed.</p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <input type="checkbox" id="care2" class="accordion-toggle">
+                        <label for="care2" class="accordion-header">
+                            What should I do if my Rudraksha breaks or gets damaged?
+                            <span class="accordion-icon"></span>
+                        </label>
+                        <div class="accordion-content">
+                            <p>If your Rudraksha breaks, it's considered to have absorbed negative energy or served its purpose. Don't worry - this is normal. Broken pieces should be respectfully immersed in flowing water (river or sea) while chanting "Om Namah Shivaya." For valuable beads, we offer repair services where possible. Minor cracks don't affect the spiritual properties, but major breaks require replacement. We provide repair guidance and replacement options for damaged products under warranty.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Support Section -->
+        <div class="contact-support">
+            <h3>Still Have Questions?</h3>
+            <p>Can't find the answer you're looking for? Our spiritual experts and customer service team are here to help you with personalized guidance.</p>
+            <div class="contact-buttons">
+                <a href="tel:+91-756-123" class="contact-btn">
+                    📞 Call Us: +91-756-123
+                </a>
+                <a href="mailto:ShivaShaktiDingla@gmail.com" class="contact-btn">
+                    ✉️ Email Support
+                </a>
+                <a href="#" class="contact-btn">
+                    💬 Live Chat
+                </a>
+                <a href="#" class="contact-btn">
+                    🕉️ Spiritual Consultation
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer (Same as home.html) -->
+    <footer class="site-footer">
+        <div class="main-wrapper">
+            <!-- Newsletter Section -->
+            <div class="email-signup-area">
+                <h2 class="signup-heading">Get Our Latest Update</h2>
+                <p class="signup-description">Sign up for latest update on the store</p>
+                <form class="email-form">
+                    <input type="email" class="email-field" placeholder="Enter your email address">
+                    <button type="submit" class="submit-button">Subscribe</button>
+                </form>
+            </div>
+
+            <!-- Product Gallery -->
+            <div class="showcase-grid">
+                <div class="showcase-card">
+                    <img src="images/footer/footer1.png">
+                </div>
+                <div class="showcase-card">
+                    <img src="images/footer/footer2.png">
+                </div>
+                <div class="showcase-card">
+                    <img src="images/footer/footer3.png">
+                </div>
+                <div class="showcase-card">
+                    <img src="images/footer/footer4.png">
+                </div>
+            </div>
+
+            <!-- Footer Content -->
+            <div class="info-grid">
+                <div class="info-column">
+                    <h3>Shiva Shakti Dingla</h3>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when</p>
+                    <div class="social-media-area">
+                        <h4 class="social-heading">We are Social</h4>
+                        <div class="social-links">
+                            <a href="#" class="social-link">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="social-link">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                            <a href="#" class="social-link">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-column">
+                    <h3>Useful Links</h3>
+                    <ul class="nav-list">
+                        <li><a href="home.html">Home</a></li>
+                        <li><a href="about.html">About us</a></li>
+                        <li><a href="#">Contact us</a></li>
+                        <li><a href="#">Gallery</a></li>
+                        <li><a href="blogs.html">Blogs</a></li>
+                    </ul>
+                </div>
+
+                <div class="info-column">
+                    <h3>Shop</h3>
+                    <ul class="nav-list">
+                        <li><a href="#">All collection</a></li>
+                        <li><a href="#">All Products</a></li>
+                        <li><a href="cart.html">My Cart</a></li>
+                        <li><a href="#">Custom order</a></li>
+                    </ul>
+                </div>
+
+                <div class="info-column">
+                    <h3>Contact Us</h3>
+                    <div class="contact-details">
+                        <p><i class="fas fa-phone"></i>+8440 766 8956</p>
+                        <p><i class="fas fa-envelope"></i>ShivaShaktiDingla@gmail.com</p>
+                        <p><strong>Store Address</strong></p>
+                        <p>Buddhanagar, Kathmandu</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="bottom-bar">
+                <div class="copyright-text">
+                    COPYRIGHT©SHIVASHAKTI DINGLA. ALL RIGHTS RESERVED.
+                </div>
+                <div class="legal-links">
+                    <a href="#">TERMS AND CONDITION</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Categories Dropdown Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const categoriesBtn = document.getElementById('categoriesBtn');
+            const categoriesDropdown = document.getElementById('categoriesDropdown');
+            
+            // Toggle dropdown
+            categoriesBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                categoriesDropdown.classList.toggle('active');
+                categoriesBtn.classList.toggle('active');
+            });
+            
+            // Close dropdown when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!categoriesBtn.contains(e.target) && !categoriesDropdown.contains(e.target)) {
+                    categoriesDropdown.classList.remove('active');
+                    categoriesBtn.classList.remove('active');
+                }
+            });
+            
+            // Close dropdown when pressing Escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    categoriesDropdown.classList.remove('active');
+                    categoriesBtn.classList.remove('active');
+                }
+            });
+        });
+
+        // FAQ Accordion functionality
+        document.querySelectorAll('.accordion-toggle').forEach(toggle => {
+            toggle.addEventListener('change', function() {
+                // Close other accordions in the same section (optional)
+                const currentSection = this.closest('.faq-section');
+                const otherToggles = currentSection.querySelectorAll('.accordion-toggle');
+                
+                // Uncomment below to make accordions exclusive within each section
+                // otherToggles.forEach(otherToggle => {
+                //     if (otherToggle !== this) {
+                //         otherToggle.checked = false;
+                //     }
+                // });
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Search functionality
+        document.getElementById('searchForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const searchTerm = document.getElementById('searchInput').value;
+            if (searchTerm.trim()) {
+                // In a real application, this would perform actual search
+                alert(`Searching for: ${searchTerm}`);
+            }
+        });
+
+        // Contact buttons functionality
+        document.querySelectorAll('.contact-btn').forEach(btn => {
+            if (btn.textContent.includes('Live Chat')) {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    alert('Live chat will be available soon! Please call or email us for immediate assistance.');
+                });
+            }
+            if (btn.textContent.includes('Spiritual Consultation')) {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    alert('To book a spiritual consultation, please call us at +91-756-123');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
