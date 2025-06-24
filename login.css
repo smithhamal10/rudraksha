@@ -27,7 +27,6 @@ body {
     position: relative;
     overflow: hidden;
 }
-
 .login-left::before {
     content: '';
     position: absolute;
