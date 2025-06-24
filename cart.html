@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    <meta name="theme-color" content="#BB9577">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <title>Shopping Cart - Rudraksha Store</title>
+    <link rel="stylesheet" href="home.css">
+    <style>
+        /* Cart-specific styles */
+        .cart-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .cart-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .cart-header h1 {
+            color: #8b6f47;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .cart-header p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .cart-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+            margin-top: 30px;
+        }
+
+        .cart-items {
+            background: #fff;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .cart-item {
+            display: grid;
+            grid-template-columns: 100px 1fr auto auto auto;
+            gap: 20px;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+
+        .item-image {
+            width: 80px;
+            height: 80px;
+            background: #f5f5f5;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .item-details h3 {
+            color: #8b6f47;
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+
+        .item-details p {
+            color: #666;
+            font-size: 0.9rem;
+            margin: 2px 0;
+        }
+
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .quantity-btn {
+            background: #f8f8f8;
+            border: none;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            font-size: 16px;
+            color: #8b6f47;
+            transition: background 0.3s;
+        }
+
+        .quantity-btn:hover {
+            background: #8b6f47;
+            color: white;
+        }
+
+        .quantity-input {
+            border: none;
+            width: 50px;
+            text-align: center;
+            padding: 5px;
+            font-size: 14px;
+        }
+
+        .item-price {
+            font-weight: bold;
+            color: #8b6f47;
+            font-size: 1.1rem;
+        }
+
+        .remove-btn {
+            background: none;
+            border: none;
+            color: #ff4444;
+            cursor: pointer;
+            font-size: 18px;
+            padding: 5px;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+        }
+
+        .remove-btn:hover {
+            background: #ffebee;
+        }
+
+        .cart-summary {
+            background: #fff;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            height: fit-content;
+            position: sticky;
+            top: 20px;
+        }
+
+        .summary-title {
+            color: #8b6f47;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            padding: 10px 0;
+        }
+
+        .summary-row.total {
+            border-top: 2px solid #8b6f47;
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: #8b6f47;
+            margin-top: 20px;
+        }
+
+        .checkout-btn {
+            width: 100%;
+            background: #8b6f47;
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background 0.3s;
+        }
+
+        .checkout-btn:hover {
+            background: #6d5436;
+        }
+
+        .continue-shopping {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .continue-shopping a {
+            color: #8b6f47;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .continue-shopping a:hover {
+            text-decoration: underline;
+        }
+
+        .empty-cart {
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .empty-cart h2 {
+            color: #8b6f47;
+            margin-bottom: 20px;
+        }
+
+        .empty-cart p {
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .shop-now-btn {
+            background: #8b6f47;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: background 0.3s;
+        }
+
+        .shop-now-btn:hover {
+            background: #6d5436;
+        }
+
+        .coupon-section {
+            margin-top: 20px;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 8px;
+        }
+
+        .coupon-input {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .coupon-input input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .apply-btn {
+            background: #8b6f47;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .apply-btn:hover {
+            background: #6d5436;
+        }
+
+        @media (max-width: 768px) {
+            .cart-content {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .cart-item {
+                grid-template-columns: 80px 1fr;
+                gap: 15px;
+            }
+
+            .item-controls {
+                grid-column: 1 / -1;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-top: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="top-bar-content">
+            <span>Welcome to our online store</span>
+            <div class="support-info">
+                <span>📞 Call Us</span>
+                <span>Free Support: +91-756-123</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <img src="images/logo/logo.png" alt="Rudraksha Store Logo">
+            </div>
+            <div class="navigation">
+                <button class="categories-btn" id="categoriesBtn">≡ ALL CATEGORIES</button>
+                
+                <!-- Dropdown Menu -->
+                <div class="categories-dropdown" id="categoriesDropdown">
+                    <div class="dropdown-content">
+                        <div class="dropdown-column">
+                            <h3>Rudraksha</h3>
+                            <ul>
+                                <li><a href="#">1 Mukhi</a></li>
+                                <li><a href="#">2 Mukhi</a></li>
+                                <li><a href="#">3 Mukhi</a></li>
+                                <li><a href="#">4 Mukhi</a></li>
+                                <li><a href="#">5 Mukhi</a></li>
+                                <li><a href="#">6 Mukhi</a></li>
+                                <li><a href="#">7 Mukhi</a></li>
+                                <li><a href="#">8 Mukhi</a></li>
+                                <li><a href="#">9 Mukhi</a></li>
+                                <li><a href="#">10 Mukhi</a></li>
+                                <li><a href="#">11 Mukhi</a></li>
+                                <li><a href="#">12 Mukhi</a></li>
+                                <li><a href="#">13 Mukhi</a></li>
+                                <li><a href="#">14 Mukhi</a></li>
+                                <li><a href="#">15 Mukhi</a></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="dropdown-column">
+                            <h3>Mala</h3>
+                            <ul>
+                                <li><a href="#">Shiva Shakti Mala</a></li>
+                                <li><a href="#">Shiva Mala</a></li>
+                                <li><a href="#">Shiva Shakti Mala</a></li>
+                                <li><a href="#">Shiva Mala</a></li>
+                                <li><a href="#">Shiva Shakti Mala</a></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="dropdown-column">
+                            <h3>Bracelets</h3>
+                            <ul>
+                                <li><a href="#">Shiva Shakti Bracelet</a></li>
+                                <li><a href="#">Shiva Bracelet</a></li>
+                                <li><a href="#">Shiva Shakti Bracelet</a></li>
+                                <li><a href="#">Shiva Bracelet</a></li>
+                                <li><a href="#">Shiva Shakti Bracelet</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <nav>
+                    <ul class="nav-menu">
+                        <li><a href="home.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="blogs.html">Blogs</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="header-icons">
+                <div class="search-container">
+                    <form class="search-form" id="searchForm">
+                        <input type="text" class="search-input" placeholder="Search products..." id="searchInput">
+                        <button type="submit" class="search-button">
+                            <svg class="search-icon" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+                
+                <svg class="icon" fill="currentColor" viewBox="0 0 24 24">
+                    <a href="login.html">
+                        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                    </a>
+                </svg>
+                <svg class="icon" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M7 18c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03L21.7 4H5.21l-.94-2H1zm16 16c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/>
+                </svg>
+            </div>
+        </div>
+    </header>
+
+    <!-- Cart Container -->
+    <div class="cart-container">
+        <div class="cart-header">
+            <h1>Shopping Cart</h1>
+            <p>Review your selected items</p>
+        </div>
+
+        <!-- Cart with items -->
+        <div class="cart-content" id="cartWithItems">
+            <div class="cart-items">
+                <div class="cart-item" data-price="70.21">
+                    <div class="item-image">
+                        <img src="images/product/3mukhi.png" alt="3 Mukhi Rudraksha">
+                    </div>
+                    <div class="item-details">
+                        <h3>3 Mukhi Rudraksha</h3>
+                        <p>Size: 16.5 mm</p>
+                        <p>Weight: 2.70 grams</p>
+                        <p>Genuine Nepali Rudraksha</p>
+                    </div>
+                    <div class="quantity-controls">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1" readonly>
+                        <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
+                    </div>
+                    <div class="item-price">₹ 70.21</div>
+                    <button class="remove-btn" onclick="removeItem(this)">×</button>
+                </div>
+
+                <div class="cart-item" data-price="70.21">
+                    <div class="item-image">
+                        <img src="images/product/5mukhi.png" alt="5 Mukhi Rudraksha">
+                    </div>
+                    <div class="item-details">
+                        <h3>5 Mukhi Rudraksha</h3>
+                        <p>Size: 18 mm</p>
+                        <p>Weight: 3.10 grams</p>
+                        <p>Genuine Nepali Rudraksha</p>
+                    </div>
+                    <div class="quantity-controls">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="number" class="quantity-input" value="2" min="1" readonly>
+                        <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
+                    </div>
+                    <div class="item-price">₹ 140.42</div>
+                    <button class="remove-btn" onclick="removeItem(this)">×</button>
+                </div>
+
+                <div class="cart-item" data-price="150.00">
+                    <div class="item-image">
+                        <img src="images/collection/collection1.png" alt="Shiva Shakti Mala">
+                    </div>
+                    <div class="item-details">
+                        <h3>Shiva Shakti Mala</h3>
+                        <p>108 Beads</p>
+                        <p>Mixed Mukhi Rudraksha</p>
+                        <p>Blessed & Energized</p>
+                    </div>
+                    <div class="quantity-controls">
+                        <button class="quantity-btn" onclick="decreaseQuantity(this)">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1" readonly>
+                        <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
+                    </div>
+                    <div class="item-price">₹ 150.00</div>
+                    <button class="remove-btn" onclick="removeItem(this)">×</button>
+                </div>
+            </div>
+
+            <div class="cart-summary">
+                <h3 class="summary-title">Order Summary</h3>
+                
+                <div class="summary-row">
+                    <span>Subtotal:</span>
+                    <span id="subtotal">₹ 360.63</span>
+                </div>
+                
+                <div class="summary-row">
+                    <span>Shipping:</span>
+                    <span id="shipping">Free</span>
+                </div>
+                
+                <div class="summary-row">
+                    <span>Tax:</span>
+                    <span id="tax">₹ 36.06</span>
+                </div>
+                
+                <div class="summary-row total">
+                    <span>Total:</span>
+                    <span id="total">₹ 396.69</span>
+                </div>
+
+                <div class="coupon-section">
+                    <h4>Have a coupon?</h4>
+                    <div class="coupon-input">
+                        <input type="text" placeholder="Enter coupon code" id="couponCode">
+                        <button class="apply-btn" onclick="applyCoupon()">Apply</button>
+                    </div>
+                </div>
+
+                <button class="checkout-btn" onclick="proceedToCheckout()">PROCEED TO CHECKOUT</button>
+                
+                <div class="continue-shopping">
+                    <a href="home.html">← Continue Shopping</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Empty cart (hidden by default) -->
+        <div class="empty-cart" id="emptyCart" style="display: none;">
+            <h2>Your cart is empty</h2>
+            <p>Looks like you haven't added any items to your cart yet.</p>
+            <a href="home.html" class="shop-now-btn">SHOP NOW</a>
+        </div>
+    </div>
+
+    <!-- Footer (same as home page) -->
+    <footer class="site-footer">
+        <div class="main-wrapper">
+            <div class="email-signup-area">
+                <h2 class="signup-heading">Get Our Latest Update</h2>
+                <p class="signup-description">Sign up for latest update on the store</p>
+                <form class="email-form">
+                    <input type="email" class="email-field" placeholder="Enter your email address">
+                    <button type="submit" class="submit-button">Subscribe</button>
+                </form>
+            </div>
+
+            <div class="showcase-grid">
+                <div class="showcase-card">
+                    <img src="images/footer/footer1.png">
+                </div>
+                <div class="showcase-card">
+                    <img src="images/footer/footer2.png">
+                </div>
+                <div class="showcase-card">
+                    <img src="images/footer/footer3.png">
+                </div>
+                <div class="showcase-card">
+                    <img src="images/footer/footer4.png">
+                </div>
+            </div>
+
+            <div class="info-grid">
+                <div class="info-column">
+                    <h3>Shiva Shakti Dingla</h3>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when</p>
+                    <div class="social-media-area">
+                        <h4 class="social-heading">We are Social</h4>
+                        <div class="social-links">
+                            <a href="#" class="social-link">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="social-link">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                            <a href="#" class="social-link">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-column">
+                    <h3>Useful Links</h3>
+                    <ul class="nav-list">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About us</a></li>
+                        <li><a href="#">Contact us</a></li>
+                        <li><a href="#">Gallery</a></li>
+                        <li><a href="#">Blogs</a></li>
+                    </ul>
+                </div>
+
+                <div class="info-column">
+                    <h3>Shop</h3>
+                    <ul class="nav-list">
+                        <li><a href="#">All collection</a></li>
+                        <li><a href="#">All Products</a></li>
+                        <li><a href="#">My Cart</a></li>
+                        <li><a href="#">Custom order</a></li>
+                    </ul>
+                </div>
+
+                <div class="info-column">
+                    <h3>Contact Us</h3>
+                    <div class="contact-details">
+                        <p><i class="fas fa-phone"></i>+8440 766 8956</p>
+                        <p><i class="fas fa-envelope"></i>ShivaShaktiDingla@gmail.com</p>
+                        <p><strong>Store Address</strong></p>
+                        <p>Buddhanagar, Kathmandu</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bottom-bar">
+                <div class="copyright-text">
+                    COPYRIGHT©SHIVASHAKTI DINGLA. ALL RIGHTS RESERVED.
+                </div>
+                <div class="legal-links">
+                    <a href="#">TERMS AND CONDITION</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Categories Dropdown Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const categoriesBtn = document.getElementById('categoriesBtn');
+            const categoriesDropdown = document.getElementById('categoriesDropdown');
+            
+            categoriesBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                categoriesDropdown.classList.toggle('active');
+                categoriesBtn.classList.toggle('active');
+            });
+            
+            document.addEventListener('click', function(e) {
+                if (!categoriesBtn.contains(e.target) && !categoriesDropdown.contains(e.target)) {
+                    categoriesDropdown.classList.remove('active');
+                    categoriesBtn.classList.remove('active');
+                }
+            });
+            
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    categoriesDropdown.classList.remove('active');
+                    categoriesBtn.classList.remove('active');
+                }
+            });
+        });
+
+        // Cart functionality
+        function increaseQuantity(button) {
+            const input = button.parentElement.querySelector('.quantity-input');
+            const currentValue = parseInt(input.value);
+            input.value = currentValue + 1;
+            updateItemPrice(button);
+            updateCartSummary();
+        }
+
+        function decreaseQuantity(button) {
+            const input = button.parentElement.querySelector('.quantity-input');
+            const currentValue = parseInt(input.value);
+            if (currentValue > 1) {
+                input.value = currentValue - 1;
+                updateItemPrice(button);
+                updateCartSummary();
+            }
+        }
+
+        function updateItemPrice(button) {
+            const cartItem = button.closest('.cart-item');
+            const quantity = parseInt(cartItem.querySelector('.quantity-input').value);
+            const basePrice = parseFloat(cartItem.dataset.price);
+            const totalPrice = (basePrice * quantity).toFixed(2);
+            cartItem.querySelector('.item-price').textContent = `₹ ${totalPrice}`;
+        }
+
+        function removeItem(button) {
+            const cartItem = button.closest('.cart-item');
+            cartItem.style.animation = 'fadeOut 0.3s ease-out';
+            setTimeout(() => {
+                cartItem.remove();
+                updateCartSummary();
+                checkEmptyCart();
+            }, 300);
+        }
+
+        function updateCartSummary() {
+            const cartItems = document.querySelectorAll('.cart-item');
+            let subtotal = 0;
+
+            cartItems.forEach(item => {
+                const priceText = item.querySelector('.item-price').textContent;
+                const price = parseFloat(priceText.replace('₹ ', ''));
+                subtotal += price;
+            });
+
+            const tax = subtotal * 0.1; // 10% tax
+            const total = subtotal + tax;
+
+            document.getElementById('subtotal').textContent = `₹ ${subtotal.toFixed(2)}`;
+            document.getElementById('tax').textContent = `₹ ${tax.toFixed(2)}`;
+            document.getElementById('total').textContent = `₹ ${total.toFixed(2)}`;
+        }
+
+        function checkEmptyCart() {
+            const cartItems = document.querySelectorAll('.cart-item');
+            const cartWithItems = document.getElementById('cartWithItems');
+            const emptyCart = document.getElementById('emptyCart');
+
+            if (cartItems.length === 0) {
+                cartWithItems.style.display = 'none';
+                emptyCart.style.display = 'block';
+            }
+        }
+
+        function applyCoupon() {
+            const couponCode = document.getElementById('couponCode').value.trim();
+            
+            if (couponCode === '') {
+                alert('Please enter a coupon code');
+                return;
+            }
+
+            // Demo coupon codes
+            const validCoupons = {
+                'RUDRAKSHA10': 0.1,
+                'SHIVA15': 0.15,
+                'NEWUSER20': 0.2
+            };
+
+            if (validCoupons[couponCode.toUpperCase()]) {
+                const discount = validCoupons[couponCode.toUpperCase()];
+                const subtotalElement = document.getElementById('subtotal');
+                const currentSubtotal = parseFloat(subtotalElement.textContent.replace('₹ ', ''));
+                const discountAmount = currentSubtotal * discount;
+                const newSubtotal = currentSubtotal - discountAmount;
+
+                // Add discount row if not exists
+                let discountRow = document.querySelector('.discount-row');
+                if (!discountRow) {
+                    discountRow = document.createElement('div');
+                    discountRow.className = 'summary-row discount-row';
+                    discountRow.innerHTML = `
+                        <span>Discount (${couponCode.toUpperCase()}):</span>
+                        <span style="color: green;">-₹ ${discountAmount.toFixed(2)}</span>
+                    `;
+                    document.querySelector('.summary-row.total').insertAdjacentElement('beforebegin', discountRow);
+                } else {
+                    discountRow.innerHTML = `
+                        <span>Discount (${couponCode.toUpperCase()}):</span>
+                        <span style="color: green;">-₹ ${discountAmount.toFixed(2)}</span>
+                    `;
+                }
+
+                subtotalElement.textContent = `₹ ${newSubtotal.toFixed(2)}`;
+                
+                const tax = newSubtotal * 0.1;
+                const total = newSubtotal + tax;
+                document.getElementById('tax').textContent = `₹ ${tax.toFixed(2)}`;
+                document.getElementById('total').textContent = `₹ ${total.toFixed(2)}`;
+
+                alert(`Coupon applied successfully! You saved ₹${discountAmount.toFixed(2)}`);
+                document.getElementById('couponCode').value = '';
+            } else {
+                alert('Invalid coupon code. Try: RUDRAKSHA10, SHIVA15, or NEWUSER20');
+            }
+        }
+
+        function proceedToCheckout() {
+            const cartItems = document.querySelectorAll('.cart-item');
+            if (cartItems.length === 0) {
+                alert('Your cart is empty!');
+                return;
+            }
+
+            const total = document.getElementById('total').textContent;
+            alert(`Proceeding to checkout with total: ${total}\n\nThis would redirect to the payment page.`);
+            
+            // Here you would typically redirect to checkout page
+            // window.location.href = 'checkout.html';
+        }
+
+        // Add CSS animation for remove effect
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeOut {
+                from { opacity: 1; transform: translateX(0); }
+                to { opacity: 0; transform: translateX(-100%); }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Initialize cart summary on page load
+        updateCartSummary();
+    </script>
+</body>
+</html>
