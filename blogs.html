@@ -10,6 +10,10 @@
     <!-- Add this for better iOS web app support -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <title>Blogs - Rudraksha Store | Spiritual Wisdom & Guidance</title>
     <link rel="stylesheet" href="home.css">
     <style>
@@ -66,14 +70,6 @@
             gap: 40px;
         }
         
-        .blog-posts-section {
-            /* Main blog content */
-        }
-        
-        .blog-sidebar {
-            /* Sidebar styles */
-        }
-        
         .blog-categories {
             display: flex;
             gap: 15px;
@@ -118,6 +114,12 @@
             background: linear-gradient(45deg, #BB9577, #8b6f47);
             position: relative;
             overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 600;
         }
         
         .featured-post-image img {
@@ -383,6 +385,15 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
         
+        /* Placeholder image styles */
+        .placeholder-image {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+        }
+        
         @media (max-width: 768px) {
             .blog-hero h1 {
                 font-size: 2rem;
@@ -541,7 +552,11 @@
                 <article class="featured-post">
                     <div class="featured-post-image">
                         <div class="featured-badge">Featured</div>
-                        <img src="images/blog/featured-blog.jpg" alt="Featured blog post" style="background: linear-gradient(45deg, #BB9577, #8b6f47); display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem;">Featured Article</img>
+                        <!-- Option 1: If you have an actual image -->
+                        <!-- <img src="images/blog/featured-blog.jpg" alt="Featured blog post"> -->
+                        
+                        <!-- Option 2: Placeholder with text (current implementation) -->
+                        <div class="placeholder-image">Featured Article</div>
                     </div>
                     <div class="featured-post-content">
                         <div class="post-meta">
@@ -559,7 +574,7 @@
                 <div class="blog-posts-grid">
                     <article class="blog-post-card" data-category="rudraksha">
                         <div class="blog-post-image">
-                            <div style="background: linear-gradient(45deg, #BB9577, #8b6f47); height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 600;">Rudraksha Types</div>
+                            <div class="placeholder-image" style="background: linear-gradient(45deg, #BB9577, #8b6f47); height: 100%;">Rudraksha Types</div>
                         </div>
                         <div class="blog-post-content">
                             <div class="post-meta">
@@ -574,7 +589,7 @@
 
                     <article class="blog-post-card" data-category="meditation">
                         <div class="blog-post-image">
-                            <div style="background: linear-gradient(45deg, #8b6f47, #BB9577); height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 600;">Meditation Guide</div>
+                            <div class="placeholder-image" style="background: linear-gradient(45deg, #8b6f47, #BB9577); height: 100%;">Meditation Guide</div>
                         </div>
                         <div class="blog-post-content">
                             <div class="post-meta">
@@ -589,7 +604,7 @@
 
                     <article class="blog-post-card" data-category="care">
                         <div class="blog-post-image">
-                            <div style="background: linear-gradient(45deg, #BB9577, #a67c5a); height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 600;">Care Guide</div>
+                            <div class="placeholder-image" style="background: linear-gradient(45deg, #BB9577, #a67c5a); height: 100%;">Care Guide</div>
                         </div>
                         <div class="blog-post-content">
                             <div class="post-meta">
@@ -604,7 +619,7 @@
 
                     <article class="blog-post-card" data-category="spiritual">
                         <div class="blog-post-image">
-                            <div style="background: linear-gradient(45deg, #a67c5a, #BB9577); height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 600;">Spiritual Benefits</div>
+                            <div class="placeholder-image" style="background: linear-gradient(45deg, #a67c5a, #BB9577); height: 100%;">Spiritual Benefits</div>
                         </div>
                         <div class="blog-post-content">
                             <div class="post-meta">
@@ -619,7 +634,7 @@
 
                     <article class="blog-post-card" data-category="lifestyle">
                         <div class="blog-post-image">
-                            <div style="background: linear-gradient(45deg, #8b6f47, #9d7a5e); height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 600;">Spiritual Lifestyle</div>
+                            <div class="placeholder-image" style="background: linear-gradient(45deg, #8b6f47, #9d7a5e); height: 100%;">Spiritual Lifestyle</div>
                         </div>
                         <div class="blog-post-content">
                             <div class="post-meta">
@@ -634,7 +649,7 @@
 
                     <article class="blog-post-card" data-category="rudraksha">
                         <div class="blog-post-image">
-                            <div style="background: linear-gradient(45deg, #BB9577, #8b6f47); height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 600;">Authentic Guide</div>
+                            <div class="placeholder-image" style="background: linear-gradient(45deg, #BB9577, #8b6f47); height: 100%;">Authentic Guide</div>
                         </div>
                         <div class="blog-post-content">
                             <div class="post-meta">
@@ -727,7 +742,7 @@
         </div>
     </main>
 
-    <!-- Footer (Same as home.html) -->
+    <!-- Footer -->
     <footer class="site-footer">
         <div class="main-wrapper">
             <!-- Newsletter Section -->
@@ -743,16 +758,16 @@
             <!-- Product Gallery -->
             <div class="showcase-grid">
                 <div class="showcase-card">
-                    <img src="images/footer/footer1.png">
+                    <img src="images/footer/footer1.png" alt="Product showcase">
                 </div>
                 <div class="showcase-card">
-                    <img src="images/footer/footer2.png">
+                    <img src="images/footer/footer2.png" alt="Product showcase">
                 </div>
                 <div class="showcase-card">
-                    <img src="images/footer/footer3.png">
+                    <img src="images/footer/footer3.png" alt="Product showcase">
                 </div>
                 <div class="showcase-card">
-                    <img src="images/footer/footer4.png">
+                    <img src="images/footer/footer4.png" alt="Product showcase">
                 </div>
             </div>
 
@@ -917,15 +932,6 @@
                 e.preventDefault();
                 // In a real application, this would navigate to the full article
                 alert('This would open the full article in a real application');
-            });
-        });
-
-        // Tag Cloud Interactions
-        document.querySelectorAll('.tag').forEach(tag => {
-            tag.addEventListener('click', function(e) {
-                e.preventDefault();
-                const tagName = this.textContent;
-                alert(`Filtering posts by tag: ${tagName}`);
             });
         });
 
